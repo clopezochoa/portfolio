@@ -1,0 +1,20 @@
+.absolute{
+  position: absolute;
+}
+
+.top{
+  top: 15px;
+}
+.left{
+  left: 15px;
+}
+.bottom{
+  bottom: 15px;
+}
+.right{
+  right: 15px;
+}
+
+.mirror{
+  transform: rotate(180deg);
+}
