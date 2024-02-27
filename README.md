@@ -1,2 +1,1 @@
-# portfolio
-Frontend Dev Portfolio
+# Carlos López-Ochoa. Front-end Developer
