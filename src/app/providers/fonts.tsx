@@ -5,7 +5,7 @@ import { Fraunces, Mulish, Encode_Sans_Condensed } from "next/font/google";
 
 export const serif = Fraunces({ weight: ["200", "300", "400", "500", "600", "700"], subsets: ["latin"] });
 export const sans = Mulish({ weight: ["400", "700"], subsets: ["latin"] });
-export const condensed = Encode_Sans_Condensed({ weight: ["400", "700"], subsets: ["latin"] });
+export const condensed = Encode_Sans_Condensed({ weight: ["400","500","600", "700"], subsets: ["latin"] });
 
 import React, { ReactNode, createContext } from 'react'
 
