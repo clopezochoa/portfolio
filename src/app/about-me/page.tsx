@@ -7,14 +7,21 @@ import React, { useContext } from 'react'
 import Arrow from '@/app/ui/icons/arrow'
 import { useRouter } from 'next/navigation';
 import { FontsContext } from '../providers/fonts';
+import useScrollEvent from '../hooks/useScrollEvent'
 
 function AboutMe() {
   const router = useRouter();
   const fonts = useContext(FontsContext);
 
+  useScrollEvent(() => {
+    router.push('/what-i-do')
+  }, () => {
+    router.push('/')
+  }, true);
+
   return (<>
-    <Arrow stroke="2pt" width={27} height={22} className='absolute top left' onClick={() => router.push('/what-i-do')}/>
-    <Arrow stroke="2pt" width={27} height={22} className='absolute bottom right mirror' onClick={() => router.push('/')} />
+    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute top left' onClick={() => router.push('/what-i-do')}/>
+    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute bottom right mirror' onClick={() => router.push('/')} />
     <div className={`about-me ${fonts.serif.className}`}>
       <h1 className='about-me-heading'>
         ¡Hola!
