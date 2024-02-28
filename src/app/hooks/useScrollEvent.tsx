@@ -3,11 +3,15 @@
 import { useEffect, useState } from 'react'
 
 function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel?: boolean) {
+  const [debounce, setDebounce] = useState(true); 
   const [count, setCount] = useState(0);
   const [latestEvent, setLatestEvent] = useState<string>();
+
   useEffect(() => {
-    console.log(count)
-  }, [count])
+    setTimeout(() => 
+      setDebounce(false), 1000);
+  }, [])
+
   useEffect(() => {
     if(reverseWheel && latestEvent === "wheel") {      
       if (count > 2) {
@@ -38,10 +42,12 @@ function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel
     let touchStartY: number
 
     const handleTouchStart = (event: TouchEvent) => {
+      if(debounce) return;
       touchStartY = event.touches[0].clientY;
     };
 
     const handleTouchMove = (event: TouchEvent) => {
+      if(debounce) return;
       const touchEndY = event.touches[0].clientY;
       const deltaY = touchStartY - touchEndY;
       if(pageUp ? (deltaY > 0): false) setCountByDelta(deltaY);
@@ -51,6 +57,7 @@ function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel
     };
 
     const handleWheel = (event: WheelEvent) => {
+      if(debounce) return;
       const deltaY = event.deltaY;
       if(reverseWheel) {
         if(pageUp ? (deltaY < 0) : false) setCountByDelta(deltaY);
@@ -71,7 +78,7 @@ function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, []);
+  }, [debounce]);
 }
 
 export default useScrollEvent
