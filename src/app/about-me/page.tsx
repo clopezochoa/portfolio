@@ -8,20 +8,22 @@ import Arrow from '@/app/ui/icons/arrow'
 import { useRouter } from 'next/navigation';
 import { FontsContext } from '../providers/fonts';
 import useScrollEvent from '../hooks/useScrollEvent'
+import { Route, getRouteGroup } from '@/lib/routeList'
 
 function AboutMe() {
   const router = useRouter();
   const fonts = useContext(FontsContext);
+  const routeGroup = getRouteGroup(Route.aboutMe);
 
   useScrollEvent(() => {
-    router.push('/what-i-do')
+    router.push(routeGroup.up)
   }, () => {
-    router.push('/')
+    router.push(routeGroup.down)
   }, true);
 
   return (<>
-    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute top left' onClick={() => router.push('/what-i-do')}/>
-    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute bottom right mirror' onClick={() => router.push('/')} />
+    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute top left' onClick={() => router.push(routeGroup.up)}/>
+    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute bottom right mirror' onClick={() => router.push(routeGroup.down)} />
     <div className={`about-me ${fonts.serif.className}`}>
       <h1 className='about-me-heading'>
         ¡Hola!
