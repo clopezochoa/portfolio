@@ -18,3 +18,12 @@
 .mirror{
   transform: rotate(180deg);
 }
+
+.contact-icon{
+  margin-top: 80px;
+}
+
+.arrow {
+  cursor: pointer;
+  z-index: 10;
+}
