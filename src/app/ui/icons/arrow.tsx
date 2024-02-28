@@ -1,15 +1,15 @@
 import React from 'react'
 import { CSSProperties } from "react";
 
-function Arrow({className, width, height, stroke, onClick}:{className:string, width:number, height:number, stroke:string, onClick?:() => void}) {
+function Arrow({className, width, height, stroke, onClick}:{className:string, width:number | string, height:number | string, stroke:string, onClick?:() => void}) {
   const style: CSSProperties   = {
     fill: "none",
     stroke: "#E8E8E8",
     strokeLinecap: "round",
     strokeMiterlimit: "10",
     strokeWidth: stroke,
-    width: width.toString() + "px",
-    height: height.toString() + "px"
+    width: width === "auto" ? "auto" : width.toString() + "px",
+    height: height === "auto" ? "auto" : height.toString() + "px",
   }
   return (
     <div onClick={onClick} className={className}>
