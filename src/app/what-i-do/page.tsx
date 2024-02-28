@@ -12,15 +12,17 @@ import { defaultColors } from '../../../tailwind.config';
 import Link from 'next/link';
 import Linkedin from '../ui/icons/linkedin';
 import useScrollEvent from '../hooks/useScrollEvent';
+import { Route, getRouteGroup } from '@/lib/routeList';
 
 function WhatIDo() {
   const router = useRouter();
   const fonts = useContext(FontsContext);
   const ref = useRef(null);
   const [style, setStyle] = useState<CSSProperties>();
+  const routeGroup = getRouteGroup(Route.whatIDo);
 
   useScrollEvent(undefined, () => {
-    router.push('/about-me')
+    router.push(routeGroup.down)
   }, true);
 
   useEffect(() => {
@@ -36,7 +38,7 @@ function WhatIDo() {
   }, [ref?.current])
 
   return (<>
-    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute bottom right mirror' onClick={() => router.push('/about-me')} />
+    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute bottom right mirror' onClick={() => router.push(routeGroup.down)} />
     <ul ref={ref} className={'ms-5 mt-16 story-body-bold about-list ' + fonts.condensed.className}>
       <li>
         Frontend Development
