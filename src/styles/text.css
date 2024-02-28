@@ -82,7 +82,7 @@
   margin-top: 5px;
   margin-right: 15px;
   font-weight: 300;
-  margin-top: 70px;
+  margin-top: 60px;
 }
 .about-me-p1{
   text-align: end;
@@ -107,3 +107,17 @@
   font-weight: 200;
   margin-top: 18px;
 }
+
+.story-body-bold{
+  font-size: 20pt;
+  font-weight: 600;
+  letter-spacing: -0.6pt;
+  text-align: start;
+  line-height: 24pt;
+  color: theme('colors.clear');
+}
+
+.about-list{
+  width: max-content;
+}
+
