@@ -121,3 +121,31 @@
   width: max-content;
 }
 
+@media (max-width: 360px) {
+  .name {
+    font-size: 50pt;
+    line-height: 46pt;
+    letter-spacing: -6px;
+  }
+  .landing {
+    font-size: 32pt;
+    line-height: 40px;
+    letter-spacing: -4.5px;
+    display: grid;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-weight: 300;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+  .about-me-p1{
+    font-size: 18pt;
+    line-height: 20pt;
+  }
+  .about-me-p2{
+    font-size: 14pt;
+    line-height: 16pt;
+    letter-spacing: 0pt;
+  }
+}
