@@ -3,17 +3,19 @@
 import { useEffect, useState } from 'react'
 
 function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel?: boolean) {
+  const scrollSensibility = 7;
+  const debounceDelay = 500;
   const [debounce, setDebounce] = useState(true); 
   const [count, setCount] = useState(0);
   const [latestEvent, setLatestEvent] = useState<string>();
 
   useEffect(() => {
     setTimeout(() => 
-      setDebounce(false), 1000);
+      setDebounce(false), debounceDelay);
   }, [])
 
   useEffect(() => {
-    if(reverseWheel && latestEvent === "wheel") {      
+    if(reverseWheel || latestEvent !== "wheel") {      
       if (count > 2) {
         pageDown ? pageDown() : null;
       }
@@ -32,9 +34,9 @@ function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel
 
   useEffect(() => {
     const setCountByDelta = (deltaY: number) => {
-      if (deltaY > 8) {
+      if (deltaY > scrollSensibility) {
         setCount((count) => count + 1);
-      } else if (deltaY < -8) {
+      } else if (deltaY < -scrollSensibility) {
         setCount((count) => count - 1);
       }
     }
@@ -50,8 +52,8 @@ function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel
       if(debounce) return;
       const touchEndY = event.touches[0].clientY;
       const deltaY = touchStartY - touchEndY;
-      if(pageUp ? (deltaY > 0): false) setCountByDelta(deltaY);
-      if(pageDown ? (deltaY < 0) : false) setCountByDelta(deltaY);  
+      if(pageDown ? (deltaY > 0): false) setCountByDelta(deltaY);
+      if(pageUp ? (deltaY < 0) : false) setCountByDelta(deltaY);  
       touchStartY = touchEndY;
       setLatestEvent(event.type);
     };
