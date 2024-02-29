@@ -76,7 +76,6 @@ function useScrollEvent(scrollEventArgs: ScrollEventArgs) {
     const handleWheel = (event: WheelEvent) => {
       if(Date.now() < debounce + debounceDelay) return;
       const deltaY = event.deltaY;
-      console.log("🚀 ~ handleWheel ~ deltaY:", deltaY)
       if(scrollEventArgs.pageUp ? (deltaY < 0) : false) setCountByDelta(0, deltaY);
       if(scrollEventArgs.pageDown ? (deltaY > 0): false) setCountByDelta(0, deltaY);
     };
