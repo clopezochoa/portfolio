@@ -14,16 +14,12 @@ export default function Home() {
   const router = useRouter();
   const routeGroup = getRouteGroup(Route.home);
 
-  useScrollEvent(() => {
-    router.push(routeGroup.up)
-  }, () => {
-    router.push(routeGroup.down)
-  }, true);
+  useScrollEvent({pageUp: () => {router.push(routeGroup.up)}, pageDown: () => {router.push(routeGroup.down)}});
 
   return (<>
   <div>
-    <Arrow width={"auto"} height={60} stroke="1pt" className='arrow absolute top left' onClick={() => router.push(routeGroup.up)}/>
-    <Arrow width={"auto"} height={60} stroke="1pt" className='arrow  absolute bottom left mirror' onClick={() => router.push(routeGroup.down)}/>
+    <Arrow width={"auto"} height={60} stroke="1pt" orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)}/>
+    <Arrow width={"auto"} height={60} stroke="1pt" orientation='down' className='arrow  absolute bottom left' onClick={() => router.push(routeGroup.down)}/>
     <Name name="Carlos" surname="López-Ochoa" font={fonts.serif} />
     <Landing font={fonts.serif} />
   </div>
