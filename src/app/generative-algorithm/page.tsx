@@ -12,8 +12,8 @@ import useScrollEvent from '../hooks/useScrollEvent'
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const pageStyle: CSSProperties = {
   display: "grid",
-  height: window.innerHeight.toString() + "px",
-  width: window.innerWidth.toString() + "px",
+  height: window?.innerHeight.toString() + "px",
+  width: window?.innerWidth.toString() + "px",
   overflow:"hidden",
   alignItems: "center",
   position: "absolute",
@@ -23,8 +23,8 @@ const pageStyle: CSSProperties = {
 
 const mockStyle: CSSProperties = {
   display: "grid",
-  height: window.innerHeight.toString() + "px",
-  width: window.innerWidth.toString() + "px",
+  height: window?.innerHeight.toString() + "px",
+  width: window?.innerWidth.toString() + "px",
   overflow:"hidden",
   justifyContent: "center",
   alignItems: "center",
