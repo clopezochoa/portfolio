@@ -3,7 +3,6 @@
 import React, { CSSProperties, Suspense, lazy, useContext } from 'react'
 import '@/styles/icon.css'
 import '@/styles/text.css'
-import '@/styles/animation.css'
 import { defaultColors } from '../../../tailwind.config';
 import Arrow from '../ui/icons/arrow';
 import { useRouter } from 'next/navigation';
