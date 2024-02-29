@@ -21,9 +21,8 @@ function WhatIDo() {
   const [style, setStyle] = useState<CSSProperties>();
   const routeGroup = getRouteGroup(Route.whatIDo);
 
-  useScrollEvent(undefined, () => {
-    router.push(routeGroup.down)
-  }, true);
+  useScrollEvent({pageDown: () => {router.push(routeGroup.down)}});
+
 
   useEffect(() => {
     if(ref?.current){
@@ -38,7 +37,7 @@ function WhatIDo() {
   }, [ref?.current])
 
   return (<>
-    <Arrow stroke="2pt" width={27} height={22} className='arrow absolute bottom right mirror' onClick={() => router.push(routeGroup.down)} />
+    <Arrow stroke="2pt" width={27} height={22} orientation='down' className='arrow absolute bottom right' onClick={() => router.push(routeGroup.down)} />
     <ul ref={ref} className={'ms-5 mt-16 story-body-bold about-list ' + fonts.condensed.className}>
       <li>
         Frontend Development
