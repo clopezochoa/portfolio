@@ -1,6 +1,6 @@
 'use client'
 
-import React, { CSSProperties, Suspense, lazy, useContext } from 'react'
+import React, { CSSProperties, Suspense, lazy, useEffect, useRef } from 'react'
 import '@/styles/icon.css'
 import '@/styles/text.css'
 import { defaultColors } from '../../../tailwind.config';
@@ -12,8 +12,6 @@ import useScrollEvent from '../hooks/useScrollEvent'
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const pageStyle: CSSProperties = {
   display: "grid",
-  height: window?.innerHeight.toString() + "px",
-  width: window?.innerWidth.toString() + "px",
   overflow:"hidden",
   alignItems: "center",
   position: "absolute",
@@ -23,8 +21,6 @@ const pageStyle: CSSProperties = {
 
 const mockStyle: CSSProperties = {
   display: "grid",
-  height: window?.innerHeight.toString() + "px",
-  width: window?.innerWidth.toString() + "px",
   overflow:"hidden",
   justifyContent: "center",
   alignItems: "center",
@@ -37,13 +33,22 @@ const mockStyle: CSSProperties = {
 function GenerativeAlgorithm() {
   const router = useRouter();
   const routeGroup = getRouteGroup(Route.generativeAlgorithm);
+  const page = useRef(null);
+  const mock = useRef(null);
+
+  useEffect(() => {
+    if(page?.current) (page.current as HTMLDivElement).style.width = window?.innerWidth.toString() + "px";
+    if(page?.current) (page.current as HTMLDivElement).style.height = window?.innerHeight.toString() + "px";
+    if(mock?.current) (mock.current as HTMLDivElement).style.width = window?.innerWidth.toString() + "px";
+    if(mock?.current) (mock.current as HTMLDivElement).style.height = window?.innerHeight.toString() + "px";
+  }, [page, mock])
 
   useScrollEvent({
     pageUp: () => {router.push(routeGroup.up)},
     pageRight: () => {router.push(routeGroup.right)}});
 
   return (<>
-  <div style={pageStyle}>
+  <div ref={page} style={pageStyle}>
     <div style={{display:"flex", width:"100%", justifyContent:"space-between", paddingInline:"15px"}}>
       <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow' onClick={() => router.push(routeGroup.left)} />
       <Arrow stroke="2pt" width={27} height={"auto"} orientation='right' className='arrow' onClick={() => router.push(routeGroup.right)} />
@@ -52,7 +57,7 @@ function GenerativeAlgorithm() {
 
   <Arrow stroke="2pt" width={27} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)} />
 
-  <div style={mockStyle}>
+  <div ref={mock} style={mockStyle}>
     <Suspense fallback={<div></div>}>
       <PhoneMock src='generative-algorithm' width={200} height={"auto"}/>
     </Suspense>
