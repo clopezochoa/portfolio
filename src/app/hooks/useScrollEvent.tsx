@@ -2,75 +2,88 @@
 
 import { useEffect, useState } from 'react'
 
-function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel?: boolean) {
+export interface ScrollEventArgs {
+  pageUp?: () => void,
+  pageDown?: () => void,
+  pageLeft?: () => void,
+  pageRight?: () => void,
+}
+
+function useScrollEvent(scrollEventArgs: ScrollEventArgs) {
   const scrollSensibility = 7;
-  const debounceDelay = 500;
-  const [debounce, setDebounce] = useState(true); 
+  const scrollLimit = 10;
+  const debounceDelay = 100;
+  const debounce = Date.now(); 
   const [count, setCount] = useState(0);
-  const [latestEvent, setLatestEvent] = useState<string>();
+  const [latestAxis, setLatestAxis] = useState<string>("y");
 
   useEffect(() => {
-    setTimeout(() => 
-      setDebounce(false), debounceDelay);
-  }, [])
-
-  useEffect(() => {
-    if(reverseWheel || latestEvent !== "wheel") {      
-      if (count > 2) {
-        pageDown ? pageDown() : null;
+    if (count > scrollLimit) {
+      if(latestAxis === "x") {
+        scrollEventArgs.pageRight ? scrollEventArgs.pageRight() : null;
+      } else {
+        scrollEventArgs.pageDown ? scrollEventArgs.pageDown() : null;
       }
-      if(count < -2) {
-        pageUp ? pageUp() : null;
-      }
-    } else {
-      if (count > 2) {
-        pageUp ? pageUp() : null;
-      }
-      if(count < -2) {
-        pageDown ? pageDown() : null;
+    }
+    if(count < -scrollLimit) {
+      if(latestAxis === "x") {
+        scrollEventArgs.pageLeft ? scrollEventArgs.pageLeft() : null;
+      } else {
+        scrollEventArgs.pageUp ? scrollEventArgs.pageUp() : null;
       }
     }
   }, [count])
 
   useEffect(() => {
-    const setCountByDelta = (deltaY: number) => {
+    const setCountByDelta = (deltaX: number, deltaY: number) => {
       if (deltaY > scrollSensibility) {
         setCount((count) => count + 1);
+        setLatestAxis("y");
       } else if (deltaY < -scrollSensibility) {
         setCount((count) => count - 1);
+        setLatestAxis("y");
+      } else if (deltaX > scrollSensibility) {
+        setCount((count) => count + 1);
+        setLatestAxis("x");
+      } else if (deltaX < -scrollSensibility) {
+        setCount((count) => count - 1);
+        setLatestAxis("x");
       }
     }
 
+    let touchStartX: number
     let touchStartY: number
 
     const handleTouchStart = (event: TouchEvent) => {
-      if(debounce) return;
+      touchStartX = event.touches[0].clientX;
       touchStartY = event.touches[0].clientY;
     };
 
     const handleTouchMove = (event: TouchEvent) => {
-      if(debounce) return;
+      const touchEndX = event.touches[0].clientX;
       const touchEndY = event.touches[0].clientY;
+      const deltaX = touchStartX - touchEndX;
+      
       const deltaY = touchStartY - touchEndY;
-      if(pageDown ? (deltaY > 0): false) setCountByDelta(deltaY);
-      if(pageUp ? (deltaY < 0) : false) setCountByDelta(deltaY);  
+      if(scrollEventArgs.pageRight ? (deltaX > 0): false) setCountByDelta(deltaX, 0);
+      if(scrollEventArgs.pageLeft ? (deltaX < 0) : false) setCountByDelta(deltaX, 0);  
+      if(scrollEventArgs.pageDown ? (deltaY > 0): false) setCountByDelta(0, deltaY);
+      if(scrollEventArgs.pageUp ? (deltaY < 0) : false) setCountByDelta(0, deltaY);  
+      touchStartX = touchEndX;
       touchStartY = touchEndY;
-      setLatestEvent(event.type);
     };
 
     const handleWheel = (event: WheelEvent) => {
-      if(debounce) return;
+      if(Date.now() < debounce + debounceDelay) return;
       const deltaY = event.deltaY;
-      if(reverseWheel) {
-        if(pageUp ? (deltaY < 0) : false) setCountByDelta(deltaY);
-        if(pageDown ? (deltaY > 0): false) setCountByDelta(deltaY);
-      } else {
-        if(pageUp ? (deltaY > 0): false) setCountByDelta(deltaY);
-        if(pageDown ? (deltaY < 0) : false) setCountByDelta(deltaY);  
-      }
-
-      setLatestEvent(event.type);
+      console.log("🚀 ~ handleWheel ~ deltaY:", deltaY)
+      if(scrollEventArgs.pageUp ? (deltaY < 0) : false) setCountByDelta(0, deltaY);
+      if(scrollEventArgs.pageDown ? (deltaY > 0): false) setCountByDelta(0, deltaY);
     };
+
+    window.removeEventListener("wheel", handleWheel);
+    window.removeEventListener("touchstart", handleTouchStart);
+    window.removeEventListener("touchmove", handleTouchMove);
 
     window.addEventListener("wheel", handleWheel);
     window.addEventListener("touchstart", handleTouchStart);
@@ -80,7 +93,7 @@ function useScrollEvent(pageUp?: () => void, pageDown?: () => void, reverseWheel
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [debounce]);
+  }, []);
 }
 
 export default useScrollEvent
