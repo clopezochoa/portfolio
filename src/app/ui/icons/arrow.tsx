@@ -1,7 +1,38 @@
 import React from 'react'
 import { CSSProperties } from "react";
 
-function Arrow({className, width, height, stroke, onClick}:{className:string, width:number | string, height:number | string, stroke:string, onClick?:() => void}) {
+function getArrow(orientation: string): React.JSX.Element {
+  switch (orientation) {
+    case "up":
+      return <>
+        <path d="M49.15.5c0,26.87-21.78,48.65-48.65,48.65"/>
+        <path d="M49.15.5c0,26.87,21.78,48.65,48.65,48.65"/>
+        <line x1="49.15" y1=".5" x2="49.15" y2="79.22"/>
+      </>;
+    case "down":
+      return <>
+        <path d="M49.15,79.22c0-26.87,21.78-48.65,48.65-48.65"/>
+        <path d="M49.15,79.22C49.15,52.35,27.37,30.57.5,30.57"/>
+        <line x1="49.15" y1="79.22" x2="49.15" y2=".5"/>
+      </>;
+    case "left":
+      return <>
+        <path d="M49.15.5c0,26.87-21.78,48.65-48.65,48.65"/>
+        <path d="M49.15,97.8c0-26.87-21.78-48.65-48.65-48.65"/>
+        <line x1="79.22" y1="49.15" x2=".5" y2="49.15"/>
+      </>;
+    case "right":
+      return <>
+        <path d="M79.22,49.15C52.35,49.15,30.57,27.37,30.57.5"/>
+        <path d="M79.22,49.15c-26.87,0-48.65,21.78-48.65,48.65"/>
+        <line x1="79.22" y1="49.15" x2=".5" y2="49.15"/>
+      </>;  
+    default:
+      return <></>;
+  }
+}
+
+function Arrow({className, width, height, stroke, orientation, onClick}:{className:string, width:number | string, height:number | string, stroke:string, orientation:string, onClick?:() => void}) {
   const style: CSSProperties   = {
     fill: "none",
     stroke: "#E8E8E8",
@@ -13,10 +44,8 @@ function Arrow({className, width, height, stroke, onClick}:{className:string, wi
   }
   return (
     <div onClick={onClick} className={className}>
-      <svg style={style} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.3 79.72">
-        <path d="M49.15.5c0,26.87-21.78,48.65-48.65,48.65"/>
-        <path d="M49.15.5c0,26.87,21.78,48.65,48.65,48.65"/>
-        <line x1="49.15" y1=".5" x2="49.15" y2="79.22"/>
+      <svg style={style} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        {getArrow(orientation)}
       </svg>
     </div>
 
