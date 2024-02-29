@@ -15,10 +15,6 @@
   right: 15px;
 }
 
-.mirror{
-  transform: rotate(180deg);
-}
-
 .contact-icon{
   margin-top: 80px;
 }
