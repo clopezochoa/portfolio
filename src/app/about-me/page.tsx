@@ -18,8 +18,8 @@ function AboutMe() {
   useScrollEvent({pageUp: () => {router.push(routeGroup.up)}, pageDown: () => {router.push(routeGroup.down)}});
 
   return (<>
-    <Arrow stroke="2pt" width={27} height={22} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)}/>
-    <Arrow stroke="2pt" width={27} height={22} orientation='down' className='arrow absolute bottom right' onClick={() => router.push(routeGroup.down)} />
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)}/>
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='down' className='arrow absolute bottom right' onClick={() => router.push(routeGroup.down)} />
     <div className={`about-me ${fonts.serif.className}`}>
       <h1 className='about-me-heading'>
         ¡Hola!

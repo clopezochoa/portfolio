@@ -37,8 +37,8 @@ function WhatIDo() {
   }, [ref?.current])
 
   return (<>
-    <Arrow stroke="2pt" width={27} height={22} orientation='down' className='arrow absolute bottom right' onClick={() => router.push(routeGroup.down)} />
-    <ul ref={ref} className={'ms-5 mt-16 story-body-bold about-list ' + fonts.condensed.className}>
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='down' className='arrow absolute bottom right' onClick={() => router.push(routeGroup.down)} />
+    <ul ref={ref} className={'ms-5 mt-16 story-body-bold text-clear about-list ' + fonts.condensed.className}>
       <li>
         Frontend Development
       </li>
