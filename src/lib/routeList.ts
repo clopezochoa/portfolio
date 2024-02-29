@@ -16,7 +16,8 @@ export enum Route {
   whatIDo = "/what-i-do",
   frontend = "frontend",
   threeD = "/three-d",
-  generativeAlgorithm = "/generative-algorithm"
+  generativeAlgorithm = "/generative-algorithm",
+  engine = generativeAlgorithm + "/engine"
 }
 
 export function getRouteGroup(route: Route): RouteGroup {
@@ -27,9 +28,11 @@ export function getRouteGroup(route: Route): RouteGroup {
       return createRouteGroup(Route.whatIDo, Route.home);
     case Route.whatIDo:
       return createRouteGroup(undefined, Route.aboutMe);
-    case Route.generativeAlgorithm:
-      return createRouteGroup(Route.home, undefined);
-    default:
+      case Route.generativeAlgorithm:
+        return createRouteGroup(Route.home, undefined, undefined, Route.engine);
+      case Route.engine:
+        return createRouteGroup(undefined, undefined, Route.generativeAlgorithm);
+      default:
       return createRouteGroup();
   }
 }
