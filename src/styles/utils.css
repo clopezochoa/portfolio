@@ -1,0 +1,16 @@
+.phone-size{
+  width: 200px;
+  height: auto;
+}
+
+.phone-size-rotate{
+  max-height: max-content;
+  height: auto;
+  width: auto;
+}
+
+@media (max-width: 460px) {
+  .phone-size{
+    width: 160px;
+  }
+}
