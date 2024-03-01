@@ -9,7 +9,7 @@ import { WorkBody, WorkHeader } from '@/app/ui/work';
 import { FontsContext } from '@/app/providers/fonts';
 import '@/styles/icon.css'
 import '@/styles/utils.css'
-import { defineBody, discoverBody, initialBody, introBody, processBody } from './content';
+import { defineBody, discoverBody, initialBody, introBody, modelBody, processBody } from './content';
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const PrototypeDiagram = lazy(() => import("@/app/ui/svg/Diagram"));
@@ -106,6 +106,15 @@ function Engine() {
       </div>
       <div style={workBodyStyle}>
         <WorkBody font={font.condensed} body={defineBody} />
+      </div>
+    </div>
+
+    <div className='pt-10' style={pageStyle}>
+      <div style={workHeaderStyle}>
+        <WorkHeader title='Model' subtitle='Giving an architecture to the system' font={font.serif} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={modelBody} />
       </div>
     </div>
   </>

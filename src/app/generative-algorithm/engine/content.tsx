@@ -130,7 +130,7 @@ export const defineBody = [
     <span className='bold'>Limits</span><br/>
     <span>
       After testing a new possible pipeline using simple JSON files and not .obj or .glb files, it faced two critical tests.<br/>    
-      Calculation time is the obvious one. Processing taking longer than ten minutes triggers alerts and may require optimization.<br/>    
+      Simulation time is the obvious one. Processing taking longer than ten minutes triggers alerts and may require optimization.<br/>    
       The second challenge is Babylon build time. Previously, bundled 3D objects resulted in fetching a file exceeding 100 MB.<br/>
       Reducing Babylon&#39;s input size to a few megabytes significantly improves download speed.<br/>
       <br />
@@ -145,8 +145,49 @@ export const defineBody = [
     <span className='bold'>Plan</span><br/>
     <span>
       In conclusion, while the new JSON-based pipeline presents initial challenges in terms of handling geometry instructions,<br />
-      it offers significant advantages in terms of file size, rendering speed, and compatibility. Monitoring calculation times<br />
+      it offers significant advantages in terms of file size, rendering speed, and compatibility. Monitoring simulation times<br />
       and further optimizing the pipeline can address any remaining performance concerns.<br/>
+    </span>
+  </>
+];
+
+
+export const modelBody = [
+  <>
+    <span className='bold'>Objects</span><br/>
+    <span>
+      The unit chosen to build models is a very simple hexagon built by seven points in space, in the XZ plane, the ground.<br/>  
+      That means we just have to set X and Z coordinates of the center of each unit relative to an origin, which is zero, zero, zero.<br/>  
+      Knowing that, along with the radius of the hexagon, I could lay down elements to an elemental grid.<br/>    
+    </span>
+  </>,
+  <>
+    <span className='bold'>Bundles</span><br/>
+    <span>
+      How to get a first bundle and make it resemble organic from early on? Soon I realized that I needed a shape algorithm to rig the whole simulation.<br/>
+      Answering that question was fun because initially I used no initial shape rig and let the simulation decide where to grow freely.<br/>    
+      It led me to very questionable results. Basically a greater hexagon, a round circle or a rhomboid. No matter how I told the units to grow,<br/>    
+      they just kept looking for all available space, since we needed it organic but not decentralized.<br/>
+      <br />
+      Read my organic shape algorithm simulation post in this other page that better reveals my process to that regards.<br/>
+      <br />
+      An organic shape genertor later...<br/>
+      Items are correctly sorted and allocated in bundles, those bundles sort themselves as well and stack onto eachother.<br/>
+      Everything is ready to be rendered geometrycally. Lastly, in order to communicate with the front-end from the scene, items must carry<br/>
+      mapped info, like layer, date, size, id, etc.<br/>
+      In addition to these mapped parameters, I gave states to the units, being it the most important parameter, alongside position,<br />
+      to drive the simulation towards the expected output. This way I could perform queries on each bundle and across them to retrieve free slots,<br />
+      perimetral positions or occupied spots. <br />
+    </span>
+  </>,
+  <>
+    <span className='bold'>Tenants</span><br/>
+    <span>
+      One last thing before starting to code, after prototyping, was to give a seed to each tenant. That way, everything was deterministic and even if<br />
+      some decisions may be random, it all can be traced, reproduced and debugged. It also helped differentiating one customer from another, by being sure<br />
+      about at least one parameter that each generation is unique to its tenant and cannot be mistaken.<br />
+      <br />
+      After months of coding in C#, testing in VEX and being taught the wonders of Visual Studio, I reached a minimum viable product that made it to production.<br />
     </span>
   </>
 ];
