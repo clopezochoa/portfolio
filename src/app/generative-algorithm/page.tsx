@@ -1,67 +1,71 @@
 'use client'
 
-import React, { CSSProperties, Suspense, lazy, useEffect, useRef } from 'react'
 import '@/styles/icon.css'
 import '@/styles/text.css'
+import '@/styles/utils.css'
+
+import React, { CSSProperties, Suspense, lazy, useContext, useEffect, useRef } from 'react'
 import { defaultColors } from '../../../tailwind.config';
 import Arrow from '../ui/icons/arrow';
 import { useRouter } from 'next/navigation';
 import { Route, getRouteGroup } from '@/lib/routeList';
 import useScrollEvent from '../hooks/useScrollEvent'
+import { WorkTitle } from '../ui/work';
+import { FontsContext } from '../providers/fonts';
+
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
-const pageStyle: CSSProperties = {
-  display: "grid",
-  overflow:"hidden",
-  alignItems: "center",
-  position: "absolute",
-  left: "0px",
-  top:"0px",
-}
 
 const mockStyle: CSSProperties = {
-  display: "grid",
-  overflow:"hidden",
-  justifyContent: "center",
-  alignItems: "center",
+  overflow: "hidden",
   position: "absolute",
-  left: "0px",
-  top:"0px",
-  backgroundColor:defaultColors.darkGreen
+  left: "50%",
+  top: "50%",
+  transform: "translateX(-50%) translateY(-50%)",
+}
+
+const workTitleStyleTop: CSSProperties = {
+  color: defaultColors.red,
+  textAlign: "end",
+  marginTop:"5px",
+  marginRight:"15px",
+  marginLeft:"50px"
+}
+
+const workTitleStyleBottom: CSSProperties = {
+  color: defaultColors.cream,
+  textAlign: "start",
+  marginRight:"50px",
+  marginLeft:"15px",
+  position:"absolute",
+  bottom:"15px"
 }
 
 function GenerativeAlgorithm() {
+  const font = useContext(FontsContext);
   const router = useRouter();
   const routeGroup = getRouteGroup(Route.generativeAlgorithm);
-  const page = useRef(null);
-  const mock = useRef(null);
 
   useEffect(() => {
-    if(page?.current) (page.current as HTMLDivElement).style.width = window?.innerWidth.toString() + "px";
-    if(page?.current) (page.current as HTMLDivElement).style.height = window?.innerHeight.toString() + "px";
-    if(mock?.current) (mock.current as HTMLDivElement).style.width = window?.innerWidth.toString() + "px";
-    if(mock?.current) (mock.current as HTMLDivElement).style.height = window?.innerHeight.toString() + "px";
-  }, [page, mock])
+    (document.getElementsByTagName("html")[0] as HTMLElement).style.backgroundColor = defaultColors.darkGreen;
+  }, [])
 
   useScrollEvent({
     pageUp: () => {router.push(routeGroup.up)},
     pageRight: () => {router.push(routeGroup.right)}});
 
   return (<>
-  <div ref={page} style={pageStyle}>
-    <div style={{display:"flex", width:"100%", justifyContent:"space-between", paddingInline:"15px"}}>
-      <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow' onClick={() => router.push(routeGroup.left)} />
-      <Arrow stroke="2pt" width={27} height={"auto"} orientation='right' className='arrow' onClick={() => router.push(routeGroup.right)} />
-    </div>
-  </div>
+  <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow middle fixed left' onClick={() => router.push(routeGroup.left)} />
+  <Arrow stroke="2pt" width={27} height={"auto"} orientation='right' className='arrow middle fixed right' onClick={() => router.push(routeGroup.right)} />
 
-  <Arrow stroke="2pt" width={27} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)} />
-
-  <div ref={mock} style={mockStyle}>
+  <Arrow stroke="2pt" width={24} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)} />
+  <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
+  <div style={mockStyle}>
     <Suspense fallback={<div></div>}>
-      <PhoneMock src='generative-algorithm' width={200} height={"auto"}/>
+      <PhoneMock src='generative-algorithm' className='phone-size'/>
     </Suspense>
   </div>
+  <WorkTitle title={<>I&apos;ve designed<br/>growth-shrink<br/><span className='story-title-bold'>algorithms.</span></>} style={workTitleStyleBottom} font={font.sans}/>
   </>
   )
 }
