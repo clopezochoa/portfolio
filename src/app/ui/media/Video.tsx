@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const VideoWithAlpha = ({src, width, height}:{src:string, width: number | string, height: number | string}) => {
+const VideoWithAlpha = ({src, className}:{src:string, className: string}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const VideoWithAlpha = ({src, width, height}:{src:string, width: number | string
   }, []);
 
   return (
-    <div style={{zIndex:"10", width: width !== "auto" ? width.toString() + "px" : "auto", height: height !== "auto" ? height.toString() + "px" : "auto"}}>
+    <div className={className} style={{zIndex:"10"}}>
       <video
         ref={videoRef}
         autoPlay
