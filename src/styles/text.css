@@ -3,13 +3,14 @@
 }
 
 .name {
-  color: theme('colors.clear');
   text-align: end;
   font-size: 60pt;
   line-height: 54pt;
   letter-spacing: -7px;
   width: min-content;
   float: inline-end;
+  z-index: 1;
+  position: relative;
 }
 
 .name h1 {
@@ -108,21 +109,64 @@
   margin-top: 18px;
 }
 
+.story-body-main{
+  font-size: 20pt;
+  font-weight: 300;
+  letter-spacing: -0.6pt;
+  text-align: start;
+  line-height: 24pt;
+}
+
 .story-body-bold{
   font-size: 20pt;
   font-weight: 600;
   letter-spacing: -0.6pt;
   text-align: start;
   line-height: 24pt;
-  color: theme('colors.clear');
 }
+
+.story-title-main{
+  font-size: 30pt;
+  font-weight: 200;
+  letter-spacing: -1.5pt;
+  line-height: 30pt;
+}
+
+.story-title-bold{
+  font-weight: 600;
+}
+
 
 .about-list{
   width: max-content;
 }
 
+.work-body-container{
+  margin-top: 15px;
+}
+
+.work{
+  font-size: 60pt;
+  line-height: 54pt;
+  letter-spacing: -7px;
+  width: min-content;
+}
+
+.work h1 {
+  font-weight: 600;
+}
+
+.work h2 {
+  font-weight: 300;
+}
+
 @media (max-width: 360px) {
   .name {
+    font-size: 50pt;
+    line-height: 46pt;
+    letter-spacing: -6px;
+  }
+  .work {
     font-size: 50pt;
     line-height: 46pt;
     letter-spacing: -6px;
@@ -147,5 +191,16 @@
     font-size: 14pt;
     line-height: 16pt;
     letter-spacing: 0pt;
+  }
+  .story-title-main{
+    font-size: 24pt;
+    letter-spacing: -1.5pt;
+    line-height: 24pt;
+  }
+  .story-body-main{
+    font-size: 16pt;
+    letter-spacing: -0.2pt;
+    text-align: start;
+    line-height: 19pt;
   }
 }
