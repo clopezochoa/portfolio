@@ -56,7 +56,7 @@ function GenerativeAlgorithm() {
 
   return (<>
   <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow middle fixed left' onClick={() => router.push(routeGroup.left)} />
-  <Arrow stroke="2pt" width={27} height={"auto"} orientation='right' className='arrow middle fixed right' onClick={() => router.push(routeGroup.right)} />
+  {/* <Arrow stroke="2pt" width={27} height={"auto"} orientation='right' className='arrow middle fixed right' onClick={() => router.push(routeGroup.right)} /> */}
 
   <Arrow stroke="2pt" width={24} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)} />
   <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
