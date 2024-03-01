@@ -10,7 +10,7 @@ interface NameProps {
 
 function Name(nameProps: NameProps) {
   return (<>
-  <div className='name-container'>
+  <div className='name-container text-clear'>
     <div className={`name ${nameProps.font.className}`}>
       <h1>{nameProps.name}</h1>
       <h2>{nameProps.surname}</h2>

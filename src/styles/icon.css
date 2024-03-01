@@ -1,6 +1,16 @@
 .absolute{
   position: absolute;
 }
+.fixed{
+  position: fixed;
+}
+.relative{
+  position: relative;
+}
+.middle{
+  top:50%;
+  transform: translateY(-50%);
+}
 
 .top{
   top: 15px;
