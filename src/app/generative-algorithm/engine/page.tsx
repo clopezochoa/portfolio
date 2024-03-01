@@ -1,18 +1,119 @@
 'use client'
 
 import useScrollEvent from '@/app/hooks/useScrollEvent';
+import Arrow from '@/app/ui/icons/arrow';
 import { getRouteGroup, Route } from '@/lib/routeList';
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, { CSSProperties, lazy, Suspense, useContext, useEffect } from 'react'
+import { defaultColors } from '../../../../tailwind.config';
+import { WorkBody, WorkHeader } from '@/app/ui/work';
+import { FontsContext } from '@/app/providers/fonts';
+import '@/styles/icon.css'
+import '@/styles/utils.css'
+import { defineBody, discoverBody, initialBody, introBody, processBody } from './content';
+
+const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
+const PrototypeDiagram = lazy(() => import("@/app/ui/svg/Diagram"));
+
+const mockStyle: CSSProperties = {
+  marginLeft:"15px",
+  marginRight:"45px",
+  marginTop:"5px",
+  marginBottom:"15px"
+}
+
+const pageStyle:CSSProperties={
+  display:"grid",
+  position:"relative",
+  zIndex:"1",
+  justifyItems:"start",
+  marginLeft:"15px",
+  marginBlock:"15px"
+}
+
+const workHeaderStyle: CSSProperties = {
+  marginTop:"-5px",
+  textAlign:"start",
+  float:"inline-start"
+}
+
+const workBodyStyle: CSSProperties = {
+  marginTop:"5px",
+  marginRight:"45px",
+  textAlign:"start",
+  float:"inline-start"
+}
 
 function Engine() {
+  const font = useContext(FontsContext);
   const router = useRouter();
   const routeGroup = getRouteGroup(Route.engine);
-  useScrollEvent({
-    pageLeft: () => {router.push(routeGroup.left)}});
 
-  return (
-    <div>Engine</div>
+  useEffect(() => {
+    (document.getElementsByTagName("html")[0] as HTMLElement).style.backgroundColor = defaultColors.darkGreen;
+  }, [])
+
+  useScrollEvent({
+    pageRight: () => {router.push(routeGroup.right)}});
+
+  return (<>
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => router.push(routeGroup.right)} />
+    <div style={pageStyle}>
+      <div style={workHeaderStyle}>
+        <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={initialBody} />
+      </div>
+    </div>
+    <div style={mockStyle}>
+      <Suspense fallback={<div></div>}>
+        <PhoneMock src='prototype' className='phone-size-rotate'/>
+      </Suspense>
+    </div>
+    <div style={pageStyle}>
+    <div style={workHeaderStyle}>
+        <WorkHeader title='' subtitle={<>Visualize data,<br/>get to know it.</>} font={font.serif} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={introBody} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={processBody} />
+      </div>
+    </div>
+    <div style={mockStyle}>
+      <Suspense fallback={<div></div>}>
+        <PrototypeDiagram src='prototype' className='phone-size-rotate'/>
+      </Suspense>
+    </div>
+    
+    <div className='pt-10' style={pageStyle}>
+      <div style={workHeaderStyle}>
+        <WorkHeader title='Discover' subtitle='Finding common ground' font={font.serif} />
+      </div>
+    </div>
+    <div className='pt-10 pb-10' style={mockStyle}>
+      <Suspense fallback={<div></div>}>
+        <PrototypeDiagram src='discover' className='phone-size-rotate'/>
+      </Suspense>
+    </div>
+    <div style={pageStyle}>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={discoverBody} />
+      </div>
+    </div>
+    
+    <div className='pt-10' style={pageStyle}>
+      <div style={workHeaderStyle}>
+        <WorkHeader title='Define' subtitle='Ideas come true' font={font.serif} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={defineBody} />
+      </div>
+    </div>
+
+  </>
   )
 }
 
