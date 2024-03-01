@@ -1,10 +1,9 @@
 'use client'
 
-import useScrollEvent from '@/app/hooks/useScrollEvent';
 import Arrow from '@/app/ui/icons/arrow';
 import { getRouteGroup, Route } from '@/lib/routeList';
 import { useRouter } from 'next/navigation';
-import React, { CSSProperties, lazy, Suspense, useContext, useEffect } from 'react'
+import React, { CSSProperties, lazy, RefObject, Suspense, useContext, useEffect, useRef } from 'react'
 import { defaultColors } from '../../../../tailwind.config';
 import { WorkBody, WorkHeader } from '@/app/ui/work';
 import { FontsContext } from '@/app/providers/fonts';
@@ -53,9 +52,6 @@ function Engine() {
     (document.getElementsByTagName("html")[0] as HTMLElement).style.backgroundColor = defaultColors.darkGreen;
   }, [])
 
-  useScrollEvent({
-    pageRight: () => {router.push(routeGroup.right)}});
-
   return (<>
     <Arrow stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => router.push(routeGroup.right)} />
     <div style={pageStyle}>
@@ -72,7 +68,7 @@ function Engine() {
       </Suspense>
     </div>
     <div style={pageStyle}>
-    <div style={workHeaderStyle}>
+      <div style={workHeaderStyle}>
         <WorkHeader title='' subtitle={<>Visualize data,<br/>get to know it.</>} font={font.serif} />
       </div>
       <div style={workBodyStyle}>
@@ -112,7 +108,6 @@ function Engine() {
         <WorkBody font={font.condensed} body={defineBody} />
       </div>
     </div>
-
   </>
   )
 }
