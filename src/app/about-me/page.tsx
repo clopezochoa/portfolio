@@ -7,15 +7,12 @@ import React, { useContext } from 'react'
 import Arrow from '@/app/ui/icons/arrow'
 import { useRouter } from 'next/navigation';
 import { FontsContext } from '../providers/fonts';
-import useScrollEvent from '../hooks/useScrollEvent'
 import { Route, getRouteGroup } from '@/lib/routeList'
 
 function AboutMe() {
   const router = useRouter();
   const fonts = useContext(FontsContext);
   const routeGroup = getRouteGroup(Route.aboutMe);
-
-  useScrollEvent({pageUp: () => {router.push(routeGroup.up)}, pageDown: () => {router.push(routeGroup.down)}});
 
   return (<>
     <Arrow stroke="2pt" width={24} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)}/>
