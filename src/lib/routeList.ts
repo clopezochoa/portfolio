@@ -29,9 +29,9 @@ export function getRouteGroup(route: Route): RouteGroup {
     case Route.whatIDo:
       return createRouteGroup(undefined, Route.aboutMe);
       case Route.generativeAlgorithm:
-        return createRouteGroup(Route.home, undefined, undefined, Route.engine);
+        return createRouteGroup(Route.home, undefined, Route.engine);
       case Route.engine:
-        return createRouteGroup(undefined, undefined, Route.generativeAlgorithm);
+        return createRouteGroup(undefined, undefined, undefined, Route.generativeAlgorithm);
       default:
       return createRouteGroup();
   }
