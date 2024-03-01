@@ -65,7 +65,7 @@ function WhatIDo() {
         </Link>
       </div>
       <div style={style} className="contact-button" >
-        <a className={'story-body-bold ' + fonts.condensed.className} href={process.env.EMAIL ?? "/."}>
+        <a className={'text-clear story-body-bold ' + fonts.condensed.className} href={process.env.EMAIL ?? "/."}>
           Contact Me
         </a>
       </div>
