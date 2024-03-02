@@ -47,7 +47,7 @@ function GenerativeAlgorithm() {
   }
 
   return (<>
-  <div ref={mainDiv}>
+  <div style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
     <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover' ref={phoneRef}>
       <Arrow stroke="4px" width={24} height={"auto"} orientation='left' className='arrow' onClick={() => showGenerativeAlgorithms()} />
