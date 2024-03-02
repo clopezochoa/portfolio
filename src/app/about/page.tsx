@@ -5,7 +5,7 @@ import '@/styles/utils.css'
 import '@/styles/text.css'
 
 import React, { useRef } from 'react'
-import Window from '../ui/window'
+// import Window from '../ui/window'
 import { Greeting, WhatIDo } from './content'
 import Arrow from '../ui/icons/arrow'
 import { useRouter } from 'next/navigation'
@@ -23,10 +23,7 @@ function AboutMe() {
   }
   return (<>
   <div ref={mainDiv} className='grid'>
-    <Window>
       <Greeting/>
-    </Window>
-    <Window className='flex-between'>
       <div className='space-between'>
         <WhatIDo/>
       </div>
@@ -34,7 +31,10 @@ function AboutMe() {
         <div/>
         <Arrow width={"auto"} height={24} stroke="4px" orientation='down' className='arrow' onClick={() => hideAboutMe()} />
       </div>
-    </Window>
+    {/* <Window>
+    </Window> */}
+    {/* <Window className='flex-between'> */}
+    {/* </Window> */}
   </div>
   </>)
 }
