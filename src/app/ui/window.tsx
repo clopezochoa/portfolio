@@ -10,14 +10,19 @@ type WindowProps = {
 }
 
 function Window(props: WindowProps) {
-  const [height, setHeight] = useState(window?.innerHeight ?? 1080);
+  const [height, setHeight] = useState(1080);
+  const setHeightProtected = () => {
+    if(typeof window !== 'undefined' && window.document) {
+      setHeight(window?.innerHeight ?? 1080)
+    }
+  }
   useEffect(() => {
-    addEventListener("resize", () => setHeight(window?.innerHeight ?? 1080));
-    return () => removeEventListener("resize", () => setHeight(window?.innerHeight ?? 1080));
+    addEventListener("resize", () => setHeightProtected());
+    return () => removeEventListener("resize", () => setHeightProtected());
   }, [])
   const [element, setElement] = useState(<></>);
   useEffect(() => {
-    if(window) {
+    if(typeof window !== 'undefined' && window.document) {
       setElement(<>
       <div className={props.className ?? ""} style={{height: height}}>
             {props.children}
@@ -26,7 +31,7 @@ function Window(props: WindowProps) {
     } else {
       setElement(<></>)
     }
-  }, [window])
+  }, [])
   
   return (
     <>
