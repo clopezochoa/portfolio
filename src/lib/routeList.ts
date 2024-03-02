@@ -1,13 +1,11 @@
 interface RouteGroup {
-  up: Route,
-  down: Route,
   left: Route,
   right: Route,
   spare: Route
 }
 
-function createRouteGroup(up?: Route, down?: Route, left?: Route, right?: Route, spare?: Route):RouteGroup {
-  return {up: up ?? Route.home, down: down ?? Route.home, left: left ?? Route.home, right: right ?? Route.home, spare: spare ?? Route.home};
+function createRouteGroup(left?: Route, right?: Route, spare?: Route):RouteGroup {
+  return {left: left ?? Route.home, right: right ?? Route.home, spare: spare ?? Route.home};
 }
 
 export enum Route {
@@ -17,21 +15,21 @@ export enum Route {
   frontend = "frontend",
   threeD = "/three-d",
   generativeAlgorithm = "/generative-algorithm",
-  engine = generativeAlgorithm + "/engine"
+  engine = "/engine"
 }
 
 export function getRouteGroup(route: Route): RouteGroup {
   switch (route) {
     case Route.home:
-      return createRouteGroup(Route.aboutMe, Route.generativeAlgorithm);
+      return createRouteGroup();
     case Route.aboutMe:
-      return createRouteGroup(Route.whatIDo, Route.home);
+      return createRouteGroup();
     case Route.whatIDo:
-      return createRouteGroup(undefined, Route.aboutMe);
+      return createRouteGroup();
       case Route.generativeAlgorithm:
-        return createRouteGroup(Route.home, undefined, Route.engine);
+        return createRouteGroup(Route.engine);
       case Route.engine:
-        return createRouteGroup(undefined, undefined, undefined, Route.generativeAlgorithm);
+        return createRouteGroup(undefined, Route.generativeAlgorithm);
       default:
       return createRouteGroup();
   }
