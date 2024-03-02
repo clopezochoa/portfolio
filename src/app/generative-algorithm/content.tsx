@@ -19,7 +19,7 @@ const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const workTitleStyleTop: CSSProperties = {
   color: defaultColors.red,
   textAlign: "end",
-  marginTop:"30px",
+  marginTop:"15px",
   marginRight:"15px",
   marginLeft:"50px",
 }
@@ -39,14 +39,15 @@ function GenerativeAlgorithm() {
   const phoneRef = useViewportClass("dark-green-bg");
 
   return (<>
-  <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
-  <div className='story-cover' ref={phoneRef}>
-    <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow left' onClick={() => router.push(routeGroup.left)} />
-    <Suspense fallback={<div></div>}>
-      <PhoneMock src='generative-algorithm' className='phone-size'/>
-    </Suspense>
-  </div>
-  <WorkTitle title={<>I&apos;ve designed<br/>growth-shrink<br/><span className='story-title-bold'>algorithms.</span></>} style={workTitleStyleBottom} font={font.sans}/>
+    <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
+    <div className='story-cover' ref={phoneRef}>
+      <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow' onClick={() => router.push(routeGroup.left)} />
+      <Suspense fallback={<div></div>}>
+        <PhoneMock src='generative-algorithm' className='phone-size'/>
+      </Suspense>
+      <div/>
+    </div>
+    <WorkTitle title={<>I&apos;ve designed<br/>growth-shrink<br/><span className='story-title-bold'>algorithms.</span></>} style={workTitleStyleBottom} font={font.sans}/>
   </>
   )
 }
