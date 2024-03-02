@@ -14,7 +14,7 @@ export function Greeting(){
   const font = useContext(FontsContext);
   return (
     <>
-      <div className={`about-me ${font.serif.className}`}>
+      <div className={`about-me ${font.serif.className} space-between h-full`}>
         <h1 className='about-me-heading'>
           ¡Hola!
         </h1>
@@ -26,7 +26,7 @@ export function Greeting(){
           diseñador 3D, diseñador<br />
           algorítmico y diseñador gráfico.
         </p>
-        <div className='absolute bottom left grid'>
+        <div className='grid'>
           <p className='about-me-p2'>
             Disfruto dando vida a mis ideas.<br />
             La mochila en la que guardo mis<br />

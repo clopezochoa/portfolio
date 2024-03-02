@@ -1,7 +1,7 @@
 'use client'
 
 import Arrow from '@/app/ui/icons/arrow';
-import React, { CSSProperties, lazy, Suspense, useContext } from 'react'
+import React, { CSSProperties, lazy, Suspense, useContext, useEffect, useRef } from 'react'
 import { WorkBody, WorkHeader } from '@/app/ui/work';
 import { FontsContext } from '@/app/providers/fonts';
 import '@/styles/icon.css'
@@ -42,9 +42,24 @@ const workBodyStyle: CSSProperties = {
 
 function Engine() {
   const font = useContext(FontsContext);
+  const mainDiv = useRef(null);
+
+  useEffect(() => {
+    document.body.className = "dark-bg";
+  }, [document])
+
+
+  const hideGenerativeAlgorithms = () => {
+    (mainDiv.current! as HTMLDivElement).className = "slide-left";
+    
+    setTimeout(() => {
+      history.back()
+    }, 500);
+  }
 
   return (<>
-    <Arrow stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => history.back()} />
+  <div ref={mainDiv} className=''>
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => hideGenerativeAlgorithms()} />
     <div style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />
@@ -108,6 +123,7 @@ function Engine() {
         <WorkBody font={font.condensed} body={modelBody} />
       </div>
     </div>
+  </div>
   </>
   )
 }

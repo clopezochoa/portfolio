@@ -17,11 +17,11 @@ export default function Home() {
   const mainDiv = useRef(null);
 
   const showAboutMe = () => {
-    (mainDiv.current! as HTMLDivElement).className = "slide-down";
+    (mainDiv.current! as HTMLDivElement).className = "grid slide-down";
     
     setTimeout(() => {
       router.push("/about");
-    }, 1000);
+    }, 400);
   }
 
   return (<>

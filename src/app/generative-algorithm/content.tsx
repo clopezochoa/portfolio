@@ -35,19 +35,29 @@ const workTitleStyleBottom: CSSProperties = {
 function GenerativeAlgorithm() {
   const font = useContext(FontsContext);
   const router = useRouter();
-  const routeGroup = getRouteGroup(Route.generativeAlgorithm);
   const phoneRef = useViewportClass("dark-green-bg");
+  const mainDiv = useRef(null);
+
+  const showGenerativeAlgorithms = () => {
+    (mainDiv.current! as HTMLDivElement).className = "grid slide-right";
+    
+    setTimeout(() => {
+      router.push("/engine");
+    }, 400);
+  }
 
   return (<>
+  <div ref={mainDiv}>
     <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover' ref={phoneRef}>
-      <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow' onClick={() => router.push(routeGroup.left)} />
+      <Arrow stroke="4px" width={24} height={"auto"} orientation='left' className='arrow' onClick={() => showGenerativeAlgorithms()} />
       <Suspense fallback={<div></div>}>
         <PhoneMock src='generative-algorithm' className='phone-size'/>
       </Suspense>
       <div/>
     </div>
     <WorkTitle title={<>I&apos;ve designed<br/>growth-shrink<br/><span className='story-title-bold'>algorithms.</span></>} style={workTitleStyleBottom} font={font.sans}/>
+  </div>
   </>
   )
 }

@@ -15,11 +15,11 @@ function AboutMe() {
   const mainDiv = useRef(null);
 
   const hideAboutMe = () => {
-    (mainDiv.current! as HTMLDivElement).className = "slide-up";
+    (mainDiv.current! as HTMLDivElement).className = "grid slide-up";
     
     setTimeout(() => {
       router.push("/");
-    }, 1000);
+    }, 400);
   }
   return (<>
   <div ref={mainDiv} className='grid'>
@@ -32,7 +32,7 @@ function AboutMe() {
       </div>
       <div className='space-between'>
         <div/>
-        <Arrow width={"auto"} height={24} stroke="1pt" orientation='down' className='arrow fixed bottom right' onClick={() => hideAboutMe()} />
+        <Arrow width={"auto"} height={24} stroke="4px" orientation='down' className='arrow' onClick={() => hideAboutMe()} />
       </div>
     </Window>
   </div>
