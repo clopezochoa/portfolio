@@ -21,9 +21,6 @@ function WhatIDo() {
   const [style, setStyle] = useState<CSSProperties>();
   const routeGroup = getRouteGroup(Route.whatIDo);
 
-  useScrollEvent({pageDown: () => {router.push(routeGroup.down)}});
-
-
   useEffect(() => {
     if(ref?.current){
       const iconContainer: CSSProperties = {

@@ -50,10 +50,6 @@ function GenerativeAlgorithm() {
     (document.getElementsByTagName("html")[0] as HTMLElement).style.backgroundColor = defaultColors.darkGreen;
   }, [])
 
-  useScrollEvent({
-    pageUp: () => {router.push(routeGroup.up)},
-    pageRight: () => {router.push(routeGroup.right)}});
-
   return (<>
   <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow middle fixed left' onClick={() => router.push(routeGroup.left)} />
   {/* <Arrow stroke="2pt" width={27} height={"auto"} orientation='right' className='arrow middle fixed right' onClick={() => router.push(routeGroup.right)} /> */}
