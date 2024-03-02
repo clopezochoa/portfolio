@@ -2,7 +2,6 @@ import React from 'react'
 import '@/styles/text.css'
 import '@/styles/icon.css'
 import { NextFont } from 'next/dist/compiled/@next/font';
-import { useRouter } from 'next/navigation';
 
 interface LandingProps {
   font: NextFont;
@@ -11,22 +10,22 @@ interface LandingProps {
 function Landing(landingProps: LandingProps) {
   return (<>
   <div className={`landing ${landingProps.font.className}`}>
-    <div className='main'>
+    <div className='main text-light-green'>
       Frontend
     </div>
     <div>
       Developer,
     </div>
-    <div className='secondary'>
+    <div className='secondary text-yellow'>
     3D Design
     </div>
     <div>
     specialist,
     </div>
-    <div className='tertiary'>
+    <div className='tertiary text-red'>
     Generative
     </div>
-    <div className='tertiary'>
+    <div className='tertiary text-red'>
     algorithms
     </div>
     <div>
