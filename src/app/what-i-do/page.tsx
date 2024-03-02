@@ -15,11 +15,9 @@ import useScrollEvent from '../hooks/useScrollEvent';
 import { Route, getRouteGroup } from '@/lib/routeList';
 
 function WhatIDo() {
-  const router = useRouter();
   const fonts = useContext(FontsContext);
   const ref = useRef(null);
   const [style, setStyle] = useState<CSSProperties>();
-  const routeGroup = getRouteGroup(Route.whatIDo);
 
   useEffect(() => {
     if(ref?.current){
@@ -34,7 +32,7 @@ function WhatIDo() {
   }, [ref?.current])
 
   return (<>
-    <Arrow stroke="2pt" width={24} height={"auto"} orientation='down' className='arrow absolute bottom right' onClick={() => router.push(routeGroup.down)} />
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='down' className='arrow absolute bottom right' onClick={() => null } />
     <ul ref={ref} className={'ms-5 mt-16 story-body-bold text-clear about-list ' + fonts.condensed.className}>
       <li>
         Frontend Development

@@ -5,18 +5,14 @@ import '@/styles/icon.css'
 
 import React, { useContext } from 'react'
 import Arrow from '@/app/ui/icons/arrow'
-import { useRouter } from 'next/navigation';
 import { FontsContext } from '../providers/fonts';
-import { Route, getRouteGroup } from '@/lib/routeList'
 
 function AboutMe() {
-  const router = useRouter();
   const fonts = useContext(FontsContext);
-  const routeGroup = getRouteGroup(Route.aboutMe);
 
   return (<>
-    <Arrow stroke="2pt" width={24} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)}/>
-    <Arrow stroke="2pt" width={24} height={"auto"} orientation='down' className='arrow absolute bottom right' onClick={() => router.push(routeGroup.down)} />
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => null}/>
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='down' className='arrow absolute bottom right' onClick={() => null} />
     <div className={`about-me ${fonts.serif.className}`}>
       <h1 className='about-me-heading'>
         ¡Hola!
