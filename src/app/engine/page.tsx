@@ -45,7 +45,7 @@ function Engine() {
   const mainDiv = useRef(null);
 
   useEffect(() => {
-    document.body.className = "dark-green-bg";
+    if (document) document.body.className = "dark-green-bg";
   }, [document])
 
 
