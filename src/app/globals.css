@@ -7,3 +7,19 @@
     text-wrap: balance;
   }
 }
+
+body{
+  transition: background-color 0.5s ease-in-out;
+}
+
+.dark-bg{
+  background-color: theme('colors.dark');
+}
+
+.dark-green-bg{
+  background-color: theme('colors.dark-green');
+}
+
+.red-bg{
+  background-color: theme('colors.red');
+}
