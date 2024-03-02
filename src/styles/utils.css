@@ -1,6 +1,7 @@
 .phone-size{
   width: 200px;
   height: auto;
+  margin-block: 7rem;
 }
 
 .phone-size-rotate{
@@ -9,8 +10,13 @@
   width: auto;
 }
 
+.content-below{
+  margin-top: 100vh;
+}
+
 @media (max-width: 460px) {
   .phone-size{
+    margin-block: 0rem;
     width: 160px;
   }
 }
