@@ -15,16 +15,22 @@ function Window(props: WindowProps) {
     addEventListener("resize", () => setHeight(window?.innerHeight ?? 1080));
     return () => removeEventListener("resize", () => setHeight(window?.innerHeight ?? 1080));
   }, [])
-  return (
-    <>
-      {
-        window ? 
-          <div className={props.className ?? ""} style={{height: height}}>
+  const [element, setElement] = useState(<></>);
+  useEffect(() => {
+    if(window) {
+      setElement(<>
+      <div className={props.className ?? ""} style={{height: height}}>
             {props.children}
           </div>
-        :
-        null
-      }
+          </>)
+    } else {
+      setElement(<></>)
+    }
+  }, [window])
+  
+  return (
+    <>
+      {element}
     </>
   )
 }
