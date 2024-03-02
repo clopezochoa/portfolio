@@ -10,8 +10,30 @@
   width: auto;
 }
 
-.content-below{
+.space-between{
+  display: grid;
+  align-content: space-between;
+}
+
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+
+.slide-down{
   margin-top: 100vh;
+  transition: margin-top 1s ease-in-out;
+}
+
+.slide-down{
+  margin-bottom: 100vh;
+  transition: margin-bottom 1s ease-in-out;
+}
+
+
+.opacity-out{
+  opacity: 0%;
+  transition: opacity 1s ease-in-out;
 }
 
 @media (max-width: 460px) {

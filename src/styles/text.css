@@ -27,7 +27,6 @@
 .landing-container {
   height: 100%;
   width: 100%;
-  position: absolute;
   display: grid;
   align-content: space-between;
   justify-content: end;
@@ -64,10 +63,9 @@
   line-height: 54pt;
   letter-spacing: -7px;
   float: inline-end;
-  margin-top: 5px;
-  margin-right: 15px;
   font-weight: 300;
-  margin-top: 60px;
+  margin: 30px;
+  margin-bottom: 15px;
 }
 .about-me-p1{
   text-align: end;
@@ -75,10 +73,9 @@
   line-height: 22pt;
   letter-spacing: -1.5px;
   float: inline-end;
-  margin-top: 5px;
-  margin-right: 10px;
   font-weight: 300;
-  margin-top: 20px;
+  margin: 30px;
+  margin-top: 15px;
 
 
 }
@@ -88,15 +85,13 @@
   line-height: 18pt;
   letter-spacing: -1pt;
   float: inline-start;
-  margin-top: 5px;
   font-weight: 200;
-  margin-top: 18px;
+  margin: 30px;
 }
 
 .story-cover{
-  justify-content: space-evenly;
+  justify-content: space-between;
   display: flex;
-  margin: 30px;
 }
 
 
@@ -174,14 +169,21 @@
     right: 0px;
     bottom: 0px;
   }
+  .about-me-heading{
+    margin: 10px;
+    margin-bottom: 5px;
+  }
   .about-me-p1{
     font-size: 18pt;
     line-height: 20pt;
+    margin: 10px;
+    margin-top: 5px;
   }
   .about-me-p2{
     font-size: 14pt;
     line-height: 16pt;
     letter-spacing: 0pt;
+    margin: 10px;
   }
   .story-title-main{
     font-size: 24pt;

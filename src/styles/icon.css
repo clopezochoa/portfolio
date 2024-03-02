@@ -13,16 +13,16 @@
 }
 
 .top{
-  top: 15px;
+  top: 0px;
 }
 .left{
-  left: 15px;
+  left: 0px;
 }
 .bottom{
-  bottom: 15px;
+  bottom: 0px;
 }
 .right{
-  right: 15px;
+  right: 0px;
 }
 
 .contact-icon{
@@ -34,4 +34,12 @@
   z-index: 10;
   display: flex;
   align-items: center;
+  margin: 15px;
+}
+
+.arrow-deck {
+  display: grid;
+  height: 100%;
+  width: min-content;
+  align-content: space-between;
 }
