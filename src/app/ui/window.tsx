@@ -17,14 +17,13 @@ function Window(props: WindowProps) {
     }
   }
   useEffect(() => {
-    addEventListener("resize", () => {
-      if(typeof window !== 'undefined') {
-        setHeight(window?.innerHeight ?? 1080)
-      }
-    });
-    return () => removeEventListener("resize", () => setHeight(window?.innerHeight ?? 1080));
+    addEventListener("resize", () => setHeightProtected());
+    return () => removeEventListener("resize", () => setHeightProtected());
   }, [])
-  addEventListener("resize", () => setHeightProtected());
+
+  useEffect(() => {
+    setHeightProtected();
+  }, [window])
   
   return (
     <>
