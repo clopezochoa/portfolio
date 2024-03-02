@@ -11,24 +11,17 @@ import { useRouter } from 'next/navigation';
 import { Route, getRouteGroup } from '@/lib/routeList';
 import { WorkTitle } from '../ui/work';
 import { FontsContext } from '../providers/fonts';
+import { useViewportClass } from '../hooks/useViewport'
 
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 
-const mockStyle: CSSProperties = {
-  overflow: "hidden",
-  position: "absolute",
-  left: "50%",
-  top: "50%",
-  transform: "translateX(-50%) translateY(-50%)",
-}
-
 const workTitleStyleTop: CSSProperties = {
   color: defaultColors.red,
   textAlign: "end",
-  marginTop:"5px",
+  marginTop:"30px",
   marginRight:"15px",
-  marginLeft:"50px"
+  marginLeft:"50px",
 }
 
 const workTitleStyleBottom: CSSProperties = {
@@ -36,26 +29,19 @@ const workTitleStyleBottom: CSSProperties = {
   textAlign: "start",
   marginRight:"50px",
   marginLeft:"15px",
-  position:"absolute",
-  bottom:"15px"
+  marginBottom:"30px"
 }
 
 function GenerativeAlgorithm() {
   const font = useContext(FontsContext);
   const router = useRouter();
   const routeGroup = getRouteGroup(Route.generativeAlgorithm);
-
-  useEffect(() => {
-    (document.getElementsByTagName("html")[0] as HTMLElement).style.backgroundColor = defaultColors.darkGreen;
-  }, [])
+  const phoneRef = useViewportClass("dark-green-bg");
 
   return (<>
-  <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow middle fixed left' onClick={() => router.push(routeGroup.left)} />
-  {/* <Arrow stroke="2pt" width={27} height={"auto"} orientation='right' className='arrow middle fixed right' onClick={() => router.push(routeGroup.right)} /> */}
-
-  <Arrow stroke="2pt" width={24} height={"auto"} orientation='up' className='arrow absolute top left' onClick={() => router.push(routeGroup.up)} />
   <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
-  <div style={mockStyle}>
+  <div className='story-cover' ref={phoneRef}>
+    <Arrow stroke="2pt" width={27} height={"auto"} orientation='left' className='arrow left' onClick={() => router.push(routeGroup.left)} />
     <Suspense fallback={<div></div>}>
       <PhoneMock src='generative-algorithm' className='phone-size'/>
     </Suspense>
