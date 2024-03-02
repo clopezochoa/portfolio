@@ -1,10 +1,7 @@
 'use client'
 
 import Arrow from '@/app/ui/icons/arrow';
-import { getRouteGroup, Route } from '@/lib/routeList';
-import { useRouter } from 'next/navigation';
-import React, { CSSProperties, lazy, RefObject, Suspense, useContext, useEffect, useRef } from 'react'
-import { defaultColors } from '../../../../tailwind.config';
+import React, { CSSProperties, lazy, Suspense, useContext } from 'react'
 import { WorkBody, WorkHeader } from '@/app/ui/work';
 import { FontsContext } from '@/app/providers/fonts';
 import '@/styles/icon.css'
@@ -45,15 +42,9 @@ const workBodyStyle: CSSProperties = {
 
 function Engine() {
   const font = useContext(FontsContext);
-  const router = useRouter();
-  const routeGroup = getRouteGroup(Route.engine);
-
-  useEffect(() => {
-    (document.getElementsByTagName("html")[0] as HTMLElement).style.backgroundColor = defaultColors.darkGreen;
-  }, [])
 
   return (<>
-    <Arrow stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => router.push(routeGroup.right)} />
+    <Arrow stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => history.back()} />
     <div style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />
