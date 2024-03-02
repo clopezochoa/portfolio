@@ -45,8 +45,10 @@ function Engine() {
   const mainDiv = useRef(null);
 
   useEffect(() => {
-    if (document) document.body.className = "dark-green-bg";
-  }, [document])
+    if (typeof window !== 'undefined' && window.document) {
+      window.document.body.className = "dark-green-bg";
+    }
+  }, [])
 
 
   const hideGenerativeAlgorithms = () => {
