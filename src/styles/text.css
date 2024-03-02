@@ -9,8 +9,6 @@
   letter-spacing: -7px;
   width: min-content;
   float: inline-end;
-  z-index: 1;
-  position: relative;
 }
 
 .name h1 {
@@ -26,6 +24,15 @@
   margin-right: 15px;
 }
 
+.landing-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: grid;
+  align-content: space-between;
+  justify-content: end;
+}
+
 .landing {
   color: theme('colors.clear');
   width: auto;
@@ -37,9 +44,6 @@
   margin-right: 15px;
   margin-bottom: 15px;
   font-weight: 300;
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
 }
 
 
@@ -47,26 +51,6 @@
 .landing .secondary,
 .landing .tertiary {
   font-weight: 400;
-}
-
-.landing .secondary {
-  color: theme('colors.yellow');
-}
-
-.landing .tertiary {
-  color: theme('colors.red');
-}
-
-.landing .main {
-  color: theme('colors.light-green');
-}
-
-.landing .secondary {
-  color: theme('colors.yellow');
-}
-
-.landing .tertiary {
-  color: theme('colors.red');
 }
 
 .about-me {
@@ -108,6 +92,13 @@
   font-weight: 200;
   margin-top: 18px;
 }
+
+.story-cover{
+  justify-content: space-evenly;
+  display: flex;
+  margin: 30px;
+}
+
 
 .story-body-main{
   font-size: 20pt;
