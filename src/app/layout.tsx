@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { defaultColors } from "../../tailwind.config";
 import Providers from "./providers";
 import { keywords } from "./content";
 
@@ -17,9 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{backgroundColor:defaultColors.dark}}>
+    <html lang="en">
       <Providers>
-        <body>
+        <body className="dark-bg">
           {children}
         </body>
       </Providers>
