@@ -1,12 +1,15 @@
 import React, { ReactNode } from 'react'
 import Fonts from './fonts'
+import { IsClientCtxProvider } from './cleint'
 
 function Providers({children}: {children: ReactNode}) {
   return (
     <>
-      <Fonts>
-        {children}
-      </Fonts>
+      <IsClientCtxProvider>
+        <Fonts>
+          {children}
+        </Fonts>
+      </IsClientCtxProvider>
     </>
   )
 }
