@@ -3,7 +3,7 @@
 import { ReactNode, useEffect, useState } from "react"
 import "@/styles/utils.css"
 import "@/styles/window.css"
-import { useIsClient } from "../providers/cleint"
+import { useIsClient } from "../providers/client"
 
 type WindowProps = {
   children: ReactNode,

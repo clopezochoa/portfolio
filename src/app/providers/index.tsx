@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import Fonts from './fonts'
-import { IsClientCtxProvider } from './cleint'
+import { IsClientCtxProvider } from './client'
 
 function Providers({children}: {children: ReactNode}) {
   return (
