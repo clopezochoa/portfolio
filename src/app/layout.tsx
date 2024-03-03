@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className="dark-bg">
+        <body className="bg-dark">
           {children}
         </body>
       </Providers>
