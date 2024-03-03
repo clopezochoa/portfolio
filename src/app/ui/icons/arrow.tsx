@@ -32,20 +32,30 @@ function getArrow(orientation: string): React.JSX.Element {
   }
 }
 
-function Arrow({className, width, height, stroke, orientation, onClick}:{className:string, width:number | string, height:number | string, stroke:string, orientation:string, onClick?:() => void}) {
+type ArrowProps = {
+  className:string;
+  width:number | string;
+  height:number | string;
+  stroke:string;
+  strokeColor:string;
+  orientation:string;
+  onClick?:() => void;
+}
+
+function Arrow(props:ArrowProps) {
   const style: CSSProperties   = {
     fill: "none",
-    stroke: "#E8E8E8",
+    stroke: props.strokeColor,
     strokeLinecap: "round",
     strokeMiterlimit: "10",
-    strokeWidth: stroke,
-    width: width === "auto" ? "auto" : width.toString() + "px",
-    height: height === "auto" ? "auto" : height.toString() + "px",
+    strokeWidth: props.stroke,
+    width: props.width === "auto" ? "auto" : props.width.toString() + "px",
+    height: props.height === "auto" ? "auto" : props.height.toString() + "px",
   }
   return (
-    <div onClick={onClick} className={className}>
+    <div onClick={props.onClick} className={props.className}>
       <svg style={style} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-        {getArrow(orientation)}
+        {getArrow(props.orientation)}
       </svg>
     </div>
 

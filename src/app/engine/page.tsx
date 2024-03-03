@@ -7,6 +7,7 @@ import { FontsContext } from '@/app/providers/fonts';
 import '@/styles/icon.css'
 import '@/styles/utils.css'
 import { defineBody, discoverBody, initialBody, introBody, modelBody, processBody } from './content';
+import { defaultColors } from '../../../tailwind.config';
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const PrototypeDiagram = lazy(() => import("@/app/ui/svg/Diagram"));
@@ -61,7 +62,7 @@ function Engine() {
 
   return (<>
   <div ref={mainDiv} className=''>
-    <Arrow stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => hideGenerativeAlgorithms()} />
+    <Arrow strokeColor={defaultColors.clear} stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => hideGenerativeAlgorithms()} />
     <div style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />

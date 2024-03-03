@@ -17,7 +17,7 @@ import { useViewportClass } from '../hooks/useViewport'
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 
 const workTitleStyleTop: CSSProperties = {
-  color: defaultColors.red,
+  color: defaultColors.darkGreen,
   textAlign: "end",
   marginTop:"15px",
   marginRight:"15px",
@@ -25,41 +25,49 @@ const workTitleStyleTop: CSSProperties = {
 }
 
 const workTitleStyleBottom: CSSProperties = {
-  color: defaultColors.cream,
+  color: defaultColors.purple,
   textAlign: "start",
   marginRight:"50px",
   marginLeft:"15px",
   marginBottom:"30px"
 }
 
-function GenerativeAlgorithm() {
+function FrontendDevelopment() {
   const font = useContext(FontsContext);
   const router = useRouter();
-  const phoneRef = useViewportClass("bg-dark-green");
+  const phoneRef = useViewportClass("bg-light-green");
   const mainDiv = useRef(null);
 
-  const showGenerativeAlgorithms = () => {
+  const showReact = () => {
     (mainDiv.current! as HTMLDivElement).className = "grid slide-right";
     
     setTimeout(() => {
-      router.push("/engine");
+      router.push("/react");
     }, 400);
   }
 
   return (<>
   <div style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
-    <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
+    <WorkTitle title={<>
+      I&apos;ve worked with<br/>
+      <span className='bold'>Angular</span> and<br/>
+      <span className='bold'>TypeScript.</span>
+    </>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover' ref={phoneRef}>
-      <Arrow strokeColor={defaultColors.clear} stroke="4px" width={24} height={"auto"} orientation='left' className='arrow' onClick={() => showGenerativeAlgorithms()} />
+      <Arrow strokeColor={defaultColors.purple} stroke="4px" width={24} height={"auto"} orientation='left' className='arrow' onClick={() => showReact()} />
       <Suspense fallback={<div></div>}>
         <PhoneMock src='generative-algorithm' className='phone-size'/>
       </Suspense>
       <div/>
     </div>
-    <WorkTitle title={<>I&apos;ve designed<br/>growth-shrink<br/><span className='story-title-bold'>algorithms.</span></>} style={workTitleStyleBottom} font={font.sans}/>
+    <WorkTitle title={<>
+      And recently<br/>
+      shifted to<br/>
+      <span className='bold'>Next</span> and <span className='bold'>Mongo.</span>
+    </>} style={workTitleStyleBottom} font={font.sans}/>
   </div>
   </>
   )
 }
 
-export default GenerativeAlgorithm
+export default FrontendDevelopment

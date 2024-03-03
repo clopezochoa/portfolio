@@ -10,7 +10,7 @@ interface NameProps {
 }
 
 function Name(nameProps: NameProps) {
-  const nameRef = useViewportClass("dark-bg");
+  const nameRef = useViewportClass("bg-dark");
   return (<>
   <div ref={nameRef} className='name-container text-clear'>
     <div className={`name ${nameProps.font.className}`}>

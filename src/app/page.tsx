@@ -10,6 +10,8 @@ import '@/styles/text.css'
 import GenerativeAlgorithm from "./generative-algorithm/content";
 import Window from "@/app/ui/window";
 import { useRouter } from "next/navigation";
+import { defaultColors } from "../../tailwind.config";
+import FrontendDevelopment from "./frontend/content";
 
 export default function Home() {
   const fonts = useContext(FontsContext);
@@ -28,8 +30,8 @@ export default function Home() {
     <div ref={mainDiv} className="grid">
       <Window className="flex">
         <div className="arrow-deck">
-          <Arrow width={"auto"} height={60} stroke="1pt" orientation='up' className='arrow' onClick={() => showAboutMe()}/>
-          <Arrow width={"auto"} height={60} stroke="1pt" orientation='down' className='arrow' /* onClick={() => router.push(routeGroup.down)} *//>
+          <Arrow strokeColor={defaultColors.clear} width={"auto"} height={60} stroke="1pt" orientation='up' className='arrow' onClick={() => showAboutMe()}/>
+          <div/>
         </div>
         <div className="landing-container">
           <Name name="Carlos" surname="López-Ochoa" font={fonts.serif} />
@@ -38,6 +40,9 @@ export default function Home() {
       </Window>
       <Window className="space-between">
         <GenerativeAlgorithm />
+      </Window>
+      <Window className="space-between">
+        <FrontendDevelopment />
       </Window>
     </div>
   </>

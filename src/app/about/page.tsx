@@ -9,6 +9,7 @@ import Window from '../ui/window'
 import { Greeting, WhatIDo } from './content'
 import Arrow from '../ui/icons/arrow'
 import { useRouter } from 'next/navigation'
+import { defaultColors } from '../../../tailwind.config'
 
 function AboutMe() {
   const router = useRouter();
@@ -32,7 +33,7 @@ function AboutMe() {
       </div>
       <div className='space-between'>
         <div/>
-        <Arrow width={"auto"} height={24} stroke="4px" orientation='down' className='arrow' onClick={() => hideAboutMe()} />
+        <Arrow strokeColor={defaultColors.clear} width={"auto"} height={24} stroke="4px" orientation='down' className='arrow' onClick={() => hideAboutMe()} />
       </div>
     </Window>
   </div>
