@@ -30,7 +30,6 @@
 }
 
 .arrow {
-  cursor: pointer;
   z-index: 10;
   display: flex;
   align-items: center;

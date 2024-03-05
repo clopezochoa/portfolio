@@ -39,6 +39,8 @@ type ArrowProps = {
   stroke:string;
   strokeColor:string;
   orientation:string;
+  opacity?:number;
+  inactive?: boolean;
   onClick?:() => void;
 }
 
@@ -51,6 +53,8 @@ function Arrow(props:ArrowProps) {
     strokeWidth: props.stroke,
     width: props.width === "auto" ? "auto" : props.width.toString() + "px",
     height: props.height === "auto" ? "auto" : props.height.toString() + "px",
+    opacity: props.opacity ?? 1,
+    cursor: props.inactive ? "default" : "pointer"
   }
   return (
     <div onClick={props.onClick} className={props.className}>
