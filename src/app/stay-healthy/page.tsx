@@ -6,16 +6,18 @@ import { WorkBody, WorkHeader } from '@/app/ui/work';
 import { FontsContext } from '@/app/providers/fonts';
 import '@/styles/icon.css'
 import '@/styles/utils.css'
-import { initialBody } from './content';
+import { implementBody, designBody, initialBody, introBody, connectBody, processBody } from './content';
 import { defaultColors } from '../../../tailwind.config';
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
+const Diagram = lazy(() => import("@/app/ui/svg/Diagram"));
+const Wireframe = lazy(() => import("@/app/ui/png/Wireframe"));
 
 const mockStyle: CSSProperties = {
   marginLeft:"15px",
   marginRight:"45px",
-  marginTop:"5px",
-  marginBottom:"15px"
+  marginTop:"50px",
+  marginBottom:"15px",
 }
 
 const pageStyle:CSSProperties={
@@ -83,7 +85,63 @@ function StayHealthy() {
         <PhoneMock src='stay-healthy' className='phone-size'/>
       </Suspense>
     </div>
+    <div style={pageStyle}>
+      <div style={workHeaderStyle}>
+        <WorkHeader title='' subtitle={<>Fast,<br/>easy.</>} font={font.serif} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={introBody} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={processBody} />
+      </div>
+    </div>
+    <div style={mockStyle}>
+      <Suspense fallback={<div></div>}>
+        <Wireframe src='card-doctor' className='wireframe-grid' margin='32px'/>
+      </Suspense>
+    </div>
+      
+    <div className='pt-10' style={pageStyle}>
+      <div style={workHeaderStyle}>
+        <WorkHeader title='Design' subtitle='Paint, shape, show.' font={font.serif} />
+      </div>
+    </div>
+    <div className='pt-10 pb-10' style={mockStyle}>
+      <Suspense fallback={<div></div>}>
+        <Diagram src='design' className='phone-mock-rotate'/>
+      </Suspense>
+    </div>
+    <div style={pageStyle}>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={designBody} />
+      </div>
+    </div>
+{/*     
+    <div style={mockStyle}>
+      <Suspense fallback={<div></div>}>
+        <Wireframe src='card-doctor' className='wireframe-grid' margin='32px'/>
+      </Suspense>
+    </div>
+    <div className='pt-10' style={pageStyle}>
+      <div style={workHeaderStyle}>
+        <WorkHeader title='Implement' subtitle='Services & Datasets' font={font.serif} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={implementBody} />
+      </div>
+    </div>
+
+    <div className='pt-10' style={pageStyle}>
+      <div style={workHeaderStyle}>
+        <WorkHeader title='Connect' subtitle='Make it happen' font={font.serif} />
+      </div>
+      <div style={workBodyStyle}>
+        <WorkBody font={font.condensed} body={connectBody} />
+      </div>
+    </div> */}
   </div>
+
   </>
   )
 }
