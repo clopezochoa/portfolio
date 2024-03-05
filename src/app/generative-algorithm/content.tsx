@@ -11,8 +11,7 @@ import { useRouter } from 'next/navigation';
 import { Route, getRouteGroup } from '@/lib/routeList';
 import { WorkTitle } from '../ui/work';
 import { FontsContext } from '../providers/fonts';
-import { useViewportClass } from '../hooks/useViewport'
-
+import { useViewportFunction } from '../hooks/useViewport'
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 
@@ -35,11 +34,13 @@ const workTitleStyleBottom: CSSProperties = {
 function GenerativeAlgorithm() {
   const font = useContext(FontsContext);
   const router = useRouter();
-  const phoneRef = useViewportClass("bg-dark-green");
+  const phoneRef = useViewportFunction(() => {
+    document.body.className = "bg-dark-green";
+  });
   const mainDiv = useRef(null);
 
   const showGenerativeAlgorithms = () => {
-    (mainDiv.current! as HTMLDivElement).className = "grid slide-right";
+    (mainDiv.current! as HTMLDivElement).className = "grid slide-left";
     
     setTimeout(() => {
       router.push("/engine");
@@ -50,11 +51,11 @@ function GenerativeAlgorithm() {
   <div style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
     <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover' ref={phoneRef}>
-      <Arrow strokeColor={defaultColors.clear} stroke="4px" width={24} height={"auto"} orientation='left' className='arrow' onClick={() => showGenerativeAlgorithms()} />
+      <Arrow inactive={true} opacity={0} strokeColor={defaultColors.clear} stroke="4px" width={24} height={"auto"} orientation='left' className='arrow' onClick={() => null} />
       <Suspense fallback={<div></div>}>
         <PhoneMock src='generative-algorithm' className='phone-size'/>
       </Suspense>
-      <div/>
+      <Arrow strokeColor={defaultColors.clear} stroke="4px" width={24} height={"auto"} orientation='right' className='arrow' onClick={() => showGenerativeAlgorithms()} />
     </div>
     <WorkTitle title={<>I&apos;ve designed<br/>growth-shrink<br/><span className='story-title-bold'>algorithms.</span></>} style={workTitleStyleBottom} font={font.sans}/>
   </div>
