@@ -1,44 +1,45 @@
 'use client'
 
-import { ReactNode, useEffect, useState } from "react"
+import { ReactNode, forwardRef, useEffect, useState } from "react"
 import "@/styles/utils.css"
 import "@/styles/window.css"
 import { useIsClient } from "../providers/client"
 
 type WindowProps = {
   children: ReactNode,
-  className?: string
+  className?: string,
 }
 
-function Window(props: WindowProps) {
-  const [height, setHeight] = useState(1080);
-  const isClient = useIsClient();
-  const setHeightProtected = () => {
-    if(typeof window !== 'undefined') {
-      setHeight(window?.innerHeight ?? 1080)
-    }
-  }
-  useEffect(() => {
-    addEventListener("resize", () => setHeightProtected());
-    return () => removeEventListener("resize", () => setHeightProtected());
-  }, [])
+const WindowWithRef = forwardRef<HTMLDivElement, WindowProps>(
+  function Window({ className, children }: WindowProps, ref) {
+    const [height, setHeight] = useState(1080);
+    const isClient = useIsClient();
 
-  useEffect(() => {
-    setHeightProtected();
-  }, [isClient])
-  
-  return (
-    <>
-      {
-        isClient ? 
-          <div className={props.className ?? ""} style={{height: height}}>
-            {props.children}
-          </div>
-        :
-        null
+    useEffect(() => {
+      if (typeof window !== 'undefined') {
+        setHeight(window?.innerHeight ?? 1080);
       }
-    </>
-  )
-}
+    }, [isClient]);
 
-export default Window
+    useEffect(() => {
+      addEventListener("resize", () => setHeightProtected());
+      return () => removeEventListener("resize", () => setHeightProtected());
+    }, []);
+
+    const setHeightProtected = () => {
+      setHeight(window?.innerHeight ?? 1080);
+    };
+
+    return (
+      <>
+        {isClient ? (
+          <div className={className ?? ""} style={{ height: height }} ref={ref}>
+            {children}
+          </div>
+        ) : null}
+      </>
+    );
+  }
+);
+
+export default WindowWithRef;
