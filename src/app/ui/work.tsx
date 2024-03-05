@@ -10,7 +10,7 @@ interface WorkTitleProps {
 
 export function WorkTitle(workTitleProps: WorkTitleProps) {
   return (<>
-    <div style={workTitleProps.style} className={`text-clear story-title-main ${workTitleProps.font.className}`}>
+    <div style={workTitleProps.style} className={`story-title-main ${workTitleProps.font.className}`}>
       <h1>{workTitleProps.title}</h1>
     </div>
   </>)
@@ -24,7 +24,7 @@ interface WorkHeaderProps {
 
 export function WorkHeader(workHeaderProps: WorkHeaderProps) {
   return (<>
-    <div className={`text-clear work ${workHeaderProps.font.className}`}>
+    <div className={`work ${workHeaderProps.font.className}`}>
       <h1>{workHeaderProps.title}</h1>
       <h2 className='mt-2'>{workHeaderProps.subtitle}</h2>
     </div>
@@ -38,7 +38,7 @@ interface WorkBodyProps {
 
 export function WorkBody(workBodyProps: WorkBodyProps) {
   return (<>
-  <div className={'work-body-container story-body-main text-clear ' + workBodyProps.font.className} >
+  <div className={'work-body-container story-body-main ' + workBodyProps.font.className} >
     {workBodyProps.body.map((item, key) => 
         <div key={key} style={{marginTop:"20pt"}}>{item}</div>
     )}

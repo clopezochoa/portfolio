@@ -47,13 +47,12 @@ function Engine() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.document) {
-      window.document.body.className = "dark-green-bg";
+      window.document.body.className = "bg-dark-green";
     }
   }, [])
 
-
   const hideGenerativeAlgorithms = () => {
-    (mainDiv.current! as HTMLDivElement).className = "slide-left";
+    (mainDiv.current! as HTMLDivElement).className = "text-clear slide-right";
     
     setTimeout(() => {
       history.back()
@@ -61,8 +60,8 @@ function Engine() {
   }
 
   return (<>
-  <div ref={mainDiv} className=''>
-    <Arrow strokeColor={defaultColors.clear} stroke="2pt" width={24} height={"auto"} orientation='right' className='arrow fixed bottom right' onClick={() => hideGenerativeAlgorithms()} />
+  <div ref={mainDiv} className='text-clear'>
+    <Arrow strokeColor={defaultColors.clear} stroke="2pt" width={24} height={"auto"} orientation='left' className='arrow fixed bottom right' onClick={() => hideGenerativeAlgorithms()} />
     <div style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />

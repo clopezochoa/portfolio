@@ -39,10 +39,10 @@ function FrontendDevelopment() {
   const mainDiv = useRef(null);
 
   const showReact = () => {
-    (mainDiv.current! as HTMLDivElement).className = "grid slide-right";
+    (mainDiv.current! as HTMLDivElement).className = "grid slide-left";
     
     setTimeout(() => {
-      router.push("/react");
+      router.push("/stay-healthy");
     }, 400);
   }
 
@@ -54,11 +54,11 @@ function FrontendDevelopment() {
       <span className='bold'>TypeScript.</span>
     </>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover' ref={phoneRef}>
-      <Arrow strokeColor={defaultColors.purple} stroke="4px" width={24} height={"auto"} orientation='left' className='arrow' onClick={() => showReact()} />
+      <Arrow inactive={true} opacity={0} strokeColor={defaultColors.purple} stroke="4px" width={24} height={"auto"} orientation='right' className='arrow' onClick={() => null} />
       <Suspense fallback={<div></div>}>
-        <PhoneMock src='generative-algorithm' className='phone-size'/>
+        <PhoneMock src='stay-healthy' className='phone-size'/>
       </Suspense>
-      <div/>
+      <Arrow strokeColor={defaultColors.purple} stroke="4px" width={24} height={"auto"} orientation='right' className='arrow' onClick={() => showReact()} />
     </div>
     <WorkTitle title={<>
       And recently<br/>
