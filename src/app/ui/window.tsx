@@ -14,10 +14,12 @@ const WindowWithRef = forwardRef<HTMLDivElement, WindowProps>(
   function Window({ className, children }: WindowProps, ref) {
     const [height, setHeight] = useState(1080);
     const isClient = useIsClient();
-
+    
     useEffect(() => {
       if (typeof window !== 'undefined') {
-        setHeight(window?.innerHeight ?? 1080);
+        setHeight(window.innerHeight);
+      } else {
+        setHeight(1080)
       }
     }, [isClient]);
 
@@ -27,7 +29,11 @@ const WindowWithRef = forwardRef<HTMLDivElement, WindowProps>(
     }, []);
 
     const setHeightProtected = () => {
-      setHeight(window?.innerHeight ?? 1080);
+      if (typeof window !== 'undefined') {
+        setHeight(window.innerHeight);
+      } else {
+        setHeight(1080)
+      }
     };
 
     return (
