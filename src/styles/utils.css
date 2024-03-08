@@ -1,7 +1,6 @@
 .phone-size{
   max-width: 285px;
   height: auto;
-  margin-block: 7rem;
 }
 
 .phone-size-rotate{
@@ -14,15 +13,25 @@
   column-count: 4;
   z-index:10
 }
-
 .space-between{
   display: grid;
   align-content: space-between;
 }
-
 .flex-between{
   display: flex;
   justify-content: space-between;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.grid-scroll{
+  display: grid;
+  scroll-snap-type: y mandatory;
+}
+.window-snap{
+  scroll-snap-align: center;
 }
 
 .slide-down{
@@ -47,10 +56,33 @@
   transition: opacity 1s ease-in-out;
 }
 
+.wave-opacity{
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-name: waveOpacity;
+  animation-delay: 1s;
+  opacity: 1;
+}
+
+@keyframes waveOpacity {
+  20% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 460px) {
   .phone-size{
-    margin-block: 0rem;
-    width: 90%;
+    max-width: 200px;
   }
 }
 
