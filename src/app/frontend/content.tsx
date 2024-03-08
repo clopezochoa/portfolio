@@ -8,11 +8,10 @@ import React, { CSSProperties, Suspense, lazy, useContext, useEffect, useRef } f
 import { defaultColors } from '../../../tailwind.config';
 import Arrow from '../ui/icons/arrow';
 import { useRouter } from 'next/navigation';
-import { Route, getRouteGroup } from '@/lib/routeList';
+import { Pages, Route } from '@/lib/routeList';
 import { WorkTitle } from '../ui/work';
 import { FontsContext } from '../providers/fonts';
 import { useViewportClass } from '../hooks/useViewport'
-
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 
@@ -35,30 +34,31 @@ const workTitleStyleBottom: CSSProperties = {
 function FrontendDevelopment() {
   const font = useContext(FontsContext);
   const router = useRouter();
-  const phoneRef = useViewportClass("bg-light-green");
+  const targetRef = useViewportClass("bg-light-green");
   const mainDiv = useRef(null);
-
-  const showReact = () => {
+  const showStayHealthy = () => {
     (mainDiv.current! as HTMLDivElement).className = "grid slide-left";
     
     setTimeout(() => {
-      router.push("/stay-healthy");
+      router.push(Route.stayHealthy);
     }, 400);
   }
 
   return (<>
-  <div style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
+  <div id={Pages.frontend} style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
     <WorkTitle title={<>
       I&apos;ve worked with<br/>
       <span className='bold'>Angular</span> and<br/>
       <span className='bold'>TypeScript.</span>
     </>} style={workTitleStyleTop} font={font.sans}/>
-    <div className='story-cover' ref={phoneRef}>
-      <Arrow inactive={true} opacity={0} strokeColor={defaultColors.purple} stroke="4px" width={24} height={"auto"} orientation='right' className='arrow' onClick={() => null} />
+    <div className='story-cover'>
+      <div className='arrow' ref={targetRef} style={{width:"60px", height:"60px" }}/>
       <Suspense fallback={<div></div>}>
+      <div style={{cursor:"pointer"}} onClick={() => showStayHealthy()}>
         <PhoneMock src='stay-healthy' className='phone-size'/>
+      </div>
       </Suspense>
-      <Arrow strokeColor={defaultColors.purple} stroke="4px" width={24} height={"auto"} orientation='right' className='arrow' onClick={() => showReact()} />
+      <Arrow strokeColor={defaultColors.purple} width={"auto"} height={60} stroke="1pt" orientation='right' className='arrow wave-opacity' onClick={() => showStayHealthy()} />
     </div>
     <WorkTitle title={<>
       And recently<br/>
