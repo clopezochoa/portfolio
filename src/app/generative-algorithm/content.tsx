@@ -8,7 +8,7 @@ import React, { CSSProperties, Suspense, lazy, useContext, useEffect, useRef } f
 import { defaultColors } from '../../../tailwind.config';
 import Arrow from '../ui/icons/arrow';
 import { useRouter } from 'next/navigation';
-import { Route, getRouteGroup } from '@/lib/routeList';
+import { Pages, Route } from '@/lib/routeList';
 import { WorkTitle } from '../ui/work';
 import { FontsContext } from '../providers/fonts';
 import { useViewportFunction } from '../hooks/useViewport'
@@ -34,7 +34,7 @@ const workTitleStyleBottom: CSSProperties = {
 function GenerativeAlgorithm() {
   const font = useContext(FontsContext);
   const router = useRouter();
-  const phoneRef = useViewportFunction(() => {
+  const targetRef = useViewportFunction(() => {
     document.body.className = "bg-dark-green";
   });
   const mainDiv = useRef(null);
@@ -43,19 +43,21 @@ function GenerativeAlgorithm() {
     (mainDiv.current! as HTMLDivElement).className = "grid slide-left";
     
     setTimeout(() => {
-      router.push("/engine");
+      router.push(Route.engine);
     }, 400);
   }
 
   return (<>
-  <div style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
+  <div id={Pages.generativeAlgorithm} style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
     <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
-    <div className='story-cover' ref={phoneRef}>
-      <Arrow inactive={true} opacity={0} strokeColor={defaultColors.clear} stroke="4px" width={24} height={"auto"} orientation='left' className='arrow' onClick={() => null} />
+    <div className='story-cover'>
+      <div className='arrow' ref={targetRef} style={{width:"60px", height:"60px" }}/>
       <Suspense fallback={<div></div>}>
-        <PhoneMock src='generative-algorithm' className='phone-size'/>
+        <div style={{cursor:"pointer"}} onClick={() => showGenerativeAlgorithms()}>
+          <PhoneMock src='generative-algorithm' className='phone-size'/>
+        </div>
       </Suspense>
-      <Arrow strokeColor={defaultColors.clear} stroke="4px" width={24} height={"auto"} orientation='right' className='arrow' onClick={() => showGenerativeAlgorithms()} />
+      <Arrow strokeColor={defaultColors.clear} width={"auto"} height={60} stroke="1pt" orientation='right' className='arrow wave-opacity' onClick={() => showGenerativeAlgorithms()} />
     </div>
     <WorkTitle title={<>I&apos;ve designed<br/>growth-shrink<br/><span className='story-title-bold'>algorithms.</span></>} style={workTitleStyleBottom} font={font.sans}/>
   </div>
