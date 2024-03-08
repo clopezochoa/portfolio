@@ -34,14 +34,16 @@ export const initialBody = [
 
 export const introBody = [
   <>
-    <span className='bold'>Introduction</span><br/>
+    <span className='bold large'>Introduction</span><br/>
+    <br />
     <span>&quot;Create a simple medical appointment service&quot;.<br/>
     <br/>
     While wireframing the navigation bar, the basic pillars of this app emerged as main drivers of the whole experience.<br/>
     In opposition to cluttered UI designs observed after a desk research, simplicity is used to reduce bounce rates.</span>
   </>,
   <>
-    <span className='bold'>Problem</span><br/>
+    <span className='bold large'>Problem</span><br/>
+    <br />
     <span>Elder people may find web-apps cluttered, messy and not worthy of the effort.<br/>
     How can fronttend development ease the pain of a cluttered UI?<br/>
     What good examples are there already?<br/>
@@ -52,25 +54,25 @@ export const introBody = [
 
 export const processBody = [
   <>
-    <span className='bold'>Process</span><br/>
+    <span className='bold large'>Process</span><br/>
   </>,
   <>
     <span>
-      DESIGN<br/>
+    <span className="bold">DESIGN</span><br/>
       <span className="ms-3">Wireframing<br/></span>
       <span className="ms-3">Static Design<br/></span>
     </span>
   </>,
   <>
     <span>
-      IMPLEMENT<br/>
+    <span className="bold">IMPLEMENT</span><br/>
       <span className="ms-3">Navigation<br/></span>
       <span className="ms-3">Services<br/></span>
     </span>
   </>,
   <>
     <span>
-      CONNECT<br/>
+    <span className="bold">CONNECT</span><br/>
       <span style={{height:'2px'}}></span>
       <span className="ms-3">Database<br/></span>
       <span className="ms-3">API<br/></span>
@@ -81,27 +83,28 @@ export const processBody = [
 
 export const designBody = [
   <>
-    <span className='bold'>Wireframing</span><br/>
+    <span className='bold large'>Wireframing</span><br/>
+    <br />
     <span>
       The approach that this design process followed had a top-to-bottom flow.<br/>
       A navigation bar is a great prototyping tool to encapsulate the pillars of an app:<br/>
       <br />
-      HOME<br/>
+      <span className="bold">HOME</span><br/>
       The landing page has a single responsibility, which is offering access to a variety of services, each depicted with an image and a caption.<br/>
       These services allow the user to get a new appointment, fetch reports and receive guidance.<br/>
       <br />
-      APPOINTMENTS<br/>
+      <span className="bold">APPOINTMENTS</span><br/>
       The goal of the whole app is getting to see your chosen doctor and the appointments space allows you to.<br/>
       Having booked an appointment through main services, the user may need to change or cancel it.<br/>
       <br />
-      HEALTH BLOG<br/>
+      <span className="bold">HEALTH BLOG</span><br/>
       A strong and readable communication channel that can be trusted is displayed in a Health Blog space.<br/>
       FAQ lists are based on probability, they judge the user by average values. Instead, a tips space with tailored advices avoid the probable and rely on user data.<br/>
       <br />
-      REVIEW<br/>
+      <span className="bold">REVIEW</span><br/>
       Users love reading reviews before spending money and/or time. Hence a dedicated space to reviews that offers a grasp of real-life experiences.<br/>
       <br />
-      AUTHENTICATION<br/>
+      <span className="bold">AUTHENTICATION</span><br/>
       Since these services offer tailored information for the user, signing in and up must be at hand.<br/>
       This implies that a user model and a session context must be created and managed throught cookies.<br/>
     </span><br/>
@@ -113,13 +116,15 @@ export const designBody = [
     </span><br/>
   </>,
   <>
-    <span className='bold'>Static Design</span><br/>
+    <span className='bold large'>Static Design</span><br/>
+    <br />
     <span>
       What comes after initial drafts is to produce a responsive static desing for both desktop and mobile. Even though users of advanced age are getting more and more<br />
       into the mobile scene using smartphones, they often rely on computers simply because they were here before smartphones. <br />
     </span> <br />
     <span>
       Figma was a great aid when it came to:<br/>  
+      <br />
       - Streamline the components production. Since React is component based, Figma&quot;s components are a blessing to keep everything tidy.<br/>
       - Get the most out of styles and variables to be aligned with Tailwind.<br/>
       - Extract production ready CSS out of elements using the Dev Mode.<br/>  
@@ -130,7 +135,8 @@ export const designBody = [
 
 export const implementBody = [
   <>
-    <span className='bold'>Navigation</span><br/>
+    <span className='bold large'>Navigation</span><br/>
+    <br />
     <span>
       First and foremost, it has to perform way faster and process way more data than the previous pipeline.<br/>  
       Robustness is also key to allow the algorithm to be reused over and over with any client, may it be very small or gigantic.<br/>  
@@ -138,7 +144,8 @@ export const implementBody = [
     </span>
   </>,
   <>
-    <span className='bold'>Services</span><br/>
+    <span className='bold large'>Services</span><br/>
+    <br />
     <span>
       After testing a new possible pipeline using simple JSON files and not .obj or .glb files, it faced two critical tests.<br/>    
       Simulation time is the obvious one. Processing taking longer than ten minutes triggers alerts and may require optimization.<br/>    
@@ -157,7 +164,8 @@ export const implementBody = [
 
 export const connectBody = [
   <>
-    <span className='bold'>Database</span><br/>
+    <span className='bold large'>Database</span><br/>
+    <br />
     <span>
       The unit chosen to build models is a very simple hexagon built by seven points in space, in the XZ plane, the ground.<br/>  
       That means we just have to set X and Z coordinates of the center of each unit relative to an origin, which is zero, zero, zero.<br/>  
@@ -165,7 +173,8 @@ export const connectBody = [
     </span>
   </>,
   <>
-    <span className='bold'>API</span><br/>
+    <span className='bold large'>API</span><br/>
+    <br />
     <span>
       How to get a first bundle and make it resemble organic from early on? Soon I realized that I needed a shape algorithm to rig the whole simulation.<br/>
       Answering that question was fun because initially I used no initial shape rig and let the simulation decide where to grow freely.<br/>    
@@ -184,7 +193,8 @@ export const connectBody = [
     </span>
   </>,
   <>
-    <span className='bold'>Cloud</span><br/>
+    <span className='bold large'>Cloud</span><br/>
+    <br />
     <span>
       One last thing before starting to code, after prototyping, was to give a seed to each tenant. That way, everything was deterministic and even if<br />
       some decisions may be random, it all can be traced, reproduced and debugged. It also helped differentiating one customer from another, by being sure<br />
