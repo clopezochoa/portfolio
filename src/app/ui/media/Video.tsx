@@ -18,19 +18,19 @@ const VideoWithAlpha = ({src, className}:{src:string, className: string}) => {
   }, []);
 
   return (
-    <div className={className} style={{zIndex:"10"}}>
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        controls={false}
-      >
-        <source src={"/media/phone-mock/" + src + ".webm"} type="video/webm" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+    <video
+      ref={videoRef}
+      autoPlay
+      loop
+      muted
+      playsInline
+      controls={false}
+      className={className}
+      style={{zIndex:"10"}}
+    >
+      <source src={"/media/phone-mock/" + src + ".webm"} type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
   );
 };
 
