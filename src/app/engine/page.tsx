@@ -8,6 +8,8 @@ import '@/styles/icon.css'
 import '@/styles/utils.css'
 import { defineBody, discoverBody, initialBody, introBody, modelBody, processBody } from './content';
 import { defaultColors } from '../../../tailwind.config';
+import { useRouter } from 'next/navigation';
+import { Route } from '@/lib/routeList';
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const PrototypeDiagram = lazy(() => import("@/app/ui/svg/Diagram"));
@@ -44,6 +46,7 @@ const workBodyStyle: CSSProperties = {
 function Engine() {
   const font = useContext(FontsContext);
   const mainDiv = useRef(null);
+  const textColor = "text-clear";
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.document) {
@@ -51,17 +54,19 @@ function Engine() {
     }
   }, [])
 
-  const hideGenerativeAlgorithms = () => {
-    (mainDiv.current! as HTMLDivElement).className = "text-clear slide-right";
+  const router = useRouter();
+
+  const slideBack = () => {
+    (mainDiv.current! as HTMLDivElement).className = `${textColor} slide-right`;
     
     setTimeout(() => {
-      history.back()
+      router.push(Route.generativeAlgorithm)
     }, 500);
   }
 
   return (<>
-  <div ref={mainDiv} className='text-clear'>
-    <Arrow strokeColor={defaultColors.clear} stroke="2pt" width={24} height={"auto"} orientation='left' className='arrow fixed bottom right' onClick={() => hideGenerativeAlgorithms()} />
+  <div ref={mainDiv} className={textColor}>
+    <Arrow strokeColor={defaultColors.clear} stroke="1pt" width={"auto"} height={60} orientation='left' className='arrow fixed bottom right' onClick={() => slideBack()} />
     <div style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />
