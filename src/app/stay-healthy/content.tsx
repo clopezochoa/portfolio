@@ -106,37 +106,25 @@ export const designBody = [
       This implies that a user model and a session context must be created and managed throught cookies.<br/>
     </span><br/>
     <span>
-      After a thorough investigation, different situations and edge cases flourished. Holes can occurs as a result<br/>
-      of deleting an inner item. Decisions must be taken when placing a new item. Slots can be classified as free,<br/>
-      occupied or forbidden. An overall shape forms as a contour is perceived, this shape can resemble a circle when growth is sequential.<br/>    
+      Up to this point, a wishlist can be pulled out of the navbar:<br/>
+      We need a database to retain the information.<br/>
+      API Endpoints to get and post info to it.<br/>    
+      A cloud bucket to store bigger files such as reports.<br/>    
     </span><br/>
   </>,
   <>
     <span className='bold'>Static Design</span><br/>
     <span>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      What comes after initial drafts is to produce a responsive static desing for both desktop and mobile. Even though users of advanced age are getting more and more<br />
+      into the mobile scene using smartphones, they often rely on computers simply because they were here before smartphones. <br />
+    </span> <br />
+    <span>
+      Figma was a great aid when it came to:<br/>  
+      - Streamline the components production. Since React is component based, Figma&quot;s components are a blessing to keep everything tidy.<br/>
+      - Get the most out of styles and variables to be aligned with Tailwind.<br/>
+      - Extract production ready CSS out of elements using the Dev Mode.<br/>  
+      <br />
     </span>
-    {/* <span>
-      When researching growth algorithms, two sources of knowledge were very important throughout the whole project:<br/>  
-      <br />
-      <a target="_blank" rel="noopener noreferrer" href="https://www.nationalgeographic.com/science/article/slime-mould-attacks-simulates-tokyo-rail-network">
-        The first is an article by Ed Yong from 2010 on National Geographic about the Tokyo rail network.<br/>    
-      </a>
-      &quot;Tero grew Physarum in a wet dish at a place corresponding to Tokyo, with oat flakes marking the locations of other major cities<br/>
-      in the Greater Tokyo Area. Physarum avoids bright light, so Tero used light to simulate mountains, lakes and other prohibitive<br/>
-      terrain on his miniature map. The mould soon filled the space with a densely packed web of plasmodia.&quot;<br/>
-      <br/>
-      I have returned to this article for direction and enlightenment many times since the way the fungus behaves is inspiring and provides valuable ideas,<br/>  
-      such as neighbour queries, distance degrees and convex polygons, all powerful tools for a shape to expand.<br/>
-      <br />
-      <a target="_blank" rel="noopener noreferrer" href="https://www.redblobgames.com/grids/hexagons/">
-        The second is a blog by Amit Patel started in 1994 that beautifully explains hexagonal grids in depth.<br />
-      </a>
-      The honeycomb arrange came to mind unintentionally, probably because the pipeline I had to upgrade was based on a voronoi cell distribution<br/>
-      and I suddenly became aware of the risks of having a variable tile surface, vertex and sides. Indeed bees are smart. Probably the most<br />
-      valuable tool in this blog is the concept of Cube Coordinate. I did not notice its importance at first, surely because of being busy<br />
-      with other subjects like rotations and rings.
-    </span> */}
   </>
 ];
 
