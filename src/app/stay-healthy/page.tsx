@@ -8,6 +8,8 @@ import '@/styles/icon.css'
 import '@/styles/utils.css'
 import { implementBody, designBody, initialBody, introBody, connectBody, processBody } from './content';
 import { defaultColors } from '../../../tailwind.config';
+import { useRouter } from 'next/navigation';
+import { Route } from '@/lib/routeList';
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const Diagram = lazy(() => import("@/app/ui/svg/Diagram"));
@@ -45,6 +47,7 @@ const workBodyStyle: CSSProperties = {
 function StayHealthy() {
   const font = useContext(FontsContext);
   const mainDiv = useRef(null);
+  const textColor = "text-purple";
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.document) {
@@ -52,25 +55,28 @@ function StayHealthy() {
     }
   }, [])
 
+  const router = useRouter();
 
-  const hideGenerativeAlgorithms = () => {
-    (mainDiv.current! as HTMLDivElement).className = "text-purple slide-right";
+  const slideBack = () => {
+    (mainDiv.current! as HTMLDivElement).className = `${textColor} slide-right`;
     
     setTimeout(() => {
-      history.back()
+      router.push(Route.frontend, {
+        scroll: true
+      })
     }, 500);
   }
 
   return (<>
-  <div ref={mainDiv} className='text-purple'>
+  <div ref={mainDiv} className={textColor}>
     <Arrow
       strokeColor={defaultColors.dark}
-      stroke="5pt"
-      width={24}
-      height={"auto"}
+      stroke="1pt"
+      width={"auto"}
+      height={60}
       orientation='left'
       className='arrow fixed bottom right'
-      onClick={() => hideGenerativeAlgorithms()}
+      onClick={() => slideBack()}
     />
     <div style={pageStyle}>
       <div style={workHeaderStyle}>
