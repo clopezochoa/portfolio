@@ -3,9 +3,9 @@
 }
 
 .name {
-  text-align: end;
-  font-size: 60pt;
-  line-height: 54pt;
+  text-align: start;
+  font-size: 90pt;
+  line-height: 80pt;
   letter-spacing: -7px;
   width: min-content;
   float: inline-end;
@@ -20,8 +20,8 @@
 }
 
 .name-container {
-  margin-top: 5px;
-  margin-right: 15px;
+  margin-top: 50px;
+  margin-left: 50px;
 }
 
 .landing-container {
@@ -29,19 +29,19 @@
   width: 100%;
   display: grid;
   align-content: space-between;
-  justify-content: end;
+  justify-content: start;
 }
 
 .landing {
   color: theme('colors.clear');
   width: auto;
-  text-align: end;
+  text-align: start;
   font-size: 36pt;
   line-height: 48px;
   letter-spacing: -5px;
   display: grid;
-  margin-right: 15px;
-  margin-bottom: 15px;
+  margin-left: 50px;
+  margin-bottom: 50px;
   font-weight: 300;
 }
 
@@ -53,12 +53,13 @@
 }
 
 .about-me {
-  color: theme('colors.clear');
+  color: theme('colors.dark');
   display: grid;
+  padding-inline: 2.5rem;
 }
 
 .about-me-heading{
-  text-align: end;
+  text-align: center;
   font-size: 54pt;
   line-height: 54pt;
   letter-spacing: -7px;
@@ -67,31 +68,32 @@
   margin: 30px;
   margin-bottom: 15px;
 }
+
 .about-me-p1{
-  text-align: end;
-  font-size: 20pt;
-  line-height: 22pt;
+  text-align: start;
+  font-size: 22pt;
+  line-height: 24pt;
   letter-spacing: -1.5px;
   float: inline-end;
   font-weight: 300;
-  margin: 30px;
-  margin-top: 15px;
+  margin-right: 15px;
 
 
 }
 .about-me-p2{
-  text-align: start;
+  text-align: end;
   font-size: 16pt;
   line-height: 18pt;
   letter-spacing: -1pt;
   float: inline-start;
   font-weight: 200;
-  margin: 30px;
+  margin: 10px;
 }
 
 .story-cover{
   justify-content: space-between;
   display: flex;
+  align-items: center;
 }
 
 
@@ -125,6 +127,7 @@
 
 .about-list{
   width: max-content;
+  height: fit-content;
 }
 
 .work-body-container{
@@ -146,10 +149,21 @@
   font-weight: 300;
 }
 
-@media (max-width: 360px) {
+.what-i-do-container {
+  display:grid;
+  justify-content:center;
+  margin-top: 80px;
+  height: fit-content;
+}
+
+@media (max-width: 375px) {
+  .name-container{
+    margin-top: 15px;
+    margin-left: 15px;  
+  }
   .name {
-    font-size: 50pt;
-    line-height: 46pt;
+    font-size: 60pt;
+    line-height: 54pt;
     letter-spacing: -6px;
   }
   .work {
@@ -164,10 +178,11 @@
     display: grid;
     margin-right: 15px;
     margin-bottom: 15px;
+    margin-left: 15px;
     font-weight: 300;
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
+  }
+  .about-me{
+    padding-inline: 0.5rem;
   }
   .about-me-heading{
     margin: 10px;
@@ -175,13 +190,13 @@
   }
   .about-me-p1{
     font-size: 18pt;
-    line-height: 20pt;
+    line-height: 18pt;
     margin: 10px;
     margin-top: 5px;
   }
   .about-me-p2{
     font-size: 14pt;
-    line-height: 16pt;
+    line-height: 14pt;
     letter-spacing: 0pt;
     margin: 10px;
   }
@@ -195,5 +210,17 @@
     letter-spacing: -0.2pt;
     text-align: start;
     line-height: 19pt;
+  }
+  .story-body-bold{
+    font-size: 14pt;
+    line-height: 16pt;
+    text-align: start;
+  }
+  .what-i-do-container {
+    display:flex;
+    justify-content:space-between;
+    margin-top: 40px;
+    padding-inline: 1rem;
+    height: fit-content;
   }
 }
