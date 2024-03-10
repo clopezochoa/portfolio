@@ -23,10 +23,6 @@ export const initialBody = [
   <>
     <span className='bold'>Years</span><br/>
     <span>2022 - 2023</span><br/>
-  </>,
-  <>
-    <span className='bold'>Employer</span><br/>
-    <span>Foreworth SL</span><br/>
   </>
 ];
 
