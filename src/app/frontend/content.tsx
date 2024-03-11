@@ -16,25 +16,23 @@ import { useViewportClass } from '../hooks/useViewport'
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 
 const workTitleStyleTop: CSSProperties = {
-  color: defaultColors.darkGreen,
+  color: defaultColors.yellow.hex,
   textAlign: "end",
-  marginTop:"15px",
-  marginRight:"15px",
-  marginLeft:"50px",
+  margin:"50px",
 }
 
 const workTitleStyleBottom: CSSProperties = {
-  color: defaultColors.purple,
+  color: defaultColors.yellow.hex,
   textAlign: "start",
-  marginRight:"50px",
-  marginLeft:"15px",
-  marginBottom:"30px"
+  margin:"50px",
 }
+
+const arrowSize = 100;
 
 function FrontendDevelopment() {
   const font = useContext(FontsContext);
   const router = useRouter();
-  const targetRef = useViewportClass("bg-light-green");
+  const targetRef = useViewportClass(defaultColors.green.bg);
   const mainDiv = useRef(null);
   const showStayHealthy = () => {
     (mainDiv.current! as HTMLDivElement).className = "grid slide-left";
@@ -52,13 +50,13 @@ function FrontendDevelopment() {
       <span className='bold'>TypeScript.</span>
     </>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover'>
-      <div className='arrow' ref={targetRef} style={{width:"60px", height:"60px" }}/>
+      <div className='arrow' ref={targetRef} style={{width:arrowSize.toString() + "px", height:arrowSize.toString() + "px" }}/>
       <Suspense fallback={<div></div>}>
       <div style={{cursor:"pointer"}} onClick={() => showStayHealthy()}>
         <PhoneMock src='stay-healthy' className='phone-size'/>
       </div>
       </Suspense>
-      <Arrow strokeColor={defaultColors.purple} width={"auto"} height={60} stroke="1pt" orientation='right' className='arrow wave-opacity' onClick={() => showStayHealthy()} />
+      <Arrow strokeColor={defaultColors.yellow.hex} width={"auto"} height={arrowSize} stroke="1pt" orientation='right' className='arrow wave-opacity' onClick={() => showStayHealthy()} />
     </div>
     <WorkTitle title={<>
       And recently<br/>
