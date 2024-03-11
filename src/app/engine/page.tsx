@@ -43,6 +43,8 @@ const workBodyStyle: CSSProperties = {
   float:"inline-start"
 }
 
+const arrowSize = 100;
+
 function Engine() {
   const font = useContext(FontsContext);
   const mainDiv = useRef(null);
@@ -66,7 +68,7 @@ function Engine() {
 
   return (<>
   <div ref={mainDiv} className={textColor}>
-    <Arrow strokeColor={defaultColors.clear} stroke="1pt" width={"auto"} height={60} orientation='left' className='arrow fixed bottom right' onClick={() => slideBack()} />
+    <Arrow strokeColor={defaultColors.clear.hex} stroke="1pt" width={"auto"} height={arrowSize} orientation='left' className='arrow fixed bottom right' onClick={() => slideBack()} />
     <div style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />

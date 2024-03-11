@@ -15,6 +15,8 @@ import { Greeting, WhatIDo } from "./about/content";
 import { Pages } from "@/lib/routeList";
 import { useScroll } from "./hooks/useScroll";
 
+const arrowSize = 100;
+
 export default function Home() {
   const fonts = useContext(FontsContext);
   const windowLandingRef = useRef(null);
@@ -31,10 +33,10 @@ export default function Home() {
         <Landing font={fonts.serif} />
       </div>
       <div className="arrow-deck">
-        <div/>
-          <a href={`#${Pages.generativeAlgorithm}`}>
-            <Arrow strokeColor={defaultColors.clear} width={"auto"} height={60} stroke="1pt" orientation='down' className='arrow wave-opacity'/>
-          </a>
+        <div className='arrow' style={{width:arrowSize.toString() + "px", height:arrowSize.toString() + "px" }}/>
+        <a href={`#${Pages.generativeAlgorithm}`}>
+          <Arrow strokeColor={defaultColors.clear.hex} width={"auto"} height={arrowSize} stroke="1pt" orientation='down' className='arrow wave-opacity'/>
+        </a>
       </div>
     </Window>
     <Window ref={generativeAlgorithmRef} className="space-between">
@@ -49,7 +51,7 @@ export default function Home() {
       <WhatIDo/>
     </Window>
     <a style={{display:"flex", justifyContent:"center"}} href={`#`}>
-      <Arrow strokeColor={defaultColors.dark} width={"auto"} height={60} stroke="1pt" orientation='up' className='arrow'/>
+      <Arrow strokeColor={defaultColors.dark.hex} width={"auto"} height={arrowSize} stroke="1pt" orientation='up' className='arrow'/>
     </a>
   </>
   );

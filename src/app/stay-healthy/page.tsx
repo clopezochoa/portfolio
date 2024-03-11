@@ -44,6 +44,8 @@ const workBodyStyle: CSSProperties = {
   float:"inline-start"
 }
 
+const arrowSize = 100;
+
 function StayHealthy() {
   const font = useContext(FontsContext);
   const mainDiv = useRef(null);
@@ -70,10 +72,10 @@ function StayHealthy() {
   return (<>
   <div ref={mainDiv} className={textColor}>
     <Arrow
-      strokeColor={defaultColors.dark}
+      strokeColor={defaultColors.clear.hex}
       stroke="1pt"
       width={"auto"}
-      height={60}
+      height={arrowSize}
       orientation='left'
       className='arrow fixed bottom right'
       onClick={() => slideBack()}
