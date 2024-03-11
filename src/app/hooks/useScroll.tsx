@@ -1,5 +1,7 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect } from "react";
 import debounce from 'lodash/debounce';
+
+const DEBOUNCE_DELAY = 400;
 
 export const useScroll = (refs: Array<MutableRefObject<null>>) => {
   const handleScroll = debounce(() => {
@@ -24,7 +26,7 @@ export const useScroll = (refs: Array<MutableRefObject<null>>) => {
         window.scrollTo({ top: (nearestWindow as HTMLDivElement).offsetTop, behavior: "smooth" })
       }
     }
-  }, 1000);
+  }, DEBOUNCE_DELAY);
 
   useEffect(() => {
     if(typeof window !== undefined && window) {
