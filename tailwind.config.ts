@@ -52,5 +52,21 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: [
+    defaultColors.clear.bg,
+    defaultColors.medium.bg,
+    defaultColors.dark.bg,
+    defaultColors.green.bg,
+    defaultColors.blue.bg,
+    defaultColors.yellow.bg,
+    defaultColors.red.bg,
+    defaultColors.clear.text,
+    defaultColors.medium.text,
+    defaultColors.dark.text,
+    defaultColors.green.text,
+    defaultColors.blue.text,
+    defaultColors.yellow.text,
+    defaultColors.red.text,
+  ],
 };
 export default config;
