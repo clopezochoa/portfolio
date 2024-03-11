@@ -1,29 +1,35 @@
 import type { Config } from "tailwindcss";
 
-export interface ColorsModel {
-  clear: string;
-  medium: string;
-  dark: string;
-  cream: string;
-  lightGreen: string;
-  green: string;
-  darkGreen: string;
-  purple: string;
-  yellow: string;
-  red: string;
+export class ColorObject {
+  hex: string;
+  name: string;
+  bg: string;
+  text: string;
+  
+  constructor (
+    hex: string,
+    name: string
+  ) {
+    if(hex[0] === "#") {
+      this.hex = hex;
+    } else {
+      this.hex = `#${hex}`;
+    }
+    this.name = name;
+    this.bg = `bg-${name}`
+    this.text = `text-${name}`
+  }
 }
 
 export const defaultColors = {
-  clear: "#E8E8E8",
-  medium: "#888888",
-  dark: "#3D3D3D",
-  cream: "#F8FFE5",
-  lightGreen: "#B2E6D4",
-  green: "#898952",
-  darkGreen: "#082D0F",
-  purple: "#694873",
-  yellow: "#FAA916",
-  red: "#CD5D67"
+  clear: new ColorObject("E8E8E8", "clear"),
+  medium: new ColorObject("888888", "medium"),
+  dark: new ColorObject("3D3D3D", "dark"),
+  green: new ColorObject("2A9D8F", "green"),
+  blue: new ColorObject("264653", "blue"),
+  yellow: new ColorObject("E9C46A", "yellow"),
+  orange: new ColorObject("F4A261", "orange"),
+  red: new ColorObject("E76F51", "red")
 };
 
 const config: Config = {
@@ -35,16 +41,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "clear": defaultColors.clear,
-        "medium": defaultColors.medium,
-        "dark": defaultColors.dark,
-        "cream": defaultColors.cream,
-        "light-green": defaultColors.lightGreen,
-        "green": defaultColors.green,
-        "dark-green": defaultColors.darkGreen,
-        "purple": defaultColors.purple,
-        "yellow": defaultColors.yellow,
-        "red": defaultColors.red,
+        "clear": defaultColors.clear.hex,
+        "medium": defaultColors.medium.hex,
+        "dark": defaultColors.dark.hex,
+        "green": defaultColors.green.hex,
+        "blue": defaultColors.blue.hex,
+        "yellow": defaultColors.yellow.hex,
+        "red": defaultColors.red.hex,
       }
     },
   },
