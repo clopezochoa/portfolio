@@ -2,6 +2,7 @@ import React from 'react'
 import '@/styles/text.css'
 import '@/styles/icon.css'
 import { NextFont } from 'next/dist/compiled/@next/font';
+import { defaultColors } from '../../../tailwind.config';
 
 interface LandingProps {
   font: NextFont;
@@ -10,26 +11,14 @@ interface LandingProps {
 function Landing(landingProps: LandingProps) {
   return (<>
   <div className={`landing ${landingProps.font.className}`}>
-    <div className='main text-light-green'>
-      Frontend
+    <div className='main'>
+      <span className={`${defaultColors.green.text}`}>Frontend </span><span>developer,</span>
     </div>
-    <div>
-      Developer,
+    <div className='secondary'>
+      <span className={`${defaultColors.yellow.text}`}>3D Design </span><span>specialist,</span>
     </div>
-    <div className='secondary text-yellow'>
-    3D Design
-    </div>
-    <div>
-    specialist,
-    </div>
-    <div className='tertiary text-red'>
-    Generative
-    </div>
-    <div className='tertiary text-red'>
-    algorithms
-    </div>
-    <div>
-    explorer.
+    <div className='tertiary'>
+      <span className={`${defaultColors.red.text}`}>Generative Algorithms </span><span>explorer.</span>
     </div>
   </div>
   </>)
