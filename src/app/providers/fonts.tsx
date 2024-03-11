@@ -1,11 +1,11 @@
 'use client'
 
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Fraunces, Mulish, Encode_Sans_Condensed } from "next/font/google";
+import { IBM_Plex_Serif, IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
 
-export const serif = Fraunces({ weight: ["200", "300", "400","500", "600", "700", "800", "900"], subsets: ["latin"] });
-export const sans = Mulish({ weight: ["200", "300", "400","500", "600", "700", "800", "900"], subsets: ["latin"] });
-export const condensed = Encode_Sans_Condensed({ weight: ["200", "300", "400","500", "600", "700", "800", "900"], subsets: ["latin"] });
+export const serif = IBM_Plex_Serif({ weight: ["100", "200", "300", "400","500", "600", "700"], subsets: ["latin"] });
+export const sans = IBM_Plex_Sans({ weight: ["100", "200", "300", "400","500", "600", "700"], subsets: ["latin"] });
+export const condensed = IBM_Plex_Sans_Condensed({ weight: ["100", "200", "300", "400","500", "600", "700"], subsets: ["latin"] });
 
 import React, { ReactNode, createContext } from 'react'
 
