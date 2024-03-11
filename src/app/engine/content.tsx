@@ -1,7 +1,21 @@
+import '@/styles/text.css'
+
+enum Section {
+  iterativePrototyping = "Iterative Prototyping",
+  articleResearch = "Article Research",
+  limits = "Limits",
+  expectations = "Expectations",
+  objects = "Objects",
+  bundles = "Bundles",
+  tenants = "Tenants",
+  discover = "Discover",
+  define = "Define",
+  model = "Model",
+}
 
 export const initialBody = [
   <>
-    <span>A tangible representation of software needs a definition of growth and shrinkage.<br/>
+    <span className='work-body'>A tangible representation of software needs a definition of growth and shrinkage.<br/>
     This algorithm intakes databases and sorts each entry considering the nature of each new file,<br/>
     the formation state and their surroundings.<br/>
     <br/>
@@ -9,36 +23,36 @@ export const initialBody = [
     so every file has its location in space and can be visually traced by the user.</span>
   </>,
   <>
-    <span className='bold'>Duration</span><br/>
-    <span>20 Months</span><br/>
+    <span className='bold mt-20'>Duration</span><br/>
+    <span className='work-body'>20 Months</span><br/>
   </>,
   <>
-    <span className='bold'>Tools</span><br/>
-    <span>.NET & HoudiniFX</span><br/>
+    <span className='bold'>Technologies</span><br/>
+    <span className='work-body'>.NET 6 + Visual Studio + WPF + C# + Python</span><br/>
   </>,
   <>
     <span className='bold'>Role</span><br/>
-    <span>Algorithmic Designer</span><br/>
+    <span className='work-body'>Algorithmic Designer</span><br/>
   </>,
   <>
     <span className='bold'>Years</span><br/>
-    <span>2022 - 2023</span><br/>
+    <span className='work-body'>2022 - 2023</span><br/>
   </>
 ];
 
 export const introBody = [
   <>
-    <span className='bold large'>Introduction</span><br/>
+    <span className='work-subtitle'>Introduction</span><br/>
     <br />
-    <span>&quot;Give physical entity to a variant database and make it look alive&quot;.<br/>
+    <span className='work-body'>&quot;Give physical entity to a variant database and make it look alive&quot;.<br/>
     <br/>
     When prototyping it, I realized that the problem was simple to describe yet difficult to solve,<br/>
     with this premise I began tinkering and managed to lay down the foundation sooner than expected.</span>
   </>,
   <>
-    <span className='bold large'>Problem</span><br/>
+    <span className='work-subtitle'>Problem</span><br/>
     <br />
-    <span>Organic growth has two main challenges when it comes to mimicking life: expansion and behaviour.<br/>
+    <span className='work-body'>Organic growth has two main challenges when it comes to mimicking life: expansion and behaviour.<br/>
     How can a group of items be located in space and decide where to go next?<br/>
     Who did it before me?<br/>
     What key advantages have the different already made solutions?<br/>
@@ -49,51 +63,59 @@ export const introBody = [
 
 export const processBody = [
   <>
-    <span className='bold large'>Process</span><br/>
+    <span className='work-subtitle'>Process</span><br/>
   </>,
   <>
     <span>
-      <span className="bold">DISCOVER</span><br/>
-      <span className="ms-3">Iterative Prototyping<br/></span>
-      <span className="ms-3">Article Research<br/></span>
+    <span className="bold"><a href={'#' + Section.discover}>{Section.discover.toUpperCase()}</a></span><br/>
+      <div className='work-body'>
+      <a href={'#' + Section.iterativePrototyping} className="ms-3">{Section.iterativePrototyping}<br/></a>
+      <a href={'#' + Section.articleResearch} className="ms-3">{Section.articleResearch}<br/></a>
+      </div>
+      <br />
     </span>
   </>,
   <>
     <span>
-    <span className="bold">DEFINE</span><br/>
-      <span className="ms-3">Limits<br/></span>
-      <span className="ms-3">Expectations<br/></span>
+    <span className="bold"><a href={'#' + Section.define}>{Section.define.toUpperCase()}</a></span><br/>
+    <div className='work-body'>
+      <a href={'#' + Section.limits} className="ms-3">{Section.limits}<br/></a>
+      <a href={'#' + Section.expectations} className="ms-3">{Section.expectations}<br/></a>
+    </div>
+      <br />
     </span>
   </>,
   <>
     <span>
-    <span className="bold">MODEL</span><br/>
-      <span style={{height:'2px'}}></span>
-      <span className="ms-3">Objects<br/></span>
-      <span className="ms-3">Bundles<br/></span>
-      <span className="ms-3">Tenants<br/></span>
+    <span className="bold"><a href={'#' + Section.model}>{Section.model.toUpperCase()}</a></span><br/>
+      <div className='work-body'>
+      <a href={'#' + Section.objects} className="ms-3">{Section.objects}<br/></a>
+      <a href={'#' + Section.bundles} className="ms-3">{Section.bundles}<br/></a>
+      <a href={'#' + Section.tenants} className="ms-3">{Section.tenants}<br/></a>
+      </div>
+      <br />
     </span>
   </>,
 ];
 
 export const discoverBody = [
   <>
-    <span className='bold large'>Iterative Prototyping</span><br/>
+    <span id={Section.iterativePrototyping} className='work-subtitle'>Iterative Prototyping</span><br/>
     <br />
-    <span>
+    <span className='work-body'>
       A first approach to growing geometry is to define the surface of a unit and the direction of growth. <br/>  
       Shrinkage seems obvious at first: Deleting a unit is making its surface available.<br/>    
     </span><br/>
-    <span>
+    <span className='work-body'>
       After a thorough investigation, different situations and edge cases flourished. Holes can occurs as a result<br/>
       of deleting an inner item. Decisions must be taken when placing a new item. Slots can be classified as free,<br/>
       occupied or forbidden. An overall shape forms as a contour is perceived, this shape can resemble a circle when growth is sequential.<br/>    
     </span><br/>
   </>,
   <>
-    <span className='bold large'>Article Research</span><br/>
+    <span id={Section.articleResearch} className='work-subtitle'>Article Research</span><br/>
     <br />
-    <span>
+    <span className='work-body'>
       When researching growth algorithms, two sources of knowledge were very important throughout the whole project:<br/>  
       <br />
       <a target="_blank" rel="noopener noreferrer" href="https://www.nationalgeographic.com/science/article/slime-mould-attacks-simulates-tokyo-rail-network">
@@ -119,18 +141,18 @@ export const discoverBody = [
 
 export const defineBody = [
   <>
-    <span className='bold large'>Expectations</span><br/>
+    <span id={Section.expectations} className='work-subtitle'>Expectations</span><br/>
     <br />
-    <span>
+    <span className='work-body'>
       First and foremost, it has to perform way faster and process way more data than the previous pipeline.<br/>  
       Robustness is also key to allow the algorithm to be reused over and over with any client, may it be very small or gigantic.<br/>  
       Robotic and artificial patterns must be avoided, the look and feel must be organic and should offer an image to be remembered.<br/>    
     </span>
   </>,
   <>
-    <span className='bold large'>Limits</span><br/>
+    <span id={Section.limits} className='work-subtitle'>Limits</span><br/>
     <br />
-    <span>
+    <span className='work-body'>
       After testing a new possible pipeline using simple JSON files and not .obj or .glb files, it faced two critical tests.<br/>    
       Simulation time is the obvious one. Processing taking longer than ten minutes triggers alerts and may require optimization.<br/>    
       The second challenge is Babylon build time. Previously, bundled 3D objects resulted in fetching a file exceeding 100 MB.<br/>
@@ -144,9 +166,9 @@ export const defineBody = [
     </span>
   </>,
   <>
-    <span className='bold large'>Plan</span><br/>
+    <span className='work-subtitle'>Plan</span><br/>
     <br />
-    <span>
+    <span className='work-body'>
       In conclusion, while the new JSON-based pipeline presents initial challenges in terms of handling geometry instructions,<br />
       it offers significant advantages in terms of file size, rendering speed, and compatibility. Monitoring simulation times<br />
       and further optimizing the pipeline can address any remaining performance concerns.<br/>
@@ -157,18 +179,18 @@ export const defineBody = [
 
 export const modelBody = [
   <>
-    <span className='bold large'>Objects</span><br/>
+    <span id={Section.objects} className='work-subtitle'>Objects</span><br/>
     <br />
-    <span>
+    <span className='work-body'>
       The unit chosen to build models is a very simple hexagon built by seven points in space, in the XZ plane, the ground.<br/>  
       That means we just have to set X and Z coordinates of the center of each unit relative to an origin, which is zero, zero, zero.<br/>  
       Knowing that, along with the radius of the hexagon, I could lay down elements to an elemental grid.<br/>    
     </span>
   </>,
   <>
-    <span className='bold large'>Bundles</span><br/>
+    <span id={Section.bundles} className='work-subtitle'>Bundles</span><br/>
     <br />
-    <span>
+    <span className='work-body'>
       How to get a first bundle and make it resemble organic from early on? Soon I realized that I needed a shape algorithm to rig the whole simulation.<br/>
       Answering that question was fun because initially I used no initial shape rig and let the simulation decide where to grow freely.<br/>    
       It led me to very questionable results. Basically a greater hexagon, a round circle or a rhomboid. No matter how I told the units to grow,<br/>    
@@ -186,9 +208,9 @@ export const modelBody = [
     </span>
   </>,
   <>
-    <span className='bold large'>Tenants</span><br/>
+    <span id={Section.tenants} className='work-subtitle'>Tenants</span><br/>
     <br />
-    <span>
+    <span className='work-body'>
       One last thing before starting to code, after prototyping, was to give a seed to each tenant. That way, everything was deterministic and even if<br />
       some decisions may be random, it all can be traced, reproduced and debugged. It also helped differentiating one customer from another, by being sure<br />
       about at least one parameter that each generation is unique to its tenant and cannot be mistaken.<br />
