@@ -16,26 +16,24 @@ import { useViewportFunction } from '../hooks/useViewport'
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 
 const workTitleStyleTop: CSSProperties = {
-  color: defaultColors.red,
+  color: defaultColors.red.hex,
   textAlign: "end",
-  marginTop:"15px",
-  marginRight:"15px",
-  marginLeft:"50px",
+  margin:"50px",
 }
 
 const workTitleStyleBottom: CSSProperties = {
-  color: defaultColors.cream,
+  color: defaultColors.red.hex,
   textAlign: "start",
-  marginRight:"50px",
-  marginLeft:"15px",
-  marginBottom:"30px"
+  margin:"50px",
 }
+
+const arrowSize = 100;
 
 function GenerativeAlgorithm() {
   const font = useContext(FontsContext);
   const router = useRouter();
   const targetRef = useViewportFunction(() => {
-    document.body.className = "bg-dark-green";
+    document.body.className = defaultColors.blue.bg;
   });
   const mainDiv = useRef(null);
 
@@ -51,13 +49,13 @@ function GenerativeAlgorithm() {
   <div id={Pages.generativeAlgorithm} style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
     <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover'>
-      <div className='arrow' ref={targetRef} style={{width:"60px", height:"60px" }}/>
+      <div className='arrow' ref={targetRef} style={{width:arrowSize.toString() + "px", height:arrowSize.toString() + "px" }}/>
       <Suspense fallback={<div></div>}>
         <div style={{cursor:"pointer"}} onClick={() => showGenerativeAlgorithms()}>
           <PhoneMock src='generative-algorithm' className='phone-size'/>
         </div>
       </Suspense>
-      <Arrow strokeColor={defaultColors.clear} width={"auto"} height={60} stroke="1pt" orientation='right' className='arrow wave-opacity' onClick={() => showGenerativeAlgorithms()} />
+      <Arrow strokeColor={defaultColors.red.hex} width={"auto"} height={arrowSize} stroke="1pt" orientation='right' className='arrow wave-opacity' onClick={() => showGenerativeAlgorithms()} />
     </div>
     <WorkTitle title={<>I&apos;ve designed<br/>growth-shrink<br/><span className='story-title-bold'>algorithms.</span></>} style={workTitleStyleBottom} font={font.sans}/>
   </div>
