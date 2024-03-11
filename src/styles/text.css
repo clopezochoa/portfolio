@@ -11,7 +11,7 @@
   font-size: 90pt;
   line-height: 80pt;
   letter-spacing: -7px;
-  width: min-content;
+  width: auto;
   float: inline-end;
 }
 
@@ -107,6 +107,7 @@
   letter-spacing: -0.6pt;
   text-align: start;
   line-height: 24pt;
+  margin-bottom: 3rem;
 }
 
 .story-body-bold{
@@ -142,7 +143,7 @@
   font-size: 60pt;
   line-height: 54pt;
   letter-spacing: -7px;
-  width: min-content;
+  width: auto;
 }
 
 .work h1 {
@@ -151,6 +152,19 @@
 
 .work h2 {
   font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.work-subtitle {
+  font-weight: 700;
+  font-size: xx-large;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.work-body{
+  font-weight: 200;
+  font-size: large;
 }
 
 .what-i-do-container {
