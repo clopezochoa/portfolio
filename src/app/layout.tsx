@@ -3,6 +3,7 @@ import "./globals.css";
 import Providers from "./providers";
 import { keywords } from "./content";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { defaultColors } from "../../tailwind.config";
 
 export const metadata: Metadata = {
   title: "Carlos López-Ochoa",
@@ -20,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <SpeedInsights />
       <Providers>
-        <body className="bg-dark">
+        <body className={defaultColors.dark.bg}>
           {children}
         </body>
       </Providers>
