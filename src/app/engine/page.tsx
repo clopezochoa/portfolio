@@ -15,10 +15,10 @@ const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const PrototypeDiagram = lazy(() => import("@/app/ui/svg/Diagram"));
 
 const mockStyle: CSSProperties = {
-  marginLeft:"15px",
-  marginRight:"45px",
-  marginTop:"5px",
-  marginBottom:"15px"
+  display:"flex",
+  justifyContent:"center",
+  marginInline:"15vw",
+  marginBlock:"3rem"
 }
 
 const pageStyle:CSSProperties={
@@ -26,19 +26,18 @@ const pageStyle:CSSProperties={
   position:"relative",
   zIndex:"1",
   justifyItems:"start",
-  marginLeft:"15px",
-  marginBlock:"15px"
+  marginInline:"15vw",
+  marginTop:"3rem"
 }
 
 const workHeaderStyle: CSSProperties = {
-  marginTop:"-5px",
+  marginBlock:"3rem",
   textAlign:"start",
   float:"inline-start"
 }
 
 const workBodyStyle: CSSProperties = {
-  marginTop:"5px",
-  marginRight:"45px",
+  marginBottom:"3rem",
   textAlign:"start",
   float:"inline-start"
 }
@@ -48,11 +47,11 @@ const arrowSize = 100;
 function Engine() {
   const font = useContext(FontsContext);
   const mainDiv = useRef(null);
-  const textColor = "text-clear";
+  const textColor = defaultColors.clear.text;
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.document) {
-      window.document.body.className = "bg-dark-green";
+      window.document.body.className = defaultColors.blue.bg;
     }
   }, [])
 
@@ -74,7 +73,7 @@ function Engine() {
         <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={initialBody} />
+        <WorkBody font={font.serif} body={initialBody} />
       </div>
     </div>
     <div style={mockStyle}>
@@ -87,10 +86,10 @@ function Engine() {
         <WorkHeader title='' subtitle={<>Visualize data,<br/>get to know it.</>} font={font.serif} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={introBody} />
+        <WorkBody font={font.serif} body={introBody} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={processBody} />
+        <WorkBody font={font.serif} body={processBody} />
       </div>
     </div>
     <div style={mockStyle}>
@@ -111,7 +110,7 @@ function Engine() {
     </div>
     <div style={pageStyle}>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={discoverBody} />
+        <WorkBody font={font.serif} body={discoverBody} />
       </div>
     </div>
     
@@ -120,7 +119,7 @@ function Engine() {
         <WorkHeader title='Define' subtitle='Ideas come true' font={font.serif} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={defineBody} />
+        <WorkBody font={font.serif} body={defineBody} />
       </div>
     </div>
 
@@ -129,7 +128,7 @@ function Engine() {
         <WorkHeader title='Model' subtitle='Giving an architecture to the system' font={font.serif} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={modelBody} />
+        <WorkBody font={font.serif} body={modelBody} />
       </div>
     </div>
   </div>
