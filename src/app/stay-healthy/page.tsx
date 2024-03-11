@@ -16,10 +16,10 @@ const Diagram = lazy(() => import("@/app/ui/svg/Diagram"));
 const Wireframe = lazy(() => import("@/app/ui/png/Wireframe"));
 
 const mockStyle: CSSProperties = {
-  marginLeft:"15px",
-  marginRight:"45px",
-  marginTop:"50px",
-  marginBottom:"15px",
+display:"flex",
+  justifyContent:"center",
+  marginInline:"15vw",
+  marginBlock:"3rem"
 }
 
 const pageStyle:CSSProperties={
@@ -27,19 +27,18 @@ const pageStyle:CSSProperties={
   position:"relative",
   zIndex:"1",
   justifyItems:"start",
-  marginLeft:"15px",
-  marginBlock:"15px"
+  marginInline:"15vw",
+  marginTop:"3rem"
 }
 
 const workHeaderStyle: CSSProperties = {
-  marginTop:"-5px",
+  marginBlock:"3rem",
   textAlign:"start",
   float:"inline-start"
 }
 
 const workBodyStyle: CSSProperties = {
-  marginTop:"5px",
-  marginRight:"45px",
+  marginBottom:"3rem",
   textAlign:"start",
   float:"inline-start"
 }
@@ -49,11 +48,11 @@ const arrowSize = 100;
 function StayHealthy() {
   const font = useContext(FontsContext);
   const mainDiv = useRef(null);
-  const textColor = "text-purple";
+  const textColor = defaultColors.clear.text;
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.document) {
-      window.document.body.className = "bg-light-green";
+      window.document.body.className = defaultColors.green.bg;
     }
   }, [])
 
@@ -85,7 +84,7 @@ function StayHealthy() {
         <WorkHeader title='Go Full Stack' subtitle='To build an entire app' font={font.serif} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={initialBody} />
+        <WorkBody font={font.serif} body={initialBody} />
       </div>
     </div>
     <div style={mockStyle}>
@@ -98,10 +97,10 @@ function StayHealthy() {
         <WorkHeader title='' subtitle={<>Fast,<br/>easy.</>} font={font.serif} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={introBody} />
+        <WorkBody font={font.serif} body={introBody} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={processBody} />
+        <WorkBody font={font.serif} body={processBody} />
       </div>
     </div>
     <div style={mockStyle}>
@@ -122,7 +121,7 @@ function StayHealthy() {
     </div>
     <div style={pageStyle}>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={designBody} />
+        <WorkBody font={font.serif} body={designBody} />
       </div>
     </div>
 {/*     
@@ -136,7 +135,7 @@ function StayHealthy() {
         <WorkHeader title='Implement' subtitle='Services & Datasets' font={font.serif} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={implementBody} />
+        <WorkBody font={font.serif} body={implementBody} />
       </div>
     </div>
 
@@ -145,7 +144,7 @@ function StayHealthy() {
         <WorkHeader title='Connect' subtitle='Make it happen' font={font.serif} />
       </div>
       <div style={workBodyStyle}>
-        <WorkBody font={font.condensed} body={connectBody} />
+        <WorkBody font={font.serif} body={connectBody} />
       </div>
     </div> */}
   </div>
