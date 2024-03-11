@@ -52,13 +52,13 @@ export function Greeting(){
 export function WhatIDo(){
   const font = useContext(FontsContext);
   const targetRef = useViewportFunction(() => {
-    document.body.className = "bg-clear";
+    document.body.className = defaultColors.clear.bg;
   });
 
   return (
     <>
       <div className="what-i-do-container">
-        <ul className={'story-body-bold text-dark about-list ' + font.condensed.className}>
+        <ul className={`story-body-bold ${defaultColors.dark.text} about-list ${font.condensed.className}`}>
           <li>
             Frontend Development
           </li>
@@ -82,14 +82,14 @@ export function WhatIDo(){
         }}>
           <div className='about-icon-container' >
             <Link href={process.env.LINKTREE ?? "/."}>
-              <Linktree className='about-icon' color={defaultColors.dark} ></Linktree>
+              <Linktree className='about-icon' color={defaultColors.dark.hex} ></Linktree>
             </Link>
             <Link href={process.env.LINKEDIN ?? "/."}>
-              <Linkedin className='about-icon' color={defaultColors.dark} ></Linkedin>
+              <Linkedin className='about-icon' color={defaultColors.dark.hex} ></Linkedin>
             </Link>
           </div>
           <div ref={targetRef} className='contact-button' >
-            <a className={'text-dark story-body-bold ' + font.condensed.className} href={process.env.EMAIL ?? "/."}>
+            <a className={`${defaultColors.dark.text} story-body-bold ` + font.condensed.className} href={process.env.EMAIL ?? "/."}>
               Contact Me
             </a>
           </div>
