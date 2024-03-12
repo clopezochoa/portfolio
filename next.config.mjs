@@ -5,6 +5,7 @@ const nextConfig = {
     LINKEDIN:"https://www.linkedin.com/in/cloa/",
     EMAIL:"mailto:carlos@lopezochoa.com",
   },
+  transpilePackages: ['three'],
 };
 
 export default nextConfig;
