@@ -1,3 +1,18 @@
+.app-link-animation a {
+  color: theme('colors.clear');
+  transition: all 0.1s ease-in-out;
+}
+
+.app-link-animation-yellow a:hover {
+  color: theme('colors.yellow');
+  transition: all 0.1s ease-in-out;
+}
+
+.app-link-animation-red a:hover {
+  color: theme('colors.red');
+  transition: all 0.1s ease-in-out;
+}
+
 .phone-size{
   max-width: 285px;
   height: auto;

@@ -16,10 +16,15 @@
   transition: all 0.1s ease-in-out;
 }
 
-.app-link:hover {
-  font-size: large;
+.app-link-yellow:hover {
   text-underline-offset: -14pt;
   color: theme('colors.yellow');
+  transition: all 0.1s ease-in-out;
+}
+
+.app-link-red:hover {
+  text-underline-offset: -14pt;
+  color: theme('colors.red');
   transition: all 0.1s ease-in-out;
 }
 
