@@ -9,10 +9,6 @@
   width: auto;
 }
 
-.wireframe-grid{
-  column-count: 4;
-  z-index:10
-}
 .space-between{
   display: grid;
   align-content: space-between;
@@ -83,11 +79,5 @@
 @media (max-width: 460px) {
   .phone-size{
     max-width: 200px;
-  }
-}
-
-@media (max-width: 800px) {
-  .wireframe-grid{
-    column-count: 2;
   }
 }
