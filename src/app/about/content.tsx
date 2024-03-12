@@ -78,7 +78,8 @@ export function WhatIDo(){
         <div style={{
           height: "auto",
           display: "grid",
-          alignContent: "space-between"
+          alignContent: "space-between",
+          zIndex: "1"
         }}>
           <div className='about-icon-container' >
             <Link href={process.env.LINKTREE ?? "/."}>

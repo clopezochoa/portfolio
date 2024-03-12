@@ -99,7 +99,7 @@ const SkyBackground = (props:{top?: boolean, bottom?: boolean, color?: string}) 
       <Canvas onPointerMove={handleHover} camera={{ manual: true }}>
         <PerspectiveCamera ref={camera} makeDefault />
         <ambientLight intensity={0.5} />
-        <CustomGeometryParticles count={5000} color={props.color ?? "#000000"}/>
+        <CustomGeometryParticles count={5000} color={props.color ?? "#FFFFFF"}/>
       </Canvas>
     </div>
   </>

@@ -28,8 +28,8 @@ export default function Home() {
   useScroll(refs);
   
   return (<>
-    <SkyBackground bottom color="#E8E8E8" />
     <Window ref={windowLandingRef} className="flex">
+      <SkyBackground bottom color={defaultColors.clear.hex} />
       <div className="landing-container">
         <Name name="Carlos" surname="López-Ochoa" font={fonts.serif} />
         <Landing font={fonts.serif} />
@@ -49,7 +49,7 @@ export default function Home() {
     </Window>
     <div style={{height:"100px"}}/>
     <Window ref={aboutRef}>
-      <SkyBackground top />
+      <SkyBackground top color={defaultColors.dark.hex}/>
       <Greeting/>
       <WhatIDo/>
     </Window>
