@@ -22,15 +22,6 @@ display:"flex",
   marginBlock:"3rem"
 }
 
-const pageStyle:CSSProperties={
-  display:"grid",
-  position:"relative",
-  zIndex:"1",
-  justifyItems:"start",
-  marginInline:"15vw",
-  marginTop:"3rem"
-}
-
 const workHeaderStyle: CSSProperties = {
   marginBlock:"3rem",
   textAlign:"start",
@@ -52,8 +43,6 @@ const shadow: CSSProperties = {
   WebkitBorderRadius: "25px 25px 25px 25px",
   border: "0px solid #000000"
 }
-
-const arrowSize = 100;
 
 const cardElementCount = 4;
 const tipElementCount = 2;
@@ -142,13 +131,11 @@ function StayHealthy() {
     <Arrow
       strokeColor={defaultColors.clear.hex}
       stroke="1pt"
-      width={"auto"}
-      height={arrowSize}
       orientation='left'
-      className='arrow fixed bottom right'
+      className='arrow arrow-back fixed bottom right'
       onClick={() => slideBack()}
     />
-    <div style={pageStyle}>
+    <div className='workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='Go Full Stack' subtitle='To build an entire app' font={font.serif} />
         <a href={'https://stay-healthy-gray.vercel.app/'} className={`app-link app-link-yellow ${font.condensed.className}`}>Live Demo &#8599;</a>
@@ -163,7 +150,7 @@ function StayHealthy() {
       </Suspense>
     </div>
 
-    <div style={pageStyle}>
+    <div className='workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='' subtitle={<>Fast,<br/>easy.</>} font={font.serif} />
       </div>
@@ -180,12 +167,12 @@ function StayHealthy() {
       </Suspense>
     </div>
       
-    <div id={Section.design} className='pt-10' style={pageStyle}>
+    <div id={Section.design} className='pt-10 workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='Design' subtitle='Paint, shape, show.' font={font.serif} />
       </div>
     </div>
-    <div style={pageStyle}>
+    <div className='workPage'>
       <div style={workBodyStyle}>
         <WorkBody font={font.serif} body={designBody} />
       </div>
@@ -196,12 +183,12 @@ function StayHealthy() {
       </Suspense>
     </div>
 
-    <div id={Section.implement} className='pt-10' style={pageStyle}>
+    <div id={Section.implement} className='pt-10 workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='Implement' subtitle='Solve the puzzle.' font={font.serif} />
       </div>
     </div>
-    <div style={pageStyle}>
+    <div className='workPage'>
       <div style={workBodyStyle}>
         <WorkBody font={font.serif} body={implementBody} />
       </div>
@@ -212,12 +199,12 @@ function StayHealthy() {
       </Suspense>
     </div>
 
-    <div id={Section.connect} className='pt-10' style={pageStyle}>
+    <div id={Section.connect} className='pt-10 workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='Connect' subtitle='Wire it up.' font={font.serif} />
       </div>
     </div>
-    <div style={pageStyle}>
+    <div className='workPage'>
       <div style={workBodyStyle}>
         <WorkBody font={font.serif} body={connectBody} />
       </div>

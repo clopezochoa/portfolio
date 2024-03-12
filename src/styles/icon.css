@@ -37,13 +37,20 @@
   display: flex;
   align-items: center;
   margin: 50px;
+  width: 100px;
+  height: auto;
 }
 
 .arrow-deck {
   display: grid;
   height: 100%;
-  width: min-content;
+  width: 20%;
   align-content: space-between;
+  justify-content: center;
+}
+
+.arrow-back {
+  margin-bottom: 15px;
 }
 
 .about-icon{
@@ -52,10 +59,14 @@
   width: 48px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 460px) {
   .arrow{
     margin: 5px;
+    width: 50px;
   }
+  .arrow-back {
+    margin-bottom: 12px;
+  }  
   .contact-icon{
     margin-top: 80px;
   }

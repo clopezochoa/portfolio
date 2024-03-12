@@ -52,7 +52,7 @@
 
 .landing-container {
   height: 100%;
-  width: 100%;
+  width: 80%;
   display: grid;
   align-content: space-between;
   justify-content: start;
@@ -145,6 +145,7 @@
   font-weight: 200;
   letter-spacing: -1.5pt;
   line-height: 30pt;
+  margin: 50px;
 }
 
 .story-title-bold{
@@ -189,6 +190,15 @@
   font-size: large;
 }
 
+.workPage{
+  display:grid;
+  position:relative;
+  z-index:1;
+  justify-items:start;
+  margin-inline:15vw;
+  margin-top:3rem;
+}
+
 .what-i-do-container {
   display:grid;
   justify-content:center;
@@ -196,7 +206,7 @@
   height: fit-content;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 460px) {
   .name-container{
     margin-top: 15px;
     margin-left: 15px;  
@@ -244,6 +254,7 @@
     font-size: 24pt;
     letter-spacing: -1.5pt;
     line-height: 24pt;
+    margin: 15px;
   }
   .story-body-main{
     font-size: 16pt;
@@ -262,5 +273,9 @@
     margin-top: 40px;
     padding-inline: 1rem;
     height: fit-content;
+  }
+  .workPage{
+    margin-inline:5vw;
+    margin-top:1rem;
   }
 }

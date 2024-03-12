@@ -18,16 +18,12 @@ const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const workTitleStyleTop: CSSProperties = {
   color: defaultColors.yellow.hex,
   textAlign: "end",
-  margin:"50px",
 }
 
 const workTitleStyleBottom: CSSProperties = {
   color: defaultColors.yellow.hex,
   textAlign: "start",
-  margin:"50px",
 }
-
-const arrowSize = 100;
 
 function FrontendDevelopment() {
   const font = useContext(FontsContext);
@@ -43,20 +39,20 @@ function FrontendDevelopment() {
   }
 
   return (<>
-  <div id={Pages.frontend} style={{height:"100vh", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
+  <div id={Pages.frontend} style={{height:"inherit", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
     <WorkTitle title={<>
       I&apos;ve worked with<br/>
       <span className='bold'>Angular</span> and<br/>
       <span className='bold'>TypeScript.</span>
     </>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover'>
-      <div className='arrow' ref={targetRef} style={{width:arrowSize.toString() + "px", height:arrowSize.toString() + "px" }}/>
+      <div className='arrow' ref={targetRef}/>
       <Suspense fallback={<div></div>}>
       <div style={{cursor:"pointer"}} onClick={() => showStayHealthy()}>
         <PhoneMock src='stay-healthy' className='phone-size'/>
       </div>
       </Suspense>
-      <Arrow strokeColor={defaultColors.yellow.hex} width={"auto"} height={arrowSize} stroke="1pt" orientation='right' className='arrow wave-opacity' onClick={() => showStayHealthy()} />
+      <Arrow strokeColor={defaultColors.yellow.hex} stroke="1pt" orientation='right' className='arrow wave-opacity' onClick={() => showStayHealthy()} />
     </div>
     <WorkTitle title={<>
       And recently<br/>

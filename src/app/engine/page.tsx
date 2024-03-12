@@ -21,15 +21,6 @@ const mockStyle: CSSProperties = {
   marginBlock:"3rem"
 }
 
-const pageStyle:CSSProperties={
-  display:"grid",
-  position:"relative",
-  zIndex:"1",
-  justifyItems:"start",
-  marginInline:"15vw",
-  marginTop:"3rem"
-}
-
 const workHeaderStyle: CSSProperties = {
   marginBlock:"3rem",
   textAlign:"start",
@@ -41,8 +32,6 @@ const workBodyStyle: CSSProperties = {
   textAlign:"start",
   float:"inline-start"
 }
-
-const arrowSize = 100;
 
 function Engine() {
   const font = useContext(FontsContext);
@@ -67,8 +56,8 @@ function Engine() {
 
   return (<>
   <div ref={mainDiv} className={textColor}>
-    <Arrow strokeColor={defaultColors.clear.hex} stroke="1pt" width={"auto"} height={arrowSize} orientation='left' className='arrow fixed bottom right' onClick={() => slideBack()} />
-    <div style={pageStyle}>
+    <Arrow strokeColor={defaultColors.clear.hex} stroke="1pt" orientation='left' className='arrow arrow-back fixed bottom right' onClick={() => slideBack()} />
+    <div className='workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='Generative Algorithm' subtitle='A robust way to convey growth' font={font.serif} />
       </div>
@@ -81,7 +70,7 @@ function Engine() {
         <PhoneMock src='prototype' className='phone-size-rotate'/>
       </Suspense>
     </div>
-    <div style={pageStyle}>
+    <div className='workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='' subtitle={<>Visualize data,<br/>get to know it.</>} font={font.serif} />
       </div>
@@ -98,7 +87,7 @@ function Engine() {
       </Suspense>
     </div>
     
-    <div id={Section.discover}  className='pt-10' style={pageStyle}>
+    <div id={Section.discover}  className='pt-10 workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='Discover' subtitle='Finding common ground' font={font.serif} />
       </div>
@@ -108,13 +97,13 @@ function Engine() {
         <PrototypeDiagram src='discover' className='phone-size-rotate'/>
       </Suspense>
     </div>
-    <div style={pageStyle}>
+    <div className='workPage'>
       <div style={workBodyStyle}>
         <WorkBody font={font.serif} body={discoverBody} />
       </div>
     </div>
     
-    <div id={Section.define}  className='pt-10' style={pageStyle}>
+    <div id={Section.define}  className='pt-10 workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='Define' subtitle='Ideas come true' font={font.serif} />
       </div>
@@ -123,7 +112,7 @@ function Engine() {
       </div>
     </div>
 
-    <div id={Section.model} className='pt-10' style={pageStyle}>
+    <div id={Section.model} className='pt-10 workPage'>
       <div style={workHeaderStyle}>
         <WorkHeader title='Model' subtitle='Giving an architecture to the system' font={font.serif} />
       </div>

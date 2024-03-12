@@ -16,7 +16,7 @@ import { Pages } from "@/lib/routeList";
 import { useScroll } from "./hooks/useScroll";
 import SkyBackground from "./three-landing/SkyBackground";
 
-const arrowSize = 100;
+const arrowSize = "100%";
 
 export default function Home() {
   const fonts = useContext(FontsContext);
@@ -35,9 +35,9 @@ export default function Home() {
         <Landing font={fonts.serif} />
       </div>
       <div className="arrow-deck">
-        <div className='arrow' style={{width:arrowSize.toString() + "px", height:arrowSize.toString() + "px" }}/>
+        <div className='arrow'/>
         <a href={`#${Pages.generativeAlgorithm}`}>
-          <Arrow strokeColor={defaultColors.clear.hex} width={"auto"} height={arrowSize} stroke="1pt" orientation='down' className='arrow wave-opacity'/>
+          <Arrow strokeColor={defaultColors.clear.hex} stroke="1pt" orientation='down' className='arrow wave-opacity'/>
         </a>
       </div>
     </Window>

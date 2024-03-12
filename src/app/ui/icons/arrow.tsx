@@ -34,8 +34,8 @@ function getArrow(orientation: string): React.JSX.Element {
 
 type ArrowProps = {
   className:string;
-  width:number | string;
-  height:number | string;
+  width?:number | string;
+  height?:number | string;
   stroke:string;
   strokeColor:string;
   orientation:string;
@@ -51,8 +51,8 @@ function Arrow(props:ArrowProps) {
     strokeLinecap: "round",
     strokeMiterlimit: "10",
     strokeWidth: props.stroke,
-    width: props.width === "auto" ? "auto" : props.width.toString() + "px",
-    height: props.height === "auto" ? "auto" : props.height.toString() + "px",
+    width: props.width === "auto" ? "auto" : (typeof props.width === "number" ? (props.width.toString() + "px") : "100%"),
+    height: props.height === "auto" ? "auto" : (typeof props.height === "number" ? (props.height.toString() + "px") : "100%"),
     opacity: props.opacity ?? 1,
     cursor: props.inactive ? "default" : "pointer"
   }
