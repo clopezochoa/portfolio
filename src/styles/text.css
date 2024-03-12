@@ -6,6 +6,23 @@
   font-size: xx-large;
 }
 
+.app-link {
+  font-size: large;
+  text-decoration: underline 2px;
+  text-underline-offset: 4pt;
+  display: block;
+  width: 100%;
+  color: theme('colors.clear');
+  transition: all 0.1s ease-in-out;
+}
+
+.app-link:hover {
+  font-size: large;
+  text-underline-offset: -14pt;
+  color: theme('colors.yellow');
+  transition: all 0.1s ease-in-out;
+}
+
 .name {
   text-align: start;
   font-size: 90pt;

@@ -151,6 +151,7 @@ function StayHealthy() {
     <div style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Go Full Stack' subtitle='To build an entire app' font={font.serif} />
+        <a href={'https://stay-healthy-gray.vercel.app/'} className={`app-link ${font.condensed.className}`}>Live Demo &#8599;</a>
       </div>
       <div style={workBodyStyle}>
         <WorkBody font={font.serif} body={initialBody} />
