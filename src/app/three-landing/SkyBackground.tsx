@@ -8,7 +8,6 @@ import * as THREE from "three";
 
 export const CustomGeometryParticles = (props: {count: number, color: string}) => {
   const { count } = props;
-  console.log(props.color)
   const points = useRef(null);
 
   const particlesPosition = useMemo(() => {
