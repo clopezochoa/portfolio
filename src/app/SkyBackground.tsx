@@ -89,7 +89,7 @@ const SkyBackground = () => {
   }
 
   return (<>
-    <div id="canvas-container" style={{position:"absolute", width:"100vw", height:"100vh", WebkitMaskImage: "-webkit-gradient(linear, left 90%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))"}}>
+    <div id="canvas-container" style={{position:"absolute", width:"100vw", height:"100vh", WebkitMaskImage: "-webkit-gradient(linear, left 0%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))"}}>
       <Canvas onPointerMove={handleHover} camera={{ manual: true }}>
         <PerspectiveCamera ref={camera} makeDefault />
         <ambientLight intensity={0.5} />
