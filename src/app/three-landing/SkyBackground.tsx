@@ -1,14 +1,14 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { CSSProperties, useEffect, useState } from 'react'
 import { PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
-export const CustomGeometryParticles = (props: {count: number}) => {
+export const CustomGeometryParticles = (props: {count: number, color: string}) => {
   const { count } = props;
-
+  console.log(props.color)
   const points = useRef(null);
 
   const particlesPosition = useMemo(() => {
@@ -71,12 +71,12 @@ export const CustomGeometryParticles = (props: {count: number}) => {
         depthWrite={false}
         blending={THREE.AdditiveBlending}
         transparent
-        map= {createCircleTexture('#E8E8E8', 16)} />
+        map= {createCircleTexture(props.color, 16)} />
     </points>
   );
 };
 
-const SkyBackground = () => {
+const SkyBackground = (props:{top?: boolean, bottom?: boolean, color?: string}) => {
   const camera = useRef(null);
   const handleHover = (e: any) => {
     if(camera.current) {
@@ -87,13 +87,19 @@ const SkyBackground = () => {
       cam.rotateY(0.05 * ( targetX - cam.rotation.y ));
     }
   }
+  const canvasStyle: CSSProperties = {
+    position:"absolute",
+    width:"100%",
+    height:"100%",
+    WebkitMaskImage: `-webkit-linear-gradient(${props.top ? "bottom" : "top"}, rgba(0,0,0,1), rgba(0,0,0,0))`,
+  }
 
   return (<>
-    <div id="canvas-container" style={{position:"absolute", width:"100%", height:"100%", WebkitMaskImage: "-webkit-gradient(linear, left 0%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))"}}>
+    <div id="canvas-container" style={canvasStyle}>
       <Canvas onPointerMove={handleHover} camera={{ manual: true }}>
         <PerspectiveCamera ref={camera} makeDefault />
         <ambientLight intensity={0.5} />
-        <CustomGeometryParticles count={5000}/>
+        <CustomGeometryParticles count={5000} color={props.color ?? "#000000"}/>
       </Canvas>
     </div>
   </>
