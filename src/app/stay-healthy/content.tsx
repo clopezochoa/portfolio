@@ -1,6 +1,6 @@
 import '@/styles/text.css'
 
-enum Section {
+export enum Section {
   design = "Design",
   implement = "Implement",
   connect = "Connect",

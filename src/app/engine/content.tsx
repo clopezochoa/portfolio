@@ -1,6 +1,6 @@
 import '@/styles/text.css'
 
-enum Section {
+export enum Section {
   iterativePrototyping = "Iterative Prototyping",
   articleResearch = "Article Research",
   limits = "Limits",

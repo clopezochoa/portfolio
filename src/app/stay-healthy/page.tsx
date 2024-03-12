@@ -6,7 +6,7 @@ import { WorkBody, WorkHeader } from '@/app/ui/work';
 import { FontsContext } from '@/app/providers/fonts';
 import '@/styles/icon.css'
 import '@/styles/utils.css'
-import { implementBody, designBody, initialBody, introBody, connectBody, processBody } from './content';
+import { implementBody, designBody, initialBody, introBody, connectBody, processBody, Section } from './content';
 import { defaultColors } from '../../../tailwind.config';
 import { useRouter } from 'next/navigation';
 import { Route } from '@/lib/routeList';
@@ -180,7 +180,7 @@ function StayHealthy() {
       </Suspense>
     </div>
       
-    <div className='pt-10' style={pageStyle}>
+    <div id={Section.design} className='pt-10' style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Design' subtitle='Paint, shape, show.' font={font.serif} />
       </div>
@@ -196,7 +196,7 @@ function StayHealthy() {
       </Suspense>
     </div>
 
-    <div className='pt-10' style={pageStyle}>
+    <div id={Section.implement} className='pt-10' style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Implement' subtitle='Solve the puzzle.' font={font.serif} />
       </div>
@@ -212,7 +212,7 @@ function StayHealthy() {
       </Suspense>
     </div>
 
-    <div className='pt-10' style={pageStyle}>
+    <div id={Section.connect} className='pt-10' style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Connect' subtitle='Wire it up.' font={font.serif} />
       </div>

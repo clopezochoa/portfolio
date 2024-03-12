@@ -6,7 +6,7 @@ import { WorkBody, WorkHeader } from '@/app/ui/work';
 import { FontsContext } from '@/app/providers/fonts';
 import '@/styles/icon.css'
 import '@/styles/utils.css'
-import { defineBody, discoverBody, initialBody, introBody, modelBody, processBody } from './content';
+import { defineBody, discoverBody, initialBody, introBody, modelBody, processBody, Section } from './content';
 import { defaultColors } from '../../../tailwind.config';
 import { useRouter } from 'next/navigation';
 import { Route } from '@/lib/routeList';
@@ -98,7 +98,7 @@ function Engine() {
       </Suspense>
     </div>
     
-    <div className='pt-10' style={pageStyle}>
+    <div id={Section.discover}  className='pt-10' style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Discover' subtitle='Finding common ground' font={font.serif} />
       </div>
@@ -114,7 +114,7 @@ function Engine() {
       </div>
     </div>
     
-    <div className='pt-10' style={pageStyle}>
+    <div id={Section.define}  className='pt-10' style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Define' subtitle='Ideas come true' font={font.serif} />
       </div>
@@ -123,7 +123,7 @@ function Engine() {
       </div>
     </div>
 
-    <div className='pt-10' style={pageStyle}>
+    <div id={Section.model} className='pt-10' style={pageStyle}>
       <div style={workHeaderStyle}>
         <WorkHeader title='Model' subtitle='Giving an architecture to the system' font={font.serif} />
       </div>
