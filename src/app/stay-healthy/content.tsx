@@ -1,5 +1,3 @@
-import '@/styles/text.css'
-
 export enum Section {
   design = "Design",
   implement = "Implement",
@@ -17,7 +15,7 @@ export const initialBody = [
   <>
     <span className='work-body'>After prototyping the capstone project of a course by IBM about <span className="bold">frontend engineering,</span><br/>
     a React app had to be made to grant <span className="bold">functionality</span> to a static design in plain HTML and CSS.<br/>
-    Since my first visit to react.dev I realized that next.js was my best chance to deploy all<br/>
+    Since my first visit to react.dev I realized that NextJS was my best chance to deploy all<br/>
     the typescript I have learnt over the last years while working as both front end and backend<br/>
     developer.<br/>
     <br/>
@@ -34,7 +32,7 @@ export const initialBody = [
   </>,
   <>
     <span className='bold'>Tools</span><br/>
-    <span className='work-body'>Typescript + Next.js + MongoDB</span><br/>
+    <span className='work-body'>Typescript + NextJS + MongoDB</span><br/>
   </>,
   <>
     <span className='bold'>Role</span><br/>
@@ -122,7 +120,8 @@ export const designBody = [
       <br />
       <span className="bold">HEALTH BLOG</span><br/>
       A strong and <span className="bold">readable communication channel</span> that can be trusted is displayed in a Health Blog space.<br/>
-      FAQ lists are based on probability, they judge the user by average values. Instead, a tips space with tailored advices avoid the probable and rely on user data.<br/>
+      FAQ lists are based on probability, they judge the user by average values. Instead, a tips space with tailored advices avoid relying<br />
+      on probabilities and rely on user data.<br/>
       <br />
       <span className="bold">REVIEW</span><br/>
       Users love reading reviews before spending money and/or time. Hence a <span className="bold">dedicated space</span> to reviews that offers a grasp of real-life experiences.<br/>
@@ -133,9 +132,10 @@ export const designBody = [
     </span><br/>
     <span className='work-body'>
       Up to this point, a wishlist can be pulled out of the navbar:<br/>
-      We need a database to <span className="bold">retain the information.</span><br/>
-      API Endpoints to <span className="bold">get and post</span> info to it.<br/>    
-      A cloud bucket to <span className="bold">store bigger files</span> such as reports.<br/>    
+      <br />
+      - A database to <span className="bold">retain the information.</span><br/>
+      - API Endpoints to <span className="bold">get and post</span> info to it.<br/>    
+      - A cloud bucket to <span className="bold">store bigger files</span> such as reports.<br/>    
     </span><br/>
   </>,
   <>

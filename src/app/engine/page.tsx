@@ -88,7 +88,7 @@ function Engine() {
       <div style={workBodyStyle}>
         <WorkBody font={font.serif} body={introBody} />
       </div>
-      <div style={workBodyStyle}>
+      <div className='app-link-animation app-link-animation-red' style={workBodyStyle}>
         <WorkBody font={font.serif} body={processBody} />
       </div>
     </div>
