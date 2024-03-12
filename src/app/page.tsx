@@ -14,6 +14,7 @@ import FrontendDevelopment from "./frontend/content";
 import { Greeting, WhatIDo } from "./about/content";
 import { Pages } from "@/lib/routeList";
 import { useScroll } from "./hooks/useScroll";
+import SkyBackground from "./SkyBackground";
 
 const arrowSize = 100;
 
@@ -27,6 +28,7 @@ export default function Home() {
   useScroll(refs);
   
   return (<>
+    <SkyBackground />
     <Window ref={windowLandingRef} className="flex">
       <div className="landing-container">
         <Name name="Carlos" surname="López-Ochoa" font={fonts.serif} />
