@@ -63,7 +63,7 @@ export const introBody = [
 
 export const processBody = [
   <>
-    <span className='work-subtitle'>Process</span><br/>
+    <h2 className='work mb-10'>Process</h2><br/>
   </>,
   <>
     <span>
