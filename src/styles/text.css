@@ -26,6 +26,7 @@
 .name-container {
   margin-top: 50px;
   margin-left: 50px;
+  z-index: 1;
 }
 
 .landing-container {
@@ -34,6 +35,7 @@
   display: grid;
   align-content: space-between;
   justify-content: start;
+  z-index: 1;
 }
 
 .landing {
