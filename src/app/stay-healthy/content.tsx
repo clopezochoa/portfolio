@@ -15,8 +15,8 @@ enum Section {
 
 export const initialBody = [
   <>
-    <span className='work-body'>After prototyping the capstone project of a course by IBM about frontend engineering,<br/>
-    a React app had to be made to grant functionality to a static design in plain HTML and CSS.<br/>
+    <span className='work-body'>After prototyping the capstone project of a course by IBM about <span className="bold">frontend engineering,</span><br/>
+    a React app had to be made to grant <span className="bold">functionality</span> to a static design in plain HTML and CSS.<br/>
     Since my first visit to react.dev I realized that next.js was my best chance to deploy all<br/>
     the typescript I have learnt over the last years while working as both front end and backend<br/>
     developer.<br/>
@@ -54,7 +54,7 @@ export const introBody = [
     <span className='work-body'>&quot;Create a simple medical appointment service&quot;.<br/>
     <br/>
     While wireframing the navigation bar, the basic pillars of this app emerged as main drivers of the whole experience.<br/>
-    In opposition to cluttered UI designs observed after a desk research, simplicity is used to reduce bounce rates.</span>
+    In opposition to <span className="bold">cluttered UI designs</span> observed after a desk research, simplicity is used to reduce bounce rates.</span>
   </>,
   <>
     <span className='work-subtitle'>Problem</span><br/>
@@ -110,47 +110,47 @@ export const designBody = [
     <br />
     <span className='work-body'>
       The approach that this design process followed had a top-to-bottom flow.<br/>
-      A navigation bar is a great prototyping tool to encapsulate the pillars of an app:<br/>
+      A navigation bar is a great <span className="bold">prototyping tool</span> to encapsulate the pillars of an app:<br/>
       <br />
       <span className="bold">HOME</span><br/>
-      The landing page has a single responsibility, which is offering access to a variety of services, each depicted with an image and a caption.<br/>
+      The landing page has a <span className="bold">single responsibility,</span> which is offering access to a variety of services, each depicted with an image and a caption.<br/>
       These services allow the user to get a new appointment, fetch reports and receive guidance.<br/>
       <br />
       <span className="bold">APPOINTMENTS</span><br/>
       The goal of the whole app is getting to see your chosen doctor and the appointments space allows you to.<br/>
-      Having booked an appointment through main services, the user may need to change or cancel it.<br/>
+      Having booked an appointment through main services, the user may need to <span className="bold">change or cancel</span> it.<br/>
       <br />
       <span className="bold">HEALTH BLOG</span><br/>
-      A strong and readable communication channel that can be trusted is displayed in a Health Blog space.<br/>
+      A strong and <span className="bold">readable communication channel</span> that can be trusted is displayed in a Health Blog space.<br/>
       FAQ lists are based on probability, they judge the user by average values. Instead, a tips space with tailored advices avoid the probable and rely on user data.<br/>
       <br />
       <span className="bold">REVIEW</span><br/>
-      Users love reading reviews before spending money and/or time. Hence a dedicated space to reviews that offers a grasp of real-life experiences.<br/>
+      Users love reading reviews before spending money and/or time. Hence a <span className="bold">dedicated space</span> to reviews that offers a grasp of real-life experiences.<br/>
       <br />
       <span className="bold">AUTHENTICATION</span><br/>
-      Since these services offer tailored information for the user, signing in and up must be at hand.<br/>
+      Since these services offer <span className="bold">tailored information</span> for the user, signing in and up must be at hand.<br/>
       This implies that a user model and a session context must be created and managed throught cookies.<br/>
     </span><br/>
     <span className='work-body'>
       Up to this point, a wishlist can be pulled out of the navbar:<br/>
-      We need a database to retain the information.<br/>
-      API Endpoints to get and post info to it.<br/>    
-      A cloud bucket to store bigger files such as reports.<br/>    
+      We need a database to <span className="bold">retain the information.</span><br/>
+      API Endpoints to <span className="bold">get and post</span> info to it.<br/>    
+      A cloud bucket to <span className="bold">store bigger files</span> such as reports.<br/>    
     </span><br/>
   </>,
   <>
     <span id={Section.staticDesign} className='work-subtitle'>Static Design</span><br/>
     <br />
     <span className='work-body'>
-      What comes after initial drafts is to produce a responsive static desing for both desktop and mobile. Even though users of advanced age are getting more and more<br />
+      What comes after initial drafts is to produce a responsive static desing for both <span className="bold">desktop and mobile.</span> Even though users of advanced age are getting more and more<br />
       into the mobile scene using smartphones, they often rely on computers simply because they were here before smartphones. <br />
     </span> <br />
     <span className='work-body'>
       Figma was a great aid when it came to:<br/>  
       <br />
-      - Streamline the components production. Since React is component based, Figma&quot;s components are a blessing to keep everything tidy.<br/>
-      - Get the most out of styles and variables to be aligned with Tailwind.<br/>
-      - Extract production ready CSS out of elements using the Dev Mode.<br/>  
+      - Streamline the components production. Since React is <span className="bold">component based,</span> Figma&apos;s components are a blessing to keep everything tidy.<br/>
+      - Get the most out of styles and variables to be aligned with <span className="bold">Tailwind.</span><br/>
+      - Extract <span className="bold">production ready CSS</span> out of elements using the Dev Mode.<br/>  
       <br />
     </span>
   </>
@@ -158,28 +158,40 @@ export const designBody = [
 
 export const implementBody = [
   <>
-    <span id={Section.navigation} className='work-subtitle'>Navigation</span><br/>
     <br />
+    <span id={Section.navigation} className='work-subtitle'>Navigation</span><br/>
     <span className='work-body'>
-      First and foremost, it has to perform way faster and process way more data than the previous pipeline.<br/>  
-      Robustness is also key to allow the algorithm to be reused over and over with any client, may it be very small or gigantic.<br/>  
-      Robotic and artificial patterns must be avoided, the look and feel must be organic and should offer an image to be remembered.<br/>    
+      To ease the burden of a <span className="bold">slow device or connection,</span> navigation has been narrowed down to the symbols appearing in the navbar, plus the two booking services.<br />
+      It requires <span className="bold">just one click</span> to access any of the booking services available in the app. This makes the app easier and faster, since there is no excessive routing<br />
+      and all services are <span className="bold">readily available.</span><br />
+      With the app router built in NextJS, this is easy to implement, a hook assists the developer to push new routes to navigate effortlessly.<br/>
+      <br />
+      Some features do not navigate at all, reducing even more HTTP requests and appearing as tools, rather than services. Precisely, this has been done <br />
+      with authentication, profile management, notifications and action modals within appointment and reviewing services. The app displays the information quicker, <br />
+      since the information that feeds the modals is <span className="bold">lazy-loaded</span> before the user has the chance to even open a card.<br/>
+      <br />
+      In addition to this strategy, <span className="bold">SSR (server-side-rendering)</span> is done by default by NextJS in all components not marked with the client directive. <br />
+      The combination results in a near <span className="bold">real-time experience.</span> Only the first load of doctor&apos;s images takes a perceivable amount of time (somewhere around 94 to 100 ms).<br/>    
     </span>
   </>,
   <>
-    <span id={Section.services} className='work-subtitle'>Services</span><br/>
     <br />
+    <span id={Section.services} className='work-subtitle'>Services</span><br/>
     <span className='work-body'>
-      After testing a new possible pipeline using simple JSON files and not .obj or .glb files, it faced two critical tests.<br/>    
-      Simulation time is the obvious one. Processing taking longer than ten minutes triggers alerts and may require optimization.<br/>    
-      The second challenge is Babylon build time. Previously, bundled 3D objects resulted in fetching a file exceeding 100 MB.<br/>
-      Reducing Babylon&#39;s input size to a few megabytes significantly improves download speed.<br/>
+      In order to book or acquire anything, a user must be offered with their possibilities. With this premise I developed a <span className="bold">search tool</span> that queries <span className="bold">partial strings</span> <br />
+      to match doctor names or specialities. There are two ways to book an appointment. The &quot;instant&quot; appointment services offers a grid of all the doctors <br />
+      there are if no queries have been made, and an array of the matched doctors if the search tool has any string on it. It is considered &quot;instant&quot; because <br />
+      of having cards with the doctor&apos;s profile picture to <span className="bold">help patients remember their doctors,</span> in oposition to the other service, that allows the user to get a list <br />
+      all doctors in a certain specialty with a dropdown menu. These two services preload data tailored to the logged user so the booking services keep a <span className="bold">consistent</span> <br />
+      <span className="bold">and fast experience.</span><br/>    
       <br />
-      Size-related challenges also impacted how Babylon handles geometry. With .obj files, developers simply wait for Babylon to render the model.<br/>
-      However, using plain JSON requires more intricate instructions. Despite this additional complexity, the choice of JSON offers several benefits:<br/>
-      Lightweight 3D scenes: Eliminating boilerplate code and verbose exports leads to smaller file sizes.<br/>
-      Faster rendering: The new approach can significantly reduce rendering time, approaching real-time performance.<br/>
-      Compatibility: JSON files offer broader compatibility compared to relying on specific versions of third-party software.<br/>
+      Another key service is the Healthy Tips space, that aims to inform the user about healthier habits with two strategies. The first one is to be specific about <br />
+      the <span className="bold">user needs,</span> so the tips are sorted by affinity with the user. The second is to be generous offering a great amount of capsules that the user may read or not, <br />
+      but are offered nevertheless.<br/>
+      <br/>
+      The reports service is designed to be very concise and simple, &quot;gather all your diagnoses in one container&quot;. I often see people in medical centers <br />
+      (including myself), carrying a folder with all my reports to be sure that I&apos;m carrying all the information my doctor needs about me. This is not necesarry anymore <br />
+      thanks to a service that both doctors and patients can access to <span className="bold">retrieve and inspect or download reports</span> in an ordered list.<br/>
     </span>
   </>
 ];
@@ -187,43 +199,30 @@ export const implementBody = [
 
 export const connectBody = [
   <>
+    <br />
     <span id={Section.database} className='work-subtitle'>Database</span><br/>
-    <br />
     <span className='work-body'>
-      The unit chosen to build models is a very simple hexagon built by seven points in space, in the XZ plane, the ground.<br/>  
-      That means we just have to set X and Z coordinates of the center of each unit relative to an origin, which is zero, zero, zero.<br/>  
-      Knowing that, along with the radius of the hexagon, I could lay down elements to an elemental grid.<br/>    
+      The chosen database framework for this project has been <span className="bold">MongoDB</span> for many reasons, being its flexible structure the most important, allowing events and logs <br />
+      to be partial and refactors to be made gracefully. The health insurance industry is ever evolving and both doctors and patients may register additional information <br />
+      in the future to enhance their experience using the app. Furthermore, some users may not have at hand all their information when signing in and <span className="bold">partial structures</span> <br />
+      are convenient in this case to avoid punishing them.<br/>  
     </span>
   </>,
   <>
+    <br />
     <span id={Section.api} className='work-subtitle'>API</span><br/>
-    <br />
     <span className='work-body'>
-      How to get a first bundle and make it resemble organic from early on? Soon I realized that I needed a shape algorithm to rig the whole simulation.<br/>
-      Answering that question was fun because initially I used no initial shape rig and let the simulation decide where to grow freely.<br/>    
-      It led me to very questionable results. Basically a greater hexagon, a round circle or a rhomboid. No matter how I told the units to grow,<br/>    
-      they just kept looking for all available space, since we needed it organic but not decentralized.<br/>
-      <br />
-      Read my organic shape algorithm simulation post in this other page that better reveals my process to that regards.<br/>
-      <br />
-      An organic shape genertor later...<br/>
-      Items are correctly sorted and allocated in bundles, those bundles sort themselves as well and stack onto eachother.<br/>
-      Everything is ready to be rendered geometrycally. Lastly, in order to communicate with the front-end from the scene, items must carry<br/>
-      mapped info, like layer, date, size, id, etc.<br/>
-      In addition to these mapped parameters, I gave states to the units, being it the most important parameter, alongside position,<br />
-      to drive the simulation towards the expected output. This way I could perform queries on each bundle and across them to retrieve free slots,<br />
-      perimetral positions or occupied spots. <br />
+      <span className="bold">CRUD operations</span> are made with <span className="bold">RESTful API endpoints</span> in the server side thanks to the app router yet again. NextJS is in charge of managing the whole operation <br />
+      from the client, creating a request that is encrypted and sent to the server for it to use the <span className="bold">Atlas Device SDK for the Web. </span>It then provides with a response that <br />
+      is sent from the server to the client and stored conveniently in the user cookies instead of the local storage to increase security.<br/>
     </span>
   </>,
   <>
-    <span id={Section.cloud} className='work-subtitle'>Cloud</span><br/>
     <br />
+    <span id={Section.cloud} className='work-subtitle'>Cloud</span><br/>
     <span className='work-body'>
-      One last thing before starting to code, after prototyping, was to give a seed to each tenant. That way, everything was deterministic and even if<br />
-      some decisions may be random, it all can be traced, reproduced and debugged. It also helped differentiating one customer from another, by being sure<br />
-      about at least one parameter that each generation is unique to its tenant and cannot be mistaken.<br />
-      <br />
-      After months of coding in C#, testing in VEX and being taught the wonders of Visual Studio, I reached a minimum viable product that made it to production.<br />
+      Every graphic resource is loaded from a bucket in the <span className="bold">Google Cloud Platform. </span>Larger text files like Healthy Tips and Reports are also stored in the cloud <br />
+      to simulate a CDN and ease the experience of a poorly performant device.<br />
     </span>
   </>
 ];
