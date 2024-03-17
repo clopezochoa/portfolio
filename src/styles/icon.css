@@ -59,25 +59,12 @@
   width: 48px;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 560px) {
   .arrow{
     margin: 5px;
     width: 50px;
   }
   .arrow-back {
     margin-bottom: 12px;
-  }  
-  .contact-icon{
-    margin-top: 80px;
-  }
-  .about-icon{
-    width: 24px;
-    margin: 5px;
-  }
-  .about-icon-container{
-    margin-top: 0px;
-    display: grid;
-    align-items: space-between;
-  
   }
 }
