@@ -6,6 +6,15 @@
   font-size: xx-large;
 }
 
+.text-highlight-white {
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  transition: background-size 0.5s;
+  background-image: linear-gradient(to top, white 85%, transparent 0);
+  background-blend-mode: multiply;
+}
+
 .app-link {
   font-size: large;
   text-decoration: underline 2px;
@@ -86,7 +95,6 @@
 
 .about-me-heading{
   text-align: center;
-  font-size: 54pt;
   line-height: 54pt;
   letter-spacing: -7px;
   float: inline-end;
@@ -103,9 +111,8 @@
   float: inline-end;
   font-weight: 300;
   margin-right: 15px;
-
-
 }
+
 .about-me-p2{
   text-align: end;
   font-size: 16pt;
@@ -232,24 +239,25 @@
     font-weight: 300;
   }
   .about-me{
-    padding-inline: 0.5rem;
+    padding-inline: 7vw;
+    position: relative;
+    z-index: 1;
   }
   .about-me-heading{
-    margin: 10px;
-    margin-top: 42px;
-    margin-bottom: 5px;
+    margin: 10vw;
+    font-size: 25vw;
+    letter-spacing: -2.5vw;
   }
   .about-me-p1{
-    font-size: 18pt;
-    line-height: 18pt;
-    margin: 10px;
-    margin-top: 5px;
+    font-size: 6vw;
+    line-height: 6.5vw;
+    margin: 4vw;
   }
   .about-me-p2{
-    font-size: 14pt;
-    line-height: 14pt;
-    letter-spacing: 0pt;
-    margin: 10px;
+    font-size: 4.2vw;
+    line-height: 5vw;
+    letter-spacing: -0.5pt;
+    margin: 3vw;
   }
 
   .story-title-main{
@@ -265,12 +273,14 @@
     line-height: 19pt;
   }
   .story-body-bold{
-    font-size: 14pt;
-    line-height: 16pt;
-    text-align: start;
+    font-size: 6vw;
+    line-height: 6vw;
+    text-align: center;
   }
   .workPage{
     margin-inline:5vw;
     margin-top:1rem;
+  }
+  .what-i-do-container {
   }
 }

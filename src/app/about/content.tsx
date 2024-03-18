@@ -13,34 +13,60 @@ import { useViewportFunction } from "../hooks/useViewport";
 
 export function Greeting(){
   const font = useContext(FontsContext);
+  const highlight = (content: React.JSX.Element) => {
+    return(
+      <span className="text-highlight-white">
+        {content}
+      </span>
+    )
+  }
+  var content = [
+    <>
+      My name is Carlos López-Ochoa. <br />
+      I'm a Frontend Developer
+      based in Madrid, Spain. <br />
+    </>,
+    <>
+      Additionally, I have experience as a
+      3D Artist, Graphic Designer
+      and Algorithmic Designer.
+    </>,
+    <>
+      I find great joy in bringing my ideas to life. <br />
+      My projects typically share two common traits.<br />
+      They feature graphic content. <br />
+      They unfold as visual experiences. <br />
+    </>,
+    <>
+      Psychological traits of mine are utilizing
+      criticism as a desing tool and having a
+      proclivity for learning every detail.<br />
+    </>,
+  ]
+
+  content = content.map(element => {
+    return highlight(element);
+  });
+  
+
   return (
     <>
       <div className={`about-me ${font.serif.className}`}>
         <h1 className='about-me-heading'>
           ¡Hola!
         </h1>
-        <div className="mt-10 flex-center">
+        <div className="flex-center">
           <p className='about-me-p1'>
-            Me llamo Carlos López-Ochoa.<br />
-            Soy un Desarrollador Frontend<br />
-            viviendo en Madrid, España.<br />
+            {content[0]}
             <br />
-            Tengo experiencia como<br />
-            diseñador 3D, diseñador<br />
-            algorítmico y diseñador gráfico.
+            {content[1]}
           </p>
           <div className='grid'>
             <p className='about-me-p2'>
-              Disfruto dando vida a mis ideas.<br />
-              La mochila en la que guardo mis<br />
-              experiencias más preciadas incluye<br />
-              contenido gráfico y audiovisual.
+              {content[2]}
             </p>
             <p className='about-me-p2'>
-              Me caracterizan la filosofía GTD,<br />
-              la crítica como herramienta<br />
-              de diseño y mi predisposición<br />
-              al continuo aprendizaje.
+              {content[3]}
             </p>
           </div>
         </div>
@@ -66,7 +92,7 @@ export function WhatIDo(){
             Generative Design
           </li>
           <li>
-            Graphic Design
+            Virtual & Augmented Reality
           </li>
           <li>
             Scrum & Agile
