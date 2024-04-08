@@ -23,7 +23,7 @@ export function Greeting(){
   var content = [
     <>
       My name is Carlos López-Ochoa. <br />
-      I'm a Frontend Developer
+      I&apos;m a Frontend Developer
       based in Madrid, Spain. <br />
     </>,
     <>
