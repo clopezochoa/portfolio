@@ -47,7 +47,6 @@ export default function Home() {
     <Window ref={frontendDevelopmentRef} className="space-between">
       <FrontendDevelopment />
     </Window>
-    <div style={{height:"100px"}}/>
     <Window ref={aboutRef}>
       <SkyBackground top color={defaultColors.dark.hex}/>
       <Greeting/>
