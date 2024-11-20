@@ -34,6 +34,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-src/app/ChladniWaves.tsx
-src/app/three-landing/page.tsx
-src/lib/gradient-worker.ts
