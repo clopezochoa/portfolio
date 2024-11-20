@@ -12,6 +12,7 @@ import { Pages, Route } from '@/lib/routeList';
 import { WorkTitle } from '../ui/work';
 import { FontsContext } from '../providers/fonts';
 import { useViewportFunction } from '../hooks/useViewport'
+import useSwipe from '../hooks/useSwipe'
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 
@@ -37,12 +38,14 @@ function GenerativeAlgorithm() {
     (mainDiv.current! as HTMLDivElement).className = "grid slide-left";
     
     setTimeout(() => {
-      router.push(Route.engine);
+      router.push(Route.generativeAlgorithPage);
     }, 400);
   }
+  const swipe = useSwipe({callback: () => showGenerativeAlgorithms()});
+
 
   return (<>
-  <div id={Pages.generativeAlgorithm} style={{height:"inherit", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
+  <div onTouchStart={swipe.handleTouchStart} onTouchEnd={swipe.handleTouchEnd} id={Pages.generativeAlgorithm} style={{height:"inherit", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
     <WorkTitle title={<>Organic geometry<br/>and behaviour<br/>fascinates me.</>} style={workTitleStyleTop} font={font.sans}/>
     <div className='story-cover'>
       <div className='arrow' ref={targetRef}/>

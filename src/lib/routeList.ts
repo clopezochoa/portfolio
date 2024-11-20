@@ -1,17 +1,18 @@
 export enum Pages {
+  quill = "quill",
   generativeAlgorithm = "generative-algorithm",
-  engine = "engine",
   frontend = "frontend",
-  stayHealthy = "stay-healthy",
   about = "about",
 }
 
 export enum Route {
   home = "/",
+  quill = `/#${Pages.quill}`,
+  quillPage = `/#${Pages.quill}`,
   generativeAlgorithm = `/#${Pages.generativeAlgorithm}`,
-  engine = `/${Pages.engine}`,
+  generativeAlgorithPage = `/${Pages.generativeAlgorithm}`,
   frontend = `/#${Pages.frontend}`,
-  stayHealthy = `/${Pages.stayHealthy}`,
+  frontendPage = `/${Pages.frontend}`,
   threeD = "/three-d",
   about = `/#${Pages.about}`,
 }

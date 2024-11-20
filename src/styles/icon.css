@@ -26,10 +26,10 @@
 }
 
 .about-icon-container{
-  margin-top: 80px;
   display: flex;
   justify-content:space-evenly;
   align-items: center;
+  gap: 2rem;
 }
 
 .arrow {
@@ -66,5 +66,8 @@
   }
   .arrow-back {
     margin-bottom: 12px;
+  }
+  .about-icon-container {
+    gap:2rem;
   }
 }

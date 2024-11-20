@@ -6,10 +6,12 @@ import { WorkBody, WorkHeader } from '@/app/ui/work';
 import { FontsContext } from '@/app/providers/fonts';
 import '@/styles/icon.css'
 import '@/styles/utils.css'
-import { implementBody, designBody, initialBody, introBody, connectBody, processBody, Section } from './content';
+import { implementBody, designBody, initialBody, introBody, connectBody, processBody, Section } from './texts';
 import { defaultColors } from '../../../tailwind.config';
 import { useRouter } from 'next/navigation';
 import { Route } from '@/lib/routeList';
+import useSwipe from '../hooks/useSwipe';
+import { goBack } from '@/lib/utils';
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 const Diagram = lazy(() => import("@/app/ui/svg/Diagram"));
@@ -118,16 +120,13 @@ function StayHealthy() {
 
   const slideBack = () => {
     (mainDiv.current! as HTMLDivElement).className = `${textColor} slide-right`;
-    
-    setTimeout(() => {
-      router.push(Route.frontend, {
-        scroll: true
-      })
-    }, 500);
+    goBack(router, 500, 100, Route.frontend);
   }
 
+  const swipe = useSwipe({invert: true, callback: () => slideBack()});
+
   return (<>
-  <div ref={mainDiv} className={textColor}>
+  <div onTouchStart={swipe.handleTouchStart} onTouchEnd={swipe.handleTouchEnd} ref={mainDiv} className={textColor}>
     <Arrow
       strokeColor={defaultColors.clear.hex}
       stroke="1pt"

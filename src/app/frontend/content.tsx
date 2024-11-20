@@ -12,6 +12,7 @@ import { Pages, Route } from '@/lib/routeList';
 import { WorkTitle } from '../ui/work';
 import { FontsContext } from '../providers/fonts';
 import { useViewportClass } from '../hooks/useViewport'
+import useSwipe from '../hooks/useSwipe'
 
 const PhoneMock = lazy(() => import("@/app/ui/media/Video"));
 
@@ -34,12 +35,13 @@ function FrontendDevelopment() {
     (mainDiv.current! as HTMLDivElement).className = "grid slide-left";
     
     setTimeout(() => {
-      router.push(Route.stayHealthy);
+      router.push(Route.frontendPage);
     }, 400);
   }
+  const swipe = useSwipe({callback: () => showStayHealthy()});
 
   return (<>
-  <div id={Pages.frontend} style={{height:"inherit", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
+  <div onTouchStart={swipe.handleTouchStart} onTouchEnd={swipe.handleTouchEnd} id={Pages.frontend} style={{height:"inherit", display:"grid", alignContent:"space-between"}} ref={mainDiv}>
     <WorkTitle title={<>
       I&apos;ve worked with<br/>
       <span className='bold'>Angular</span> and<br/>
