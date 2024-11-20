@@ -37,4 +37,3 @@ next-env.d.ts
 src/app/ChladniWaves.tsx
 src/app/three-landing/page.tsx
 src/lib/gradient-worker.ts
-src/lib/utils.ts
