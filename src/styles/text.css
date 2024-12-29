@@ -44,6 +44,8 @@
   letter-spacing: -7px;
   width: auto;
   float: inline-end;
+  display: flex;
+  gap: calc(90pt / 4);
 }
 
 .name h1 {
@@ -80,11 +82,12 @@
   font-weight: 300;
 }
 
+.landing .main{
+  font-weight: 500;
+}
 
-.landing .main,
-.landing .secondary,
-.landing .tertiary {
-  font-weight: 400;
+.landing .secondary {
+  font-weight: 200;
 }
 
 .about-me {

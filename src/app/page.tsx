@@ -14,7 +14,7 @@ import FrontendDevelopment from "./frontend/content";
 import { Greeting, WhatIDo } from "./about/content";
 import { Pages } from "@/lib/routeList";
 import { useScroll } from "./hooks/useScroll";
-import SkyBackground from "./three-landing/SkyBackground";
+// import SkyBackground from "./three-landing/SkyBackground";
 
 const arrowSize = "100%";
 
@@ -29,9 +29,9 @@ export default function Home() {
   
   return (<>
     <Window ref={windowLandingRef} className="flex">
-      <SkyBackground bottom color={defaultColors.clear.hex} />
+      {/* <SkyBackground bottom color={defaultColors.clear.hex} /> */}
       <div className="landing-container">
-        <Name name="Carlos" surname="López-Ochoa" font={fonts.serif} />
+        <Name name="Carlos" surname="López-Ochoa" font={fonts.serif}/>
         <Landing font={fonts.serif} />
       </div>
       <div className="arrow-deck">
@@ -48,7 +48,7 @@ export default function Home() {
       <FrontendDevelopment />
     </Window>
     <Window ref={aboutRef}>
-      <SkyBackground top color={defaultColors.dark.hex}/>
+      {/* <SkyBackground top color={defaultColors.dark.hex}/> */}
       <Greeting/>
       <WhatIDo/>
     </Window>
