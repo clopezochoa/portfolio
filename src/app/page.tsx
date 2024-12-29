@@ -36,7 +36,7 @@ export default function Home() {
       </div>
       <div className="arrow-deck">
         <div className='arrow'/>
-        <a href={`#${Pages.generativeAlgorithm}`}>
+        <a href={`#${Pages.about}`}>
           <Arrow strokeColor={defaultColors.clear.hex} stroke="1pt" orientation='down' className='arrow wave-opacity'/>
         </a>
       </div>
