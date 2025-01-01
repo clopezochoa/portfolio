@@ -14,27 +14,30 @@ import { Pages } from '@/lib/routeList';
 
 export function Greeting(){
   const textCarousel = [
-    'Data Visualization',
-    'Graphic Design',
-    'Algorithmic Design',
-    'Generative Design',
-    'Game Development',
-    'Virtual Reality',
-    'Augmented Reality',
-    'Agile',
-    'Projection mapping',
-    '3D Printing',
+    'Data Visualization.',
+    'Graphic Design.',
+    'Algorithmic Design.',
+    'Generative Design.',
+    'Game Development.',
+    'Virtual Reality.',
+    'Augmented Reality.',
+    'Agile.',
+    'Projection mapping.',
+    '3D Printing.',
   ];
+  const textHighlightCarousel = [
+    'text-highlight-yellow',
+    'text-highlight-orange',
+    'text-highlight-green text-clear',
+    'text-highlight-clear',
+    'text-highlight-red',
+    'text-highlight-blue text-clear',
+  ]
   const font = useContext(FontsContext);
   const [currentText, setCurrentText] = useState(textCarousel[0]);
-  const highlight = (content: React.JSX.Element) => {
-    return(
-      <span className="text-highlight-white">
-        {content}
-      </span>
-    )
-  }
 
+
+  const [currentTextHighlight, setCurrentTextHighlight] = useState(textCarousel[0]);
 
   const changeText = () => {
     setCurrentText((prev) => {
@@ -51,6 +54,20 @@ export function Greeting(){
       }
       return textCarousel[nextIndex];
     });
+    setCurrentTextHighlight((prev) => {
+      const currentIndex = textHighlightCarousel.indexOf(prev);
+      var nextIndex = currentIndex;
+      var tries = 0;
+      const maxTries = 5;
+      while(currentIndex === textHighlightCarousel.indexOf(prev) && tries < maxTries){
+        nextIndex = Math.floor(Math.random() * textHighlightCarousel.length);
+        tries++;
+      }
+      if(tries === maxTries){
+        nextIndex = currentIndex + 1 > textHighlightCarousel.length - 1 ? 0 : currentIndex + 1;
+      }
+      return textHighlightCarousel[nextIndex];
+    })
   };
 
   useLayoutEffect(() => {
@@ -61,11 +78,10 @@ export function Greeting(){
   var content = [
     <>
       My name is Carlos López-Ochoa. <br />
-      I&apos;m a <strong>Frontend</strong> Developer
-      based in Madrid, Spain. <br />
+      I&apos;m a <strong>Frontend Developer</strong> based in Madrid, Spain. <br />
     </>,
     <>
-      Additionally, I have experience in <strong>{currentText}</strong>.
+      Additionally, I have experience in <strong className={currentTextHighlight}>{currentText}</strong>
     </>,
     <>
       I find great joy in bringing my ideas to life. <br />
@@ -75,10 +91,18 @@ export function Greeting(){
     </>,
     <>
       Psychological traits of mine are utilizing<br />
-      criticism as a desing tool and having a<br />
-      proclivity for learning every detail.<br />
+      <strong>criticism</strong> as a desing tool and having a<br />
+      proclivity for learning <strong>every detail.</strong><br />
     </>,
   ]
+
+  const highlight = (content: React.JSX.Element) => {
+    return(
+      <span className="text-highlight text-highlight-white">
+        {content}
+      </span>
+    )
+  }
 
   content = content.map(element => {
     return highlight(element);
@@ -129,7 +153,7 @@ export function WhatIDo(){
           <li className="text-red">
             Generative Design
           </li>
-          <li className="text-yellow">
+          <li className="text-orange">
             Virtual & Augmented Reality
           </li>
           <li className="text-medium">

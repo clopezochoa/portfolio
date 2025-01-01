@@ -6,13 +6,40 @@
   font-size: xx-large;
 }
 
-.text-highlight-white {
+.text-highlight {
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 100% auto;
   transition: background-size 0.5s;
+  background-blend-mode: lighten;
+}
+
+.text-highlight-white {
   background-image: linear-gradient(to top, white 85%, transparent 0);
-  background-blend-mode: multiply;
+}
+
+.text-highlight-yellow {
+  background-image: linear-gradient(to top, theme('colors.yellow') 85%, transparent 0);
+}
+
+.text-highlight-green {
+  background-image: linear-gradient(to top, theme('colors.green') 85%, transparent 0);
+}
+
+.text-highlight-orange {
+  background-image: linear-gradient(to top, theme('colors.orange') 85%, transparent 0);
+}
+
+.text-highlight-clear {
+  background-image: linear-gradient(to top, theme('colors.clear') 85%, transparent 0);
+}
+
+.text-highlight-red {
+  background-image: linear-gradient(to top, theme('colors.red') 85%, transparent 0);
+}
+
+.text-highlight-blue {
+  background-image: linear-gradient(to top, theme('colors.blue') 85%, transparent 0);
 }
 
 .app-link {
@@ -43,9 +70,9 @@
   float: inline-end;
   display: flex;
   flex-wrap: wrap;
-  font-size: clamp(12pt, 30vw, 96pt);
+  font-size: clamp(12pt, 20vw, 96pt);
   letter-spacing: clamp(-7px, -1vw, 0px);
-  line-height: clamp(34px, 30vw, 125px);
+  line-height: clamp(34px, 20vw, 125px);
 }
 
 .name h1 {
@@ -99,13 +126,13 @@
 
 .about-me-heading{
   text-align: center;
-  font-size: 60pt;
-  line-height: 54pt;
-  letter-spacing: -7px;
   float: inline-end;
   font-weight: 300;
   margin: 30px;
   margin-bottom: 15px;
+  font-size: clamp(12pt, 20vw, 96pt);
+  letter-spacing: clamp(-7px, -1vw, 0px);
+  line-height: clamp(34px, 20vw, 125px);
 }
 
 .about-me-p1{
@@ -228,11 +255,11 @@
     margin-top: 15px;
     margin-left: 15px;  
   }
-  .name {
+  /* .name {
     font-size: 60pt;
     line-height: 54pt;
     letter-spacing: -6px;
-  }
+  } */
   .work {
     font-size: 50pt;
     line-height: 46pt;
@@ -253,11 +280,11 @@
     position: relative;
     z-index: 1;
   }
-  .about-me-heading{
+  /* .about-me-heading{
     margin: 10vw;
     font-size: 25vw;
     letter-spacing: -2.5vw;
-  }
+  } */
   .about-me-p1{
     font-size: 6vw;
     line-height: 6.5vw;

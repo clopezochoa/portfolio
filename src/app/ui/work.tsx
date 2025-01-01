@@ -40,7 +40,7 @@ export function WorkBody(workBodyProps: WorkBodyProps) {
   return (<>
   <div className={'work-body-container story-body-main ' + workBodyProps.font.className} >
     {workBodyProps.body.map((item, key) => 
-        <div key={key} style={{display:"grid"}}>{item}</div>
+        <div key={key} className="grid mt-4">{item}</div>
     )}
   </div>
   </>)

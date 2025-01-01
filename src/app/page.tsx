@@ -47,7 +47,7 @@ export default function Home() {
     <Window ref={frontendDevelopmentRef} className="space-between">
       <FrontendDevelopment />
     </Window>
-    <Window ref={aboutRef}>
+    <Window ref={aboutRef} className="flex flex-col space-between pb-8">
       {/* <SkyBackground top color={defaultColors.dark.hex}/> */}
       <Greeting/>
       <WhatIDo/>

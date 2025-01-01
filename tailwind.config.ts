@@ -47,6 +47,7 @@ const config: Config = {
         "green": defaultColors.green.hex,
         "blue": defaultColors.blue.hex,
         "yellow": defaultColors.yellow.hex,
+        "orange": defaultColors.orange.hex,
         "red": defaultColors.red.hex,
       }
     },
