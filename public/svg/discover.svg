@@ -3,7 +3,7 @@
   <defs>
     <style>
       .cls-1 {
-        stroke-width: 2.83px;
+        strokeWidth: 2.83px;
       }
 
       .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11 {
@@ -52,7 +52,7 @@
       }
 
       .cls-10 {
-        stroke-width: .71px;
+        strokeWidth: .71px;
       }
 
       .cls-11 {
